@@ -7,6 +7,9 @@ public class EnemyAI : MonoBehaviour
 {
     State currentState;
     public NavMeshAgent nmAgent;
+    public GameObject player;
+    public float sightRange;
+    public float sightAngle;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,36 @@ public class EnemyAI : MonoBehaviour
         // If new state valid, then enter it
         if (currentState != null)
             currentState.OnEnter();
+    }
 
+    public bool IsPlayerInSightRange()
+    {
+        if (Vector3.Distance(this.transform.position, player.transform.position) <= sightRange)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool IsPlayerInSightAngle()
+    {
+        if (Vector3.Angle(this.transform.forward, player.transform.position - this.transform.position) <= sightAngle)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public bool IsRaycastToPlayerSuccess()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.gameObject == player)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
