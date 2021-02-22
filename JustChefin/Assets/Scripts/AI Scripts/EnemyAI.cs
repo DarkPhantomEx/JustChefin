@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     public float sightRange;
     public float sightAngle;
+    public float idleTime;
+    public GameObject[] waitPoints;
 
     // Start is called before the first frame update
     void Start()

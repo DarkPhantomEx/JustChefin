@@ -5,7 +5,6 @@ using UnityEngine;
 public class IdleState : State
 {
     private float timer;
-    private float idleTime = 3f;
     private Transform playerT;
     private Transform enemyT;
     
@@ -29,7 +28,7 @@ public class IdleState : State
         Debug.DrawRay(enemyT.position, playerT.position - enemyT.position, Color.blue);
 
         // Switch to patrol state after idling for pre-assigned idleTime
-        if (timer >= idleTime)
+        if (timer >= enemy.idleTime)
             enemy.ChangeState(new PatrolState(enemy));
     }
 

@@ -8,16 +8,11 @@ public class PatrolState : State
     private GameObject player;
     private Transform playerT;
     private Transform enemyT;
-
-    // Patrol points defined
-    private Vector3[] points = { new Vector3(3.5f, 2.7f, -33f),
-                                 new Vector3(3.5f, 2.7f, -4f),
-                                 new Vector3(32f, 2.7f, -4f),
-                                 new Vector3(32f, 0f, -38f) };
+    private Vector3 previousPoint;
 
     public PatrolState(EnemyAI enemy) : base(enemy)
     {
-
+        previousPoint = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     public override void OnEnter()
@@ -53,8 +48,22 @@ public class PatrolState : State
         base.OnExit();
     }
 
+    // Function to calculate the next wait point for the AI
     void MoveToNext()
     {
-        enemy.nmAgent.destination = points[Random.Range(0, 3)];
+        Vector3 currentPoint;
+        do
+        {
+            currentPoint = enemy.waitPoints[Random.Range(0, enemy.waitPoints.Length)].transform.position;
+            Debug.Log("CurrentPoint: " + currentPoint);
+        }
+        while (currentPoint == previousPoint);
+        
+        //if (currentPoint != previousPoint)
+        //{
+            enemy.nmAgent.destination = currentPoint;
+            previousPoint = currentPoint;
+            Debug.Log("PreviousPoint: " + previousPoint);
+        //}
     }
 }
