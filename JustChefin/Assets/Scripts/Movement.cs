@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
         HInput = Input.GetAxis("Horizontal");
         //move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 move = new Vector3(HInput, 0, VInput);
+        if(move != Vector3.zero)
         transform.rotation = Quaternion.LookRotation(move);
         move = Vector3.right * HInput *crouchFactor + Vector3.forward * VInput *crouchFactor;
 

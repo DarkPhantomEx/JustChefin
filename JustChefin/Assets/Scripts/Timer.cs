@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    /* timerDisp - TextBox to display the timer
+     * time - time in seconds
+     * isCountingDown - true if timer is active
+     */
     [SerializeField]
     private Text timerDisp;
     [SerializeField]
@@ -17,26 +21,44 @@ public class Timer : MonoBehaviour
     {
         timerDisp = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
         isCountingDown = false;
-        time = 20;
     }
 
+    public void StartTimer(int time)
+    {
+        isCountingDown = true;
+        this.time = time;
+    }
+
+    public void StopTimer()
+    {
+        isCountingDown = false;
+    }
+
+    public string GetTimer()
+    {
+        return timerDisp.text;
+    }
+
+    public bool GetTimerState()
+    {
+        return isCountingDown;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (time > 0.0f) //If the timer is above 0, it counts down
-            isCountingDown = true;
+        if (isCountingDown && time > 0.0f)
+        {
+            //Converts time to mm:ss format if counting down.
+            time -= Time.deltaTime;
+            var min = (int)time / 60;
+            var sec = (int)time % 60;
+            timerDisp.text = string.Format("{0:00} : {1:00}", min, sec);
+        }
 
-        if ((isCountingDown) && (time == 0.0f)) //if the timer is 0, and it was counting down, stop countdown
-            isCountingDown = false;
-
-        if (time == 0.0f) //Stops timer at 0.0
-            isCountingDown = false;
-        
-        time -= Time.deltaTime;
-
-        var min = (int)time / 60;
-        var sec = (int)time % 60;  
-
-        timerDisp.text = string.Format("{0:00} : {1:00}", min, sec);
+        if(isCountingDown && time <= 0.0f)
+        {
+            StopTimer();
+        }
     }
 }
+
