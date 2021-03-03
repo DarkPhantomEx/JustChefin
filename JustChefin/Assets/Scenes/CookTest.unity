@@ -230,9 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c978c7746305a45bf61144ad49e643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12.5
-  gravity: -9.81
-  controller: {fileID: 448577081}
 --- !u!54 &299195416
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -762,8 +759,9 @@ MonoBehaviour:
   Instr: []
   timer: 
   numRec: 0
-  verbs: []
-  food: []
+  currInstr: 0
+  currRec: 0
+  currRecStart: 0
   FileStatus: 0
 --- !u!1 &451311426
 GameObject:
@@ -874,7 +872,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13948
+  m_Name: pb_Mesh14040
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
