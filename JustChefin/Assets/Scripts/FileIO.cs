@@ -73,6 +73,7 @@ public class RecipeData
     public List<string> Instr;
     public List<int> timer;
     public List<int> numInstr;
+    public List<string> recName;
     public int numRec;
 
 
@@ -83,6 +84,7 @@ public class RecipeData
         this.timer = new List<int>(Recette.timer);
         this.numInstr = new List<int>(Recette.numInstr);
         this.numRec = Recette.numRec;
+        this.recName = new List<string>(Recette.recName);
     }
 
 }

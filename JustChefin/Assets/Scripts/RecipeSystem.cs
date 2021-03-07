@@ -20,21 +20,26 @@ using UnityEngine.UI;
 
 public class RecipeSystem : MonoBehaviour
 {
+    //CookingLocation Colliders
+    GameObject CookingStation;
+
     //TextBoxes
     public Text Step;
+    public Text RecipeName;
     //public Text Step1;
     //public Text Step2;
     //public Text Step3;
     
     //Timer Script object
     [SerializeField]
-    Timer recipeTimer;
+    public Timer recipeTimer;
 
     //Recipe Data: Num of Instructions, Location ID, Steps, Timer for each step, Total number of recipes
     public List<int> numInstr;
     public List<int> locID;    
     public List<string> Instr;    
     public List<int> timer;
+    public List<string> recName;
     public int numRec;
 
     //Variable to keep track of the step currently being worked on
@@ -53,6 +58,12 @@ public class RecipeSystem : MonoBehaviour
     RecipeData Recipe;
     //Bool to check if a save file exists 
     public bool FileStatus;
+    //Bool to check if player is in a cookingStation area - and hence can cook
+    public bool canCook;
+    //Bool to check if cooking is currently taking place
+    public bool isCooking;
+    //Bool to check if this is the first cooking interaction
+    public bool firstCook;
 
     // Start is called before the first frame update
     void Start()
@@ -68,9 +79,15 @@ public class RecipeSystem : MonoBehaviour
         currInstr = 0;
         currRec = 0;
         currRecStart = 0;
-        
+        canCook = false;
+        isCooking = false;
+
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
+
+        //Attaches EmptyCollider GameObject
+        CookingStation = GameObject.FindGameObjectWithTag("CookingStation");
+
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
         {
@@ -94,8 +111,9 @@ public class RecipeSystem : MonoBehaviour
     {
         switch (levelNumber+1)
         {
-            case 1: 
+            case 1:
                 //Recipe 1 - Chicken Burger
+                recName.Add("Big Max Burger\n");
                 Instr.Add("Step 1: Sautee Onions - 40s\n");
                 timer.Add(40);
                 locID.Add(0);
@@ -108,6 +126,7 @@ public class RecipeSystem : MonoBehaviour
                     //num of Steps = 3
                 numInstr.Add(3);
                 //Recipe 2 - Veg Burger
+                recName.Add("Gaia's Bounty Burger\n");
                 Instr.Add("Step 1: Sautee Onions - 40s\n");
                 timer.Add(40);
                 locID.Add(0);
@@ -139,31 +158,31 @@ public class RecipeSystem : MonoBehaviour
 
     void StartGame()
     {
-        //Displays instructions and Sets timer for first instruction        
-        //Step.text = null;
-        //for (int i = 0; i < numInstr[0]; i++)
-        //{
-        //    Step.text += Instr[i];
-        //}
 
-        //recipeTimer.StartTimer(timer[0]);
-        
         ChooseRecipe();
 
-        // .....
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!recipeTimer.GetTimerState())
+        //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
+        if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
         {
-            //If the Countdown is over for the current step is over, move to the next step;
+            recipeTimer.StartTimer(timer[currRecStart + currInstr]);
+            isCooking = true;            
+        }
+        else
+        //IF the RecipeTimer is NOT Counting Down and the player is not cooking
+        if(!recipeTimer.GetTimerState() && canCook && !isCooking)
+        {
+            //If the Countdown is over for the current step, move to the next step;
             if(currInstr < numInstr[currRec] - 1)
             {
                 currInstr++;
-                recipeTimer.StartTimer(timer[currRecStart + currInstr]);
+                //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
             }
+            //ELSE Choose the next recipe
             else
             {
                 Debug.Log("Time for the next recipe!");
@@ -185,12 +204,14 @@ public class RecipeSystem : MonoBehaviour
         GetCurrRecStart();
         //Sets RecipeUI with the current recipe
         Step.text = null;
+        RecipeName.text = recName[currRec];
+        
         for (int i = 0; i < numInstr[currRec]; i++)
         {
             Step.text += Instr[currRecStart + i];
         }
         //Starts Timer
-        recipeTimer.StartTimer(timer[currRecStart]);
+            //recipeTimer.StartTimer(timer[currRecStart]);
     }
 
     //Finds the Starting point of the instructions for the current recipe, by adding the num of instructions of the previous ones
@@ -223,6 +244,7 @@ public class RecipeSystem : MonoBehaviour
         this.timer = new List<int>(Recette.timer);
         this.numInstr = new List<int>(Recette.numInstr);
         this.numRec = Recette.numRec;
+        this.recName = new List<string>(Recette.recName);
     }
 
 
