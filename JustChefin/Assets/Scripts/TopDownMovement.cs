@@ -15,18 +15,21 @@ public class TopDownMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        verticalSpeed += gravity * Time.deltaTime;
-        Vector3 movement = new Vector3(horizontal, 0f, vertical).normalized;
-        Vector3 movementY = Vector3.up * verticalSpeed;
-
-        if(movement.magnitude >= 0.1f)
+        if (this.gameObject.GetComponent<PlayerStatus>().isAlive())
         {
-            float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            controller.Move((movementY + (movement * moveSpeed)) * Time.deltaTime);
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            verticalSpeed += gravity * Time.deltaTime;
+            Vector3 movement = new Vector3(horizontal, 0f, vertical).normalized;
+            Vector3 movementY = Vector3.up * verticalSpeed;
+
+            if (movement.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                controller.Move((movementY + (movement * moveSpeed)) * Time.deltaTime);
+            }
         }
     }
 }

@@ -166,29 +166,28 @@ public class RecipeSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the timer isn't counting down, that means the player isn't coooking
+        if (!recipeTimer.GetTimerState())
+        {
+            isCooking = false;
+        }
+
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
         if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
         {
-            recipeTimer.StartTimer(timer[currRecStart + currInstr]);
-            isCooking = true;            
-        }
-        else
-        //IF the RecipeTimer is NOT Counting Down and the player is not cooking
-        if(!recipeTimer.GetTimerState() && canCook && !isCooking)
-        {
-            //If the Countdown is over for the current step, move to the next step;
-            if(currInstr < numInstr[currRec] - 1)
-            {
-                currInstr++;
-                //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
-            }
-            //ELSE Choose the next recipe
-            else
+            //IF the Recipe is complete, Select the next one
+            if(currInstr > numInstr[currRec] - 1)
             {
                 Debug.Log("Time for the next recipe!");
                 ChooseRecipe();
             }
-        }
+            //Start the timer for the instruction
+            recipeTimer.StartTimer(timer[currRecStart + currInstr]);
+            isCooking = true;
+            currInstr++;
+                //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
+        }      
+       
 
     }
 

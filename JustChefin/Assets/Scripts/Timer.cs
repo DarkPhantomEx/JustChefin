@@ -15,7 +15,8 @@ public class Timer : MonoBehaviour
     private float time;
 
     bool isCountingDown;
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +59,10 @@ public class Timer : MonoBehaviour
         if(isCountingDown && time <= 0.0f)
         {
             StopTimer();
+            if(this.gameObject.GetComponent<RecipeSystem>().canCook == false)
+            {
+                GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>().LoseLife();
+            }
         }
     }
 }
