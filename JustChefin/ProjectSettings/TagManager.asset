@@ -8,6 +8,9 @@ TagManager:
   - CookingStation
   - GameManager
   - MainPlayer
+  - LevelSpawn
+  - KitchenDoor
+  - Objective
   layers:
   - Default
   - TransparentFX

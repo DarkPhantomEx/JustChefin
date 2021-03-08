@@ -15,8 +15,8 @@ public class TopDownMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.gameObject.GetComponent<PlayerStatus>().isAlive())
-        {
+        //if (this.gameObject.GetComponent<PlayerStatus>().isAlive())
+        //{
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
             verticalSpeed += gravity * Time.deltaTime;
@@ -30,6 +30,6 @@ public class TopDownMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 controller.Move((movementY + (movement * moveSpeed)) * Time.deltaTime);
             }
-        }
+        //}
     }
 }

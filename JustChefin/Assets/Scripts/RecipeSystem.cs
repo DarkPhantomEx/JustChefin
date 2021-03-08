@@ -22,10 +22,13 @@ public class RecipeSystem : MonoBehaviour
 {
     //CookingLocation Colliders
     GameObject CookingStation;
-
+    [SerializeField]
+    GameObject KitchenDoor;
     //TextBoxes
     public Text Step;
     public Text RecipeName;
+    [SerializeField]
+    Text Objective;
     //public Text Step1;
     //public Text Step2;
     //public Text Step3;
@@ -49,6 +52,7 @@ public class RecipeSystem : MonoBehaviour
     private int currRec;
     [SerializeField]
     int currRecStart;
+    
 
     ////for randomizing steps
     //public string[] verbs;
@@ -84,9 +88,14 @@ public class RecipeSystem : MonoBehaviour
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
-
+        
         //Attaches EmptyCollider GameObject
         CookingStation = GameObject.FindGameObjectWithTag("CookingStation");
+        //Attaches KitchenDoor collider, and makes it so that the player can't leave the kitchen.
+        KitchenDoor = GameObject.FindGameObjectWithTag("KitchenDoor");
+        KitchenDoor.GetComponent<Collider>().isTrigger = false;
+
+        Objective.text = "Get to your station!";
 
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
@@ -171,12 +180,22 @@ public class RecipeSystem : MonoBehaviour
         {
             isCooking = false;
         }
+        
+        if(!isCooking && canCook)
+        {
+            Objective.text = "Press 'Q' to Cook!";
+        }
 
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
         if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
         {
+            Objective.text = "Good Job! You can now search the Restaurant for the Hidden Recipe";
+
+            //Player can leave the kitchen
+            KitchenDoor.GetComponent<Collider>().isTrigger = true;
+
             //IF the Recipe is complete, Select the next one
-            if(currInstr > numInstr[currRec] - 1)
+            if (currInstr > numInstr[currRec] - 1)
             {
                 Debug.Log("Time for the next recipe!");
                 ChooseRecipe();

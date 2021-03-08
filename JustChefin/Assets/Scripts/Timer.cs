@@ -47,6 +47,11 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    //    if(isCountingDown && time<= 7.0f)
+    //    {
+    //        GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "Get back to the kitchen, before time runs out!";
+    //    }
+
         if (isCountingDown && time > 0.0f)
         {
             //Converts time to mm:ss format if counting down.
@@ -62,6 +67,7 @@ public class Timer : MonoBehaviour
             if(this.gameObject.GetComponent<RecipeSystem>().canCook == false)
             {
                 GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>().LoseLife();
+                GameObject.FindGameObjectWithTag("KitchenDoor").GetComponent<Collider>().isTrigger = false;
             }
         }
     }
