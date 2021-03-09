@@ -12,7 +12,7 @@ public class InLocation : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if(collider.CompareTag("Player"))
+        if(collider.CompareTag("MainPlayer"))
         {
             Debug.Log(collider.name + "has entered the Cooking Area");
             GameObject.FindWithTag("GameManager").GetComponent<RecipeSystem>().canCook = true;
@@ -21,7 +21,7 @@ public class InLocation : MonoBehaviour
 
     void OnTriggerExit(Collider collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("MainPlayer"))
         {
             Debug.Log(collider.name + "has exited the Cooking Area");
             GameObject.FindWithTag("GameManager").GetComponent<RecipeSystem>().canCook = false;
