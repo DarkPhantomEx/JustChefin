@@ -20,6 +20,10 @@ public class PlayerStatus : MonoBehaviour
     Vector3 PlayerSpawn;
     [SerializeField]
     Transform Spawn;
+
+    [SerializeField]
+    bool HasRecipe;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,8 @@ public class PlayerStatus : MonoBehaviour
 
         isDead = false;
         strikes = 3;
+
+        HasRecipe = false;
     }
 
 
@@ -47,7 +53,8 @@ public class PlayerStatus : MonoBehaviour
         GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
         this.gameObject.transform.position = PlayerSpawn;
-        
+        SetRecipeBool(false);
+
         //UI update, based on lives lost
         switch (strikes)
         {
@@ -80,5 +87,15 @@ public class PlayerStatus : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool GetRecipeBool()
+    {
+        return HasRecipe;
+    }
+
+    public void SetRecipeBool(bool HasRecipe)
+    {
+        this.HasRecipe = HasRecipe;
     }
 }

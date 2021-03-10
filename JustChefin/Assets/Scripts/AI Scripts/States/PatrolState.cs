@@ -34,11 +34,21 @@ public class PatrolState : State
             enemy.ChangeState(new IdleState(enemy));
 
         // If the player is inside the view range and view angle
-        if(enemy.IsPlayerInSightRange() && enemy.IsPlayerInSightAngle())
+        if (enemy.IsPlayerInSightRange() && enemy.IsPlayerInSightAngle() && enemy.IsRaycastToPlayerSuccess())
         {
-            if(enemy.IsRaycastToPlayerSuccess())
+            switch (enemy.tag)
             {
-                enemy.ChangeState(new ChaseState(enemy));
+                case "Agro":
+                    enemy.ChangeState(new ChaseState(enemy));
+                    break;
+                case "Passive":
+                    if (enemy.psScript.GetRecipeBool())
+                    {
+                        enemy.ChangeState(new ChaseState(enemy));
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }

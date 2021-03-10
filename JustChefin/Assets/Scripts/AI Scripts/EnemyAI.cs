@@ -11,7 +11,10 @@ public class EnemyAI : MonoBehaviour
     public float sightRange;
     public float sightAngle;
     public float idleTime;
+    public float postCaughtTime;
     public GameObject[] waitPoints;
+
+    public PlayerStatus psScript;
 
     // Start is called before the first frame update
     void Start()

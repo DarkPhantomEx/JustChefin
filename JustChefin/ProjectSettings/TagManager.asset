@@ -11,6 +11,8 @@ TagManager:
   - LevelSpawn
   - KitchenDoor
   - Objective
+  - Agro
+  - Passive
   layers:
   - Default
   - TransparentFX
