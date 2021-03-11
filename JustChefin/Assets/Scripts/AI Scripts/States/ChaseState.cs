@@ -23,21 +23,19 @@ public class ChaseState : State
     public override void UpdateState()
     {
         base.UpdateState();
-        Debug.DrawRay(enemyT.position, playerT.position - enemyT.position, Color.red);
-        // Keep chasing the player
+
+        //Debug.DrawRay(enemyT.position, playerT.position - enemyT.position, Color.red);
+
+        // Move towards the player and stay away 1 unit distance
         enemy.nmAgent.destination = playerT.transform.position - enemyT.forward;
+        // Stop player movement
+        enemy.tdmScript.SetCanMove(false);
+        // If it reaches the patrol point, change state to idle
         if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance == 0f)
         {
             enemy.psScript.LoseLife();
+            enemy.tdmScript.SetCanMove(true);
         }
-
-        // If player is out of view
-            /*if(Vector3.Distance(enemyT.position, playerT.position) >= enemy.sightRange)
-            {
-                Vector3 searchTrail = enemyT.position - playerT.position;
-                enemy.nmAgent.destination = searchTrail;
-                enemy.ChangeState(new PatrolState(enemy));
-            }*/
     }
 
     public override void OnExit()

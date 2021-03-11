@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectRecipe : MonoBehaviour
 {
+    // Reference to PlayerStatus script to be used for handling player recipe possession
     PlayerStatus psScript;
 
     // Start is called before the first frame update
@@ -20,16 +21,20 @@ public class CollectRecipe : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // If the collider belongs to the player
         if(other.tag == "MainPlayer")
         {
+            // Player can collect recipe
             psScript.SetCanCollect(true);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        // If the collider belongs to the player
         if (other.tag == "MainPlayer")
         {
+            // Player cannot collect recipe
             psScript.SetCanCollect(false);
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public abstract class State
 {
+    // EnemyAI script reference
     protected EnemyAI enemy;
 
     public State(EnemyAI enemy)

@@ -21,11 +21,14 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     Transform Spawn;
 
+    // Boolean to check if player has the recipe collected
     [SerializeField]
     bool HasRecipe;
+    // Boolean to check if player is standing on the recipe collect trigger
     [SerializeField]
     bool canCollect;
 
+    // Array of all the enemies in the scene (to be set in the editor)
     public EnemyAI[] enemy;
 
     // Start is called before the first frame update
@@ -42,7 +45,8 @@ public class PlayerStatus : MonoBehaviour
         isDead = false;
         strikes = 3;
 
-        HasRecipe = false;
+        // Player does not have the recipe initially
+        SetHasRecipe(false);
     }
 
 
@@ -57,6 +61,8 @@ public class PlayerStatus : MonoBehaviour
         GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
         this.gameObject.transform.position = PlayerSpawn;
+
+        // Player loses collected recipe
         SetHasRecipe(false);
 
         //UI update, based on lives lost
@@ -82,6 +88,7 @@ public class PlayerStatus : MonoBehaviour
             isDead = true;
         }
 
+        // Reset every enemy AI's state to patrol after being caught
         for(int i = 0; i < enemy.Length; i++)
         {
             enemy[i].ChangeState(new PatrolState(enemy[i]));
@@ -101,23 +108,11 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
-    public bool GetHasRecipe()
-    {
-        return HasRecipe;
-    }
+    // Getter and Setter for signature recipe possession
+    public bool GetHasRecipe() { return HasRecipe; }
+    public void SetHasRecipe(bool HasRecipe) { this.HasRecipe = HasRecipe; }
 
-    public void SetHasRecipe(bool HasRecipe)
-    {
-        this.HasRecipe = HasRecipe;
-    }
-
-    public bool GetCanCollect()
-    {
-        return canCollect;
-    }
-
-    public void SetCanCollect(bool canCollect)
-    {
-        this.canCollect = canCollect;
-    }
+    // Getter and Setter for ability to collect recipe
+    public bool GetCanCollect() { return canCollect; }
+    public void SetCanCollect(bool canCollect) { this.canCollect = canCollect; }
 }
