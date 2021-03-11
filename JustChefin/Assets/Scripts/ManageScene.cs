@@ -11,6 +11,11 @@ public class ManageScene : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void QuitLevel()
+    {
+        Application.Quit();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

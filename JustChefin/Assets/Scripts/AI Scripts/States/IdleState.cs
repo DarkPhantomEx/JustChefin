@@ -20,7 +20,7 @@ public class IdleState : State
         timer = 0f;
         enemyT = enemy.transform;
         playerT = enemy.player.transform;
-        enemy.GetComponent<Renderer>().material.color = Color.blue;
+        //enemy.GetComponent<Renderer>().material.color = Color.blue;
     }
 
     public override void UpdateState()

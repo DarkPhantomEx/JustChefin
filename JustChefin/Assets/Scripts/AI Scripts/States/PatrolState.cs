@@ -25,7 +25,12 @@ public class PatrolState : State
         player = enemy.player;
         enemyT = enemy.transform;
         playerT = enemy.player.transform;
-        enemy.GetComponent<Renderer>().material.color = Color.green;
+        if(enemy.tag == "Agro")
+            enemy.GetComponent<Renderer>().material.color = Color.yellow;
+        else if(enemy.tag == "Passive")
+            enemy.GetComponent<Renderer>().material.color = Color.green;
+
+        //enemy.GetComponent<Renderer>().material.color = Color.green;
     }
 
     public override void UpdateState()
