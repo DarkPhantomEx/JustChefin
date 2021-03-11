@@ -18,11 +18,19 @@ public class CollectRecipe : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "MainPlayer" && Input.GetKeyDown(KeyCode.E))
+        if(other.tag == "MainPlayer")
         {
-            psScript.SetRecipeBool(true);
+            psScript.SetCanCollect(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "MainPlayer")
+        {
+            psScript.SetCanCollect(false);
         }
     }
 }

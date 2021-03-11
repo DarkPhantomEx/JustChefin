@@ -39,7 +39,7 @@ public class IdleState : State
                     enemy.ChangeState(new ChaseState(enemy));
                     break;
                 case "Passive":
-                    if(enemy.psScript.GetRecipeBool())
+                    if(enemy.psScript.GetHasRecipe())
                         enemy.ChangeState(new ChaseState(enemy));
                     break;
                 default:

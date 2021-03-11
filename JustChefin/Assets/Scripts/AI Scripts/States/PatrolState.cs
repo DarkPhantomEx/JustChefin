@@ -42,7 +42,7 @@ public class PatrolState : State
                     enemy.ChangeState(new ChaseState(enemy));
                     break;
                 case "Passive":
-                    if (enemy.psScript.GetRecipeBool())
+                    if (enemy.psScript.GetHasRecipe())
                     {
                         enemy.ChangeState(new ChaseState(enemy));
                     }
@@ -65,7 +65,7 @@ public class PatrolState : State
         do
         {
             currentPoint = enemy.waitPoints[Random.Range(0, enemy.waitPoints.Length)].transform.position;
-            Debug.Log("CurrentPoint: " + currentPoint);
+            //Debug.Log("CurrentPoint: " + currentPoint);
         }
         while (currentPoint == previousPoint);
         
@@ -73,7 +73,7 @@ public class PatrolState : State
         //{
             enemy.nmAgent.destination = currentPoint;
             previousPoint = currentPoint;
-            Debug.Log("PreviousPoint: " + previousPoint);
+            //Debug.Log("PreviousPoint: " + previousPoint);
         //}
     }
 }

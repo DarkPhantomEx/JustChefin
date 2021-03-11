@@ -23,6 +23,10 @@ public class PlayerStatus : MonoBehaviour
 
     [SerializeField]
     bool HasRecipe;
+    [SerializeField]
+    bool canCollect;
+
+    public EnemyAI[] enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +57,7 @@ public class PlayerStatus : MonoBehaviour
         GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
         this.gameObject.transform.position = PlayerSpawn;
-        SetRecipeBool(false);
+        SetHasRecipe(false);
 
         //UI update, based on lives lost
         switch (strikes)
@@ -77,6 +81,11 @@ public class PlayerStatus : MonoBehaviour
         {
             isDead = true;
         }
+
+        for(int i = 0; i < enemy.Length; i++)
+        {
+            enemy[i].ChangeState(new PatrolState(enemy[i]));
+        }
     }
 
     public bool isAlive()
@@ -86,16 +95,29 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(GetCanCollect() && Input.GetKeyDown(KeyCode.E))
+        {
+            SetHasRecipe(true);
+        }
     }
 
-    public bool GetRecipeBool()
+    public bool GetHasRecipe()
     {
         return HasRecipe;
     }
 
-    public void SetRecipeBool(bool HasRecipe)
+    public void SetHasRecipe(bool HasRecipe)
     {
         this.HasRecipe = HasRecipe;
+    }
+
+    public bool GetCanCollect()
+    {
+        return canCollect;
+    }
+
+    public void SetCanCollect(bool canCollect)
+    {
+        this.canCollect = canCollect;
     }
 }

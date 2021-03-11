@@ -4552,6 +4552,11 @@ MonoBehaviour:
   PlayerSpawn: {x: 0, y: 0, z: 0}
   Spawn: {fileID: 0}
   HasRecipe: 0
+  canCollect: 0
+  enemy:
+  - {fileID: 971569030}
+  - {fileID: 2016636481}
+  - {fileID: 851064053}
 --- !u!1001 &824956235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10942,7 +10947,7 @@ GameObject:
   - component: {fileID: 1442945656}
   - component: {fileID: 1442945655}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
