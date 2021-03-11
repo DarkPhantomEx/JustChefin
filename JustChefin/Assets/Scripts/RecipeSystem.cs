@@ -131,16 +131,17 @@ public class RecipeSystem : MonoBehaviour
     //This method is used to create recipes for each level. Might move this to FileIO.cs
     public void ScriptRecipeData(int levelNumber)
     {
-        switch (levelNumber+1)
+        //level number should correspond to the scene number
+        switch (levelNumber)
         {
             case 1:
                 //Recipe 1 - Chicken Burger
                 recName.Add("Big Max Burger\n");
-                Instr.Add("Step 1: Sautee Onions - 40s\n");
-                timer.Add(40);
+                Instr.Add("Step 1: Sautee Onions - 30s\n");
+                timer.Add(30);
                 locID.Add(0);
-                Instr.Add("Step 2: Grill chicken patty - 2min\n");
-                timer.Add(120);
+                Instr.Add("Step 2: Grill chicken patty - 1min\n");
+                timer.Add(60);
                 locID.Add(0);
                 Instr.Add("Step 3: Heat Buns - 20s\n");
                 timer.Add(20);
@@ -149,11 +150,11 @@ public class RecipeSystem : MonoBehaviour
                 numInstr.Add(3);
                 //Recipe 2 - Veg Burger
                 recName.Add("Gaia's Bounty Burger\n");
-                Instr.Add("Step 1: Sautee Onions - 40s\n");
-                timer.Add(40);
+                Instr.Add("Step 1: Sautee Onions - 30s\n");
+                timer.Add(30);
                 locID.Add(0);
-                Instr.Add("Step 2: Prepare veg patty- 1min 40s\n");
-                timer.Add(100);
+                Instr.Add("Step 2: Prepare veg patty- 1min 10s\n");
+                timer.Add(70);
                 locID.Add(0);
                 Instr.Add("Step 3: Heat Buns- 20s\n");
                 timer.Add(20);
@@ -239,6 +240,11 @@ public class RecipeSystem : MonoBehaviour
             WinCon.SetActive(true);
             //Time.timeScale = 0f;
             //Game Over - Win
+        }
+
+        if(recipeTimer.GetTimerState() && recipeTimer.GetTime() <=5)
+        {
+                setObjective("Get back to your cooking station!");            
         }
 
     }

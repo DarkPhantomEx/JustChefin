@@ -21,7 +21,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     Transform Spawn;
 
-    RecipeSystem Recipe;        
+    RecipeSystem Recipe;
+    TopDownMovement playerMove;
 
     // Boolean to check if player has the recipe collected
     [SerializeField]
@@ -38,7 +39,7 @@ public class PlayerStatus : MonoBehaviour
     {
         Spawn = GameObject.FindGameObjectWithTag("LevelSpawn").transform;
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
-
+        playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         Recipe = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RecipeSystem>();
 
         //Disabling Strikes UI
@@ -64,8 +65,8 @@ public class PlayerStatus : MonoBehaviour
         //Reduces a life, and teleports player to spawn
         GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
-        this.gameObject.transform.position = PlayerSpawn;
-
+        playerMove.SetCanMove(false);
+        this.gameObject.transform.position = PlayerSpawn;        
         // Player loses collected recipe
         SetHasRecipe(false);
         Recipe.setObjective("Yeesh, tough crowd. Try again!");
@@ -98,6 +99,7 @@ public class PlayerStatus : MonoBehaviour
         {
             enemy[i].ChangeState(new PatrolState(enemy[i]));
         }
+        playerMove.SetCanMove(true);
     }
 
     public bool isAlive()

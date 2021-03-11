@@ -35,6 +35,11 @@ public class Timer : MonoBehaviour
         isCountingDown = false;
     }
 
+    public float GetTime()
+    {
+        return time;
+    }
+
     public string GetTimer()
     {
         return timerDisp.text;
