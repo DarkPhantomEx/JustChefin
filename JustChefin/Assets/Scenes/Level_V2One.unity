@@ -1404,6 +1404,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1059288684}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &224420098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 68556f14a9b50d0428de882c97b7cdfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1074341813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &224420099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224420098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 130.49008, y: 81.05405, z: 79.998764}
+  m_Center: {x: -0.1067787, y: 40.027023, z: 0.20462877}
 --- !u!1 &224803610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,10 +3592,10 @@ RectTransform:
   m_Father: {fileID: 1986020683}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 849.79, y: -482.64}
-  m_SizeDelta: {x: 208.91434, y: 91.284035}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -129, y: 68}
+  m_SizeDelta: {x: 208.9143, y: 91.28403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &631150186
 MonoBehaviour:
@@ -6999,6 +7018,25 @@ Transform:
   m_Father: {fileID: 1573293718}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1034704622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d0e86cfb1459964698bc390ac72b446,
+    type: 3}
+  m_PrefabInstance: {fileID: 1220504511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1034704623
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034704622}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.226642, y: 0.6909043, z: 0.8227342}
+  m_Center: {x: 0.2597964, y: 0.33556604, z: -0.088632554}
 --- !u!1001 &1045081649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17417,7 +17455,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 57cf7cea57fdd574894d6129fa02b1f4, type: 3}
-    m_FontSize: 150
+    m_FontSize: 130
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

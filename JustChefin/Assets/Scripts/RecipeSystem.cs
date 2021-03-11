@@ -229,7 +229,7 @@ public class RecipeSystem : MonoBehaviour
             //Game Over - Loss
             setObjective("YOU DIED");
             LoseCon.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0f;
         }
 
         //CheckWinCondition - Player Has Recipe and is back at the kitchen
@@ -237,7 +237,7 @@ public class RecipeSystem : MonoBehaviour
         {
             setObjective("Congratulations on a mission well done, Agent Iris!");
             WinCon.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0f;
             //Game Over - Win
         }
 
