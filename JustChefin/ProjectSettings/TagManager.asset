@@ -13,6 +13,8 @@ TagManager:
   - Objective
   - Agro
   - Passive
+  - LoseScreen
+  - WinScreen
   layers:
   - Default
   - TransparentFX

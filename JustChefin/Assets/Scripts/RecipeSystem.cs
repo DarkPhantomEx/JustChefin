@@ -24,6 +24,10 @@ public class RecipeSystem : MonoBehaviour
     GameObject CookingStation;
     [SerializeField]
     GameObject KitchenDoor;
+    [SerializeField]
+    GameObject WinCon;
+    [SerializeField]
+    GameObject LoseCon;
     //TextBoxes
     public Text Step;
     public Text RecipeName;
@@ -52,12 +56,14 @@ public class RecipeSystem : MonoBehaviour
     private int currRec;
     [SerializeField]
     int currRecStart;
-    
+
 
     ////for randomizing steps
     //public string[] verbs;
     //public string[] food;
 
+
+    PlayerStatus playerStats;
     //Serializable data class object for FileIO
     RecipeData Recipe;
     //Bool to check if a save file exists 
@@ -94,8 +100,15 @@ public class RecipeSystem : MonoBehaviour
         //Attaches KitchenDoor collider, and makes it so that the player can't leave the kitchen.
         KitchenDoor = GameObject.FindGameObjectWithTag("KitchenDoor");
         KitchenDoor.GetComponent<Collider>().isTrigger = false;
+        //Gets access to PlayerStatus from the TopDownPlayer gameobject
+        playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
+        WinCon = GameObject.FindGameObjectWithTag("WinScreen");
+        LoseCon = GameObject.FindGameObjectWithTag("LoseScreen");
 
-        Objective.text = "Get to your station!";
+        WinCon.SetActive(false);
+        LoseCon.SetActive(false);
+
+        setObjective("Get to your station!");
 
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
@@ -183,13 +196,14 @@ public class RecipeSystem : MonoBehaviour
         
         if(!isCooking && canCook)
         {
-            Objective.text = "Press 'Q' to Cook!";
+            setObjective("Press 'Q' to Cook!");
         }
 
+        
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
         if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
         {
-            Objective.text = "Good Job! You can now search the Restaurant for the Hidden Recipe";
+            setObjective("Good Job! You can now search the Restaurant for the Hidden Recipe");
 
             //Player can leave the kitchen
             KitchenDoor.GetComponent<Collider>().isTrigger = true;
@@ -205,9 +219,33 @@ public class RecipeSystem : MonoBehaviour
             isCooking = true;
             currInstr++;
                 //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
-        }      
-       
+        }
 
+        
+
+        //CheckLoseCondition - Player is Dead
+        if (!playerStats.isAlive())
+        {
+            //Game Over - Loss
+            setObjective("YOU DIED");
+            LoseCon.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        //CheckWinCondition - Player Has Recipe and is back at the kitchen
+        if(playerStats.GetHasRecipe() && canCook)
+        {
+            setObjective("Congratulations on a mission well done, Agent Iris!");
+            WinCon.SetActive(true);
+            Time.timeScale = 0;
+            //Game Over - Win
+        }
+
+    }
+
+    public void setObjective(string text)
+    {
+        Objective.text = text;
     }
 
     //Loads Next Recipe

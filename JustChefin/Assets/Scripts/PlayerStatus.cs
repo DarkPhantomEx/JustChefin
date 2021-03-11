@@ -21,6 +21,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     Transform Spawn;
 
+    RecipeSystem Recipe;        
+
     // Boolean to check if player has the recipe collected
     [SerializeField]
     bool HasRecipe;
@@ -36,7 +38,9 @@ public class PlayerStatus : MonoBehaviour
     {
         Spawn = GameObject.FindGameObjectWithTag("LevelSpawn").transform;
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
-        
+
+        Recipe = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RecipeSystem>();
+
         //Disabling Strikes UI
         Strike.enabled = false;
         Strike2.enabled = false;
@@ -64,6 +68,7 @@ public class PlayerStatus : MonoBehaviour
 
         // Player loses collected recipe
         SetHasRecipe(false);
+        Recipe.setObjective("Yeesh, tough crowd. Try again!");
 
         //UI update, based on lives lost
         switch (strikes)
@@ -105,6 +110,7 @@ public class PlayerStatus : MonoBehaviour
         if(GetCanCollect() && Input.GetKeyDown(KeyCode.E))
         {
             SetHasRecipe(true);
+            Recipe.setObjective("You've got the recipe! Get back to your station ASAP.");
         }
     }
 
