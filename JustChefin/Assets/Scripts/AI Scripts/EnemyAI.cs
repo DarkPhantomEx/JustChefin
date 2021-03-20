@@ -18,6 +18,9 @@ public class EnemyAI : MonoBehaviour
     public float idleTime;
     public GameObject[] waitPoints;
 
+    [SerializeField]
+    private int waitPointIterator;
+
     // Reference to PlayerStatus script to be used in individual state classes
     public PlayerStatus psScript;
     // Reference to TopDownMovement script to be used in individual state classes
@@ -29,6 +32,8 @@ public class EnemyAI : MonoBehaviour
         psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
         tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
 
+        waitPointIterator = 0;
+
         // Set default start state as Patrol
         ChangeState(new PatrolState(this));
     }
@@ -37,6 +42,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         currentState.UpdateState();
+        Debug.DrawRay(this.transform.position, this.transform.forward * 6f, Color.yellow);
     }
 
     // Function to change the state
@@ -85,4 +91,8 @@ public class EnemyAI : MonoBehaviour
         }
         return false;
     }
+
+    public int GetWaitPointIterator() { return waitPointIterator; }
+    public void IncrementWaitPointIterator() { waitPointIterator++; }
+    public void ResetWaitPointIterator() { waitPointIterator = 0; }
 }
