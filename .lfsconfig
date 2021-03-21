@@ -1,0 +1,5 @@
+[lfs]
+    tlstimeout = 300
+    activitytimeout = 60
+    dialtimeout = 600
+    concurrenttransfers = 1
