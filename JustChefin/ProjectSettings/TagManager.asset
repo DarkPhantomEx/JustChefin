@@ -17,6 +17,7 @@ TagManager:
   - WinScreen
   - PauseScreen
   - OfficeDoor
+  - TimerBar
   layers:
   - Default
   - TransparentFX
