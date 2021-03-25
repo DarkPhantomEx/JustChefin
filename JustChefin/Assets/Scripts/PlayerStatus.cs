@@ -95,13 +95,10 @@ public class PlayerStatus : MonoBehaviour
             isDead = true;
         }
 
+        // Reset every enemy AI's state to patrol after being caught
         for(int i = 0; i < enemy.Length; i++)
         {
-            // Reset every enemy AI's state to patrol after being caught
             enemy[i].ChangeState(new PatrolState(enemy[i]));
-
-            // Reset suspicion bar back to minimum after being caught
-            enemy[i].suspicionBar.SetMinSuspicion(enemy[i].GetMinSuspicionValue());
         }
         playerMove.SetCanMove(true);
     }
