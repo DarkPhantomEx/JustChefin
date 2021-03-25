@@ -21,8 +21,8 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField]
     Transform Spawn;
 
-    RecipeSystem Recipe;
     TopDownMovement playerMove;
+    EditHUD hudEditor;
 
     // Boolean to check if player has the recipe collected
     [SerializeField]
@@ -40,7 +40,7 @@ public class PlayerStatus : MonoBehaviour
         Spawn = GameObject.FindGameObjectWithTag("LevelSpawn").transform;
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
-        Recipe = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RecipeSystem>();
+        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -66,12 +66,11 @@ public class PlayerStatus : MonoBehaviour
         GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
         playerMove.SetCanMove(false);
-        Debug.Log(this.gameObject.transform.position);
-        this.gameObject.transform.position = PlayerSpawn;
-        Debug.Log(this.gameObject.transform.position);
+        this.gameObject.transform.position = PlayerSpawn;        
         // Player loses collected recipe
         SetHasRecipe(false);
-        Recipe.setObjective("Yeesh, tough crowd. Try again!");
+        hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
+
 
         //UI update, based on lives lost
         switch (strikes)
@@ -96,20 +95,14 @@ public class PlayerStatus : MonoBehaviour
             isDead = true;
         }
 
+        // Reset every enemy AI's state to patrol after being caught
         for(int i = 0; i < enemy.Length; i++)
         {
-            // Reset suspicion bar back to minimum after being caught
-            enemy[i].ResetSuspicionValue();
-            // Reset every enemy AI's state to patrol after being aught
-            enemy[i].ChangeState(new PatrolState(enemy[i]));          
-           
+            enemy[i].ChangeState(new PatrolState(enemy[i]));
         }
-        Invoke("DelaySetMove", 0.2f);
-    }
-    private void DelaySetMove()
-    {
         playerMove.SetCanMove(true);
     }
+
     public bool isAlive()
     {
         return !isDead;
@@ -120,9 +113,8 @@ public class PlayerStatus : MonoBehaviour
         if(GetCanCollect() && Input.GetKeyDown(KeyCode.E))
         {
             SetHasRecipe(true);
-            Recipe.setObjective("You've got the recipe! Get back to your station ASAP.");
+            hudEditor.setHUD("Obj","You've got the recipe! Get back to your station ASAP.");
         }
-        Debug.Log(playerMove.GetCanMove());
     }
 
     // Getter and Setter for signature recipe possession

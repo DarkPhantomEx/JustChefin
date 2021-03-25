@@ -6,8 +6,8 @@ public class ChaseState : State
 {
     private Transform playerT;
     private Transform enemyT;
-    
-    public ChaseState(EnemyAI enemy) : base(enemy, "Chase")
+
+    public ChaseState(EnemyAI enemy) : base(enemy)
     {
 
     }
@@ -31,11 +31,10 @@ public class ChaseState : State
         // Stop player movement
         enemy.tdmScript.SetCanMove(false);
         // If it reaches the patrol point, change state to idle
-        Debug.Log(enemy.nmAgent.pathPending + " " + enemy.nmAgent.remainingDistance);
-        if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance <= 0f)// BUG HERE
+        if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance == 0f)
         {
             enemy.psScript.LoseLife();
-            //enemy.tdmScript.SetCanMove(true);
+            enemy.tdmScript.SetCanMove(true);
         }
     }
 
