@@ -10,7 +10,7 @@ public class IdleState : State
     private Transform playerT;
     private Transform enemyT;
     
-    public IdleState(EnemyAI enemy) : base (enemy, "Idle")
+    public IdleState(EnemyAI enemy) : base (enemy)
     {
     }
 
@@ -36,9 +36,22 @@ public class IdleState : State
             enemy.ChangeState(new PatrolState(enemy));
 
         // If the player is inside the sight distance, sight angle and it can raycast to player
-         if (enemy.GetSuspicionValue() == 1)
-        {            
-            enemy.ChangeState(new ChaseState(enemy));
+        if (enemy.IsPlayerInSightDistance() && enemy.IsPlayerInSightAngle() && enemy.IsRaycastToPlayerSuccess())
+        {
+            switch(enemy.tag)
+            {
+                // If Agro then chase by default
+                case "Agro":
+                    enemy.ChangeState(new ChaseState(enemy));
+                    break;
+                // If Passive and player has recipe, then chase
+                case "Passive":
+                    if(enemy.psScript.GetHasRecipe())
+                        enemy.ChangeState(new ChaseState(enemy));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

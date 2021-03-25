@@ -7,11 +7,10 @@ public abstract class State
 {
     // EnemyAI script reference
     protected EnemyAI enemy;
-    protected string name;
-    public State(EnemyAI enemy, string name)
+
+    public State(EnemyAI enemy)
     {
         this.enemy = enemy;
-        this.name = name;
     }
 
     // Methods to be overridden individual states
@@ -20,9 +19,4 @@ public abstract class State
     public virtual void UpdateState() { }
 
     public virtual void OnExit() { }
-
-    public string GetName()
-    {
-        return (name);
-    }
 }
