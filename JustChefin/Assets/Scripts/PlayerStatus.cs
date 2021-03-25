@@ -66,7 +66,9 @@ public class PlayerStatus : MonoBehaviour
         GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
         playerMove.SetCanMove(false);
-        this.gameObject.transform.position = PlayerSpawn;        
+        Debug.Log(this.gameObject.transform.position);
+        this.gameObject.transform.position = PlayerSpawn;
+        Debug.Log(this.gameObject.transform.position);
         // Player loses collected recipe
         SetHasRecipe(false);
         Recipe.setObjective("Yeesh, tough crowd. Try again!");
@@ -96,15 +98,18 @@ public class PlayerStatus : MonoBehaviour
 
         for(int i = 0; i < enemy.Length; i++)
         {
-            // Reset every enemy AI's state to patrol after being caught
-            enemy[i].ChangeState(new PatrolState(enemy[i]));
-
             // Reset suspicion bar back to minimum after being caught
-            enemy[i].suspicionBar.SetMinSuspicion(enemy[i].GetMinSuspicionValue());
+            enemy[i].ResetSuspicionValue();
+            // Reset every enemy AI's state to patrol after being aught
+            enemy[i].ChangeState(new PatrolState(enemy[i]));          
+           
         }
+        Invoke("DelaySetMove", 0.2f);
+    }
+    private void DelaySetMove()
+    {
         playerMove.SetCanMove(true);
     }
-
     public bool isAlive()
     {
         return !isDead;
@@ -117,6 +122,7 @@ public class PlayerStatus : MonoBehaviour
             SetHasRecipe(true);
             Recipe.setObjective("You've got the recipe! Get back to your station ASAP.");
         }
+        Debug.Log(playerMove.GetCanMove());
     }
 
     // Getter and Setter for signature recipe possession

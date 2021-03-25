@@ -21,8 +21,9 @@ public class EnemyAI : MonoBehaviour
     // Suspicion bar variables
     public float minSuspicionDistance;
     public SuspicionBar suspicionBar;
+    public float IncrementSpeed = 5;
     private float playerDistance;
-    private static float currentSuspicionValue;
+    private float currentSuspicionValue = 0;
 
     // For going through the waitpoints sequentially
     private int waitPointIterator;
@@ -39,11 +40,8 @@ public class EnemyAI : MonoBehaviour
         tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
 
         waitPointIterator = 0;
-        playerDistance = Vector3.Distance(this.transform.position, player.transform.position);
-
-        // Default values for suspicion bar
-        currentSuspicionValue = 0f;
-        suspicionBar.SetMinSuspicion(GetMinSuspicionValue());
+        playerDistance = Vector3.Distance(this.transform.position, player.transform.position);    
+        
 
         // Set default start state as Patrol
         ChangeState(new PatrolState(this));
@@ -57,21 +55,20 @@ public class EnemyAI : MonoBehaviour
 
         // Calculate distance between the player and the enemy
         playerDistance = Vector3.Distance(this.transform.position, player.transform.position);
-
-        // If raycast from enemy to the player is successful
-        if(IsRaycastToPlayerSuccess())
+        // If player in suspicious range is successful
+        if (IsPlayerInSuspiciousRange())
         {
             switch (this.tag)
             {
-                // If Agro then update suspicion bar
-                case "Agro":
-                    UpdateSuspicionBar();
+                // If Agro then calculate suspicion
+                case "Agro":                    
+                    CalculateSuspicion();
                     break;
-                // If Passive and player has recipe, then update suspicion bar
+                // If Passive and player has recipe, then calculate suspicion
                 case "Passive":
                     if (this.psScript.GetHasRecipe())
                     {
-                        UpdateSuspicionBar();
+                        CalculateSuspicion();
                     }
                     break;
                 default:
@@ -79,8 +76,11 @@ public class EnemyAI : MonoBehaviour
             }
         }
         // Reset suspicion bar if player is behind any object
-        if (IsRaycastToPlayerFailed())
-            suspicionBar.SetMinSuspicion(GetMinSuspicionValue());
+        else
+        {
+            currentSuspicionValue = Mathf.Clamp(currentSuspicionValue - Time.deltaTime * 1 / 10, 0, 1);                
+        }
+        UpdateSuspicionBar();
     }
 
     // Function to change the state
@@ -144,16 +144,41 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
-    // Function to calculate suspicion bar value
-    public void UpdateSuspicionBar()
+    // Function to check if player is in current enemy's suspicion range
+    public bool IsPlayerInSuspiciousRange()
     {
-        // Detemine the value of suspicion bar
-        if (playerDistance <= minSuspicionDistance)
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
         {
-            currentSuspicionValue = 1 - ((playerDistance - sightRange) / (minSuspicionDistance - sightRange));
-            suspicionBar.SetSuspicion(currentSuspicionValue);
+            if (hit.collider.gameObject == player && Vector3.Distance(this.transform.position, player.transform.position) <= minSuspicionDistance && Vector3.Angle(this.transform.forward, player.transform.position - this.transform.position) <= sightAngle)
+            {
+                return true;
+            }           
+        }
+        return false;
+    }
+
+    // Function to calculate suspicion value
+    private void CalculateSuspicion()
+    {
+        // Detemine the formula of suspicion bar's increment
+        if (currentState.GetName() != "Chase")
+        {
+            //y=log(-9/(k^2)*(x-k)^2+10)
+            currentSuspicionValue = Mathf.Clamp(currentSuspicionValue + Time.deltaTime * IncrementSpeed
+                * (1 -
+                //y=log(-9/(k^2)*(x-k)^2+10)
+                Mathf.Log10(-9 / (minSuspicionDistance * minSuspicionDistance) * (playerDistance - minSuspicionDistance) * (playerDistance - minSuspicionDistance) + 10)), 0, 1);            
         }
     }
+    // Function to update suspicion bar
+    private void UpdateSuspicionBar()
+    {
+        suspicionBar.SetSuspicion(currentSuspicionValue);
+    }
+
+    public float GetSuspicionValue() { return currentSuspicionValue; }
+    public void ResetSuspicionValue() { currentSuspicionValue = 0; }
 
     // Getter and Updaters for waitPointIterator variable
     public int GetWaitPointIterator() { return waitPointIterator; }

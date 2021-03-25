@@ -12,7 +12,7 @@ public class PatrolState : State
     // Previously visited wait point
     //private Vector3 previousPoint;
 
-    public PatrolState(EnemyAI enemy) : base(enemy)
+    public PatrolState(EnemyAI enemy) : base(enemy, "Patrol")
     {
         // Set previous wait point to origin (basically something different than all the wait point values)
         //previousPoint = new Vector3(0.0f, 0.0f, 0.0f);
@@ -54,25 +54,11 @@ public class PatrolState : State
             enemy.ChangeState(new IdleState(enemy));
 
         // If the player is inside the sight distance, sight angle and it can raycast to player
-        if (enemy.IsPlayerInSightDistance() && enemy.IsPlayerInSightAngle() && enemy.IsRaycastToPlayerSuccess())
-        {
-            switch (enemy.tag)
-            {
-                // If Agro then chase by default
-                case "Agro":
-                    enemy.ChangeState(new ChaseState(enemy));
-                    break;
-                // If Passive and player has recipe, then chase
-                case "Passive":
-                    if (enemy.psScript.GetHasRecipe())
-                    {
-                        enemy.ChangeState(new ChaseState(enemy));
-                    }
-                    break;
-                default:
-                    break;
-            }
+        if (enemy.GetSuspicionValue() == 1)
+        {            
+            enemy.ChangeState(new ChaseState(enemy));
         }
+        
     }
 
     public override void OnExit()
