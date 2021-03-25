@@ -23,7 +23,6 @@ public class PlayerStatus : MonoBehaviour
 
     RecipeSystem Recipe;
     TopDownMovement playerMove;
-    EditHUD hudEditor;
 
     // Boolean to check if player has the recipe collected
     [SerializeField]
@@ -42,7 +41,6 @@ public class PlayerStatus : MonoBehaviour
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         Recipe = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RecipeSystem>();
-        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -65,7 +63,7 @@ public class PlayerStatus : MonoBehaviour
     public void LoseLife()
     {
         //Reduces a life, and teleports player to spawn
-        hudEditor.setHUD("Obj","They're suspicious! Get back to work.");
+        GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
         strikes--;
         playerMove.SetCanMove(false);
         Debug.Log(this.gameObject.transform.position);
@@ -73,7 +71,7 @@ public class PlayerStatus : MonoBehaviour
         Debug.Log(this.gameObject.transform.position);
         // Player loses collected recipe
         SetHasRecipe(false);
-        hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
+        Recipe.setObjective("Yeesh, tough crowd. Try again!");
 
         //UI update, based on lives lost
         switch (strikes)
@@ -122,7 +120,7 @@ public class PlayerStatus : MonoBehaviour
         if(GetCanCollect() && Input.GetKeyDown(KeyCode.E))
         {
             SetHasRecipe(true);
-            hudEditor.setHUD("Obj", "You've got the recipe! Get back to your station ASAP.");
+            Recipe.setObjective("You've got the recipe! Get back to your station ASAP.");
         }
         Debug.Log(playerMove.GetCanMove());
     }
