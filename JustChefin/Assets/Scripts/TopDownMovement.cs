@@ -6,13 +6,6 @@ public class TopDownMovement : MonoBehaviour
 {
     // Reference to the character controller
     public CharacterController controller;
-    Transform PlayerTransform;
-
-    //Crouch
-    Vector3 crouchScale = new Vector3(0, 0.3f, 0);
-    Vector3 crouchPos = new Vector3(0, 0.3f, 0);
-    Vector3 defaultPos;
-    bool isCrouching;
 
     // Player movement properties
     public float moveSpeed = 6f;
@@ -28,9 +21,6 @@ public class TopDownMovement : MonoBehaviour
 
     void Start()
     {
-        PlayerTransform = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<Transform>();
-        defaultPos = PlayerTransform.position;
-        isCrouching = false;
         // Initially player can move
         SetCanMove(true);    
     }
@@ -38,6 +28,7 @@ public class TopDownMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(this.gameObject.transform.position);
         // If player is allowed to move
         if (GetCanMove())
         {
@@ -47,16 +38,6 @@ public class TopDownMovement : MonoBehaviour
             verticalSpeed += gravity * Time.deltaTime;
             Vector3 movement = new Vector3(horizontal, 0f, vertical).normalized;
             Vector3 movementY = Vector3.up * verticalSpeed;
-
-            //Crouching
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                //Ternary operators - based on isCrouching, changes scale/ht accordingly. Likewise for movementSpeed.
-                PlayerTransform.localScale += crouchScale * (isCrouching ? 1 : -1);
-                PlayerTransform.position += crouchPos * (isCrouching ? 1 : -1);
-                moveSpeed += (isCrouching ? 3f : -3f);
-                isCrouching= !isCrouching;
-            }
 
             // If the input is significant
             if (movement.magnitude >= 0.1f)

@@ -5,32 +5,42 @@ using UnityEngine;
 public class PatrolState : State
 {
     // Reference to player
-    private GameObject player;
+    /*private GameObject player;
     private Transform playerT;
-    private Transform enemyT;
+    private Transform enemyT;*/
 
     // Previously visited wait point
-    private Vector3 previousPoint;
+    //private Vector3 previousPoint;
 
-    public PatrolState(EnemyAI enemy) : base(enemy)
+    public PatrolState(EnemyAI enemy) : base(enemy, "Patrol")
     {
         // Set previous wait point to origin (basically something different than all the wait point values)
-        previousPoint = new Vector3(0.0f, 0.0f, 0.0f);
+        //previousPoint = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     public override void OnEnter()
     {
         base.OnEnter();
-        MoveToNext();
-        player = enemy.player;
+
+        /*player = enemy.player;
         enemyT = enemy.transform;
-        playerT = enemy.player.transform;
+        playerT = enemy.player.transform;*/
+
         if(enemy.tag == "Agro")
             enemy.GetComponent<Renderer>().material.color = Color.yellow;
         else if(enemy.tag == "Passive")
             enemy.GetComponent<Renderer>().material.color = Color.green;
 
-        //enemy.GetComponent<Renderer>().material.color = Color.green;
+        if (enemy.GetWaitPointIterator() < enemy.waitPoints.Length)
+        {
+            MoveToNext();
+            enemy.IncrementWaitPointIterator();
+        }
+        else
+        {
+            enemy.ResetWaitPointIterator();
+            MoveToNext();
+        }
     }
 
     public override void UpdateState()
@@ -44,25 +54,11 @@ public class PatrolState : State
             enemy.ChangeState(new IdleState(enemy));
 
         // If the player is inside the sight distance, sight angle and it can raycast to player
-        if (enemy.IsPlayerInSightDistance() && enemy.IsPlayerInSightAngle() && enemy.IsRaycastToPlayerSuccess())
-        {
-            switch (enemy.tag)
-            {
-                // If Agro then chase by default
-                case "Agro":
-                    enemy.ChangeState(new ChaseState(enemy));
-                    break;
-                // If Passive and player has recipe, then chase
-                case "Passive":
-                    if (enemy.psScript.GetHasRecipe())
-                    {
-                        enemy.ChangeState(new ChaseState(enemy));
-                    }
-                    break;
-                default:
-                    break;
-            }
+        if (enemy.GetSuspicionValue() == 1)
+        {            
+            enemy.ChangeState(new ChaseState(enemy));
         }
+        
     }
 
     public override void OnExit()
@@ -72,18 +68,19 @@ public class PatrolState : State
 
     // Function to calculate the next wait point for the AI
     void MoveToNext()
-    {
-        Vector3 currentPoint;
+    {   
+        enemy.nmAgent.destination = enemy.waitPoints[enemy.GetWaitPointIterator()].transform.position;
+
+        /*Vector3 currentPoint;
         do
         {
             currentPoint = enemy.waitPoints[Random.Range(0, enemy.waitPoints.Length)].transform.position;
             //Debug.Log("CurrentPoint: " + currentPoint);
         }
         while (currentPoint == previousPoint);
-        
+
         enemy.nmAgent.destination = currentPoint;
         previousPoint = currentPoint;
-        //Debug.Log("PreviousPoint: " + previousPoint);
-
+        //Debug.Log("PreviousPoint: " + previousPoint);*/
     }
 }

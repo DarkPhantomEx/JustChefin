@@ -28,15 +28,11 @@ public class RecipeSystem : MonoBehaviour
     GameObject WinCon;
     [SerializeField]
     GameObject LoseCon;
-
-    EditHUD hudEditor;
-
-
     //TextBoxes
-    //public Text Step;
-    //public Text RecipeName;
-    //[SerializeField]
-    //Text Objective;
+    public Text Step;
+    public Text RecipeName;
+    [SerializeField]
+    Text Objective;
     //public Text Step1;
     //public Text Step2;
     //public Text Step3;
@@ -98,8 +94,7 @@ public class RecipeSystem : MonoBehaviour
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
-        hudEditor = this.gameObject.GetComponent<EditHUD>();
-
+        
         //Attaches EmptyCollider GameObject
         CookingStation = GameObject.FindGameObjectWithTag("CookingStation");
         //Attaches KitchenDoor collider, and makes it so that the player can't leave the kitchen.
@@ -113,7 +108,7 @@ public class RecipeSystem : MonoBehaviour
         WinCon.SetActive(false);
         LoseCon.SetActive(false);
 
-        hudEditor.setHUD("Obj","Get to your station!");
+        setObjective("Get to your station!");
 
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
@@ -142,26 +137,26 @@ public class RecipeSystem : MonoBehaviour
             case 1:
                 //Recipe 1 - Chicken Burger
                 recName.Add("Big Max Burger\n");
-                Instr.Add("Sautee Onions - 15s\n");
-                timer.Add(15);
+                Instr.Add("Step 1: Sautee Onions - 30s\n");
+                timer.Add(30);
                 locID.Add(0);
-                Instr.Add("Grill chicken patty - 1min\n");
+                Instr.Add("Step 2: Grill chicken patty - 1min\n");
                 timer.Add(60);
                 locID.Add(0);
-                Instr.Add("Heat Buns - 20s\n");
+                Instr.Add("Step 3: Heat Buns - 20s\n");
                 timer.Add(20);
                 locID.Add(0);
                     //num of Steps = 3
                 numInstr.Add(3);
                 //Recipe 2 - Veg Burger
                 recName.Add("Gaia's Bounty Burger\n");
-                Instr.Add("Sautee Onions - 15s\n");
-                timer.Add(15);
+                Instr.Add("Step 1: Sautee Onions - 30s\n");
+                timer.Add(30);
                 locID.Add(0);
-                Instr.Add("Prepare veg patty- 1min 10s\n");
+                Instr.Add("Step 2: Prepare veg patty- 1min 10s\n");
                 timer.Add(70);
                 locID.Add(0);
-                Instr.Add("Heat Buns- 20s\n");
+                Instr.Add("Step 3: Heat Buns- 20s\n");
                 timer.Add(20);
                 locID.Add(0);
                     //num of Steps = 3
@@ -202,14 +197,14 @@ public class RecipeSystem : MonoBehaviour
         
         if(!isCooking && canCook)
         {
-            hudEditor.setHUD("Obj","Press 'Q' to Cook!");
+            setObjective("Press 'Q' to Cook!");
         }
 
         
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
         if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
         {
-            hudEditor.setHUD("Obj","Good Job! You can now search the Restaurant for the Hidden Recipe");
+            setObjective("Good Job! You can now search the Restaurant for the Hidden Recipe");
 
             //Player can leave the kitchen
             KitchenDoor.GetComponent<Collider>().isTrigger = true;
@@ -222,7 +217,6 @@ public class RecipeSystem : MonoBehaviour
             }
             //Start the timer for the instruction
             recipeTimer.StartTimer(timer[currRecStart + currInstr]);
-            hudEditor.setHUD("Ins", Instr[currRecStart + currInstr]);
             isCooking = true;
             currInstr++;
                 //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
@@ -234,7 +228,7 @@ public class RecipeSystem : MonoBehaviour
         if (!playerStats.isAlive())
         {
             //Game Over - Loss
-            hudEditor.setHUD("Obj","YOU DIED");
+            setObjective("YOU DIED");
             LoseCon.SetActive(true);
             //Time.timeScale = 0f;
         }
@@ -242,7 +236,7 @@ public class RecipeSystem : MonoBehaviour
         //CheckWinCondition - Player Has Recipe and is back at the kitchen
         if(playerStats.GetHasRecipe() && canCook)
         {
-            hudEditor.setHUD("Obj","Congratulations on a mission well done, Agent Iris!");
+            setObjective("Congratulations on a mission well done, Agent Iris!");
             WinCon.SetActive(true);
             //Time.timeScale = 0f;
             //Game Over - Win
@@ -250,9 +244,14 @@ public class RecipeSystem : MonoBehaviour
 
         if(recipeTimer.GetTimerState() && recipeTimer.GetTime() <=5)
         {
-            hudEditor.setHUD("Obj","Get back to your cooking station!");            
+                setObjective("Get back to your cooking station!");            
         }
 
+    }
+
+    public void setObjective(string text)
+    {
+        Objective.text = text;
     }
 
     //Loads Next Recipe
@@ -266,17 +265,15 @@ public class RecipeSystem : MonoBehaviour
         //Finds the Starting point of current recipe's instructions
         GetCurrRecStart();
         //Sets RecipeUI with the current recipe
-        hudEditor.setHUD("Ins",null);
-        hudEditor.setHUD("Rec",recName[currRec]);
-
-        hudEditor.setHUD("Ins", Instr[currRecStart]);
-
-        //for (int i = 0; i < numInstr[currRec]; i++)
-        //{
-        //    hudEditor.setHUD("+Ins", Instr[currRecStart + i]);
-        //}
+        Step.text = null;
+        RecipeName.text = recName[currRec];
+        
+        for (int i = 0; i < numInstr[currRec]; i++)
+        {
+            Step.text += Instr[currRecStart + i];
+        }
         //Starts Timer
-        //recipeTimer.StartTimer(timer[currRecStart]);
+            //recipeTimer.StartTimer(timer[currRecStart]);
     }
 
     //Finds the Starting point of the instructions for the current recipe, by adding the num of instructions of the previous ones
