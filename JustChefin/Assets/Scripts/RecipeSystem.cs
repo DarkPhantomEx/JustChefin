@@ -209,7 +209,7 @@ public class RecipeSystem : MonoBehaviour
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
         if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
         {
-            hudEditor.setHUD("Obj","Good Job! You can now search the Restaurant for the Hidden Recipe");
+            hudEditor.setHUD("Obj","Good Job! You can now search the Restaurant!");
 
             //Player can leave the kitchen
             KitchenDoor.GetComponent<Collider>().isTrigger = true;
