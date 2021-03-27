@@ -6,12 +6,12 @@ public class CollectRecipe : MonoBehaviour
 {
     // Reference to PlayerStatus script to be used for handling player recipe possession
     PlayerStatus psScript;
-    RecipeSystem Recipe;
+    EditHUD hudEditor;
     // Start is called before the first frame update
     void Start()
     {
         psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
-        Recipe = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RecipeSystem>();
+        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class CollectRecipe : MonoBehaviour
         {
             // Player can collect recipe
             psScript.SetCanCollect(true);
-            Recipe.setObjective("Press 'E' to steal the recipe!");
+            hudEditor.setHUD("Obj", "Press 'E' to steal the recipe!");
 
         }
     }

@@ -47,47 +47,4 @@ public class EditHUD : MonoBehaviour
     {
         return Timer.text;
     }
-    //public void setObjective(string toPrint)
-    //{
-    //    Objective.text = toPrint;
-    //}
-
-    //public void setRecipeName(string toPrint)
-    //{
-    //    RecipeName.text = toPrint;
-    //}
-
-    //public void setInstr(string toPrint)
-    //{
-    //    Instr.text = toPrint;
-    //}
-
-    //public void setInstr(char add, string toPrint)
-    //{
-    //    if (add == '+')
-    //    {
-    //        Instr.text += toPrint;
-    //    }
-    //    else
-    //    {
-    //        Debug.LogError("Invalid operator, sorry");
-    //    }
-        
-    //}
-
-    //public void setTimerText(string toPrint)
-    //{
-    //    Timer.text = toPrint;
-    //}
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -5,11 +5,11 @@ using UnityEngine;
 public class AgroWarning : MonoBehaviour
 {
 
-    RecipeSystem Recipe;
+    EditHUD hudEditor;
     // Start is called before the first frame update
     void Start()
     {
-        Recipe = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RecipeSystem>();
+        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -17,7 +17,7 @@ public class AgroWarning : MonoBehaviour
         if(collider.tag == "MainPlayer")
         {
             Debug.Log("AGRO");
-            Recipe.setObjective("Watch out! The manager doesn't like uninvited guests.");
+            hudEditor.setHUD("Obj","Watch out! The manager doesn't like uninvited guests.");
         }
     }
 
