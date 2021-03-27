@@ -63,7 +63,7 @@ public class PlayerStatus : MonoBehaviour
     public void LoseLife()
     {
         //Reduces a life, and teleports player to spawn
-        GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "They're suspicious! Get back to work.";
+        hudEditor.setHUD("Obj","They're suspicious! Get back to work.");
         strikes--;
         playerMove.SetCanMove(false);
         Debug.Log(this.gameObject.transform.position);

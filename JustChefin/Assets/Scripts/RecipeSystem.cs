@@ -48,6 +48,7 @@ public class RecipeSystem : MonoBehaviour
     public List<int> numInstr;
     public List<int> locID;    
     public List<string> Instr;    
+    public List<string> ingInstr;    
     public List<int> timer;
     public List<string> recName;
     public int numRec;
@@ -75,8 +76,14 @@ public class RecipeSystem : MonoBehaviour
     public bool canCook;
     //Bool to check if cooking is currently taking place
     public bool isCooking;
+
+
     //Bool to check if this is the first cooking interaction
-    public bool firstCook;
+    //public bool firstCook;
+    int cookNo;
+
+
+    bool instrComplete;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +101,7 @@ public class RecipeSystem : MonoBehaviour
         currRecStart = 0;
         canCook = false;
         isCooking = false;
+        cookNo = 0;
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
@@ -142,12 +150,15 @@ public class RecipeSystem : MonoBehaviour
                 //Recipe 1 - Chicken Burger
                 recName.Add("Big Max Burger\n");
                 Instr.Add("Sautee Onions - 15s\n");
+                ingInstr.Add("Sauteeing Onions - 15s\n");
                 timer.Add(15);
                 locID.Add(0);
                 Instr.Add("Grill chicken patty - 1min\n");
+                ingInstr.Add("Grilling chicken patty - 1min\n");
                 timer.Add(60);
                 locID.Add(0);
                 Instr.Add("Heat Buns - 20s\n");
+                ingInstr.Add("Heating Buns - 20s\n");
                 timer.Add(20);
                 locID.Add(0);
                     //num of Steps = 3
@@ -155,12 +166,15 @@ public class RecipeSystem : MonoBehaviour
                 //Recipe 2 - Veg Burger
                 recName.Add("Gaia's Bounty Burger\n");
                 Instr.Add("Sautee Onions - 15s\n");
+                ingInstr.Add("Sauteeing Onions - 15s\n");
                 timer.Add(15);
                 locID.Add(0);
                 Instr.Add("Prepare veg patty- 1min 10s\n");
+                ingInstr.Add("Preparing veg patty- 1min 10s\n");
                 timer.Add(70);
                 locID.Add(0);
                 Instr.Add("Heat Buns- 20s\n");
+                ingInstr.Add("Heating Buns- 20s\n");
                 timer.Add(20);
                 locID.Add(0);
                     //num of Steps = 3
@@ -194,21 +208,32 @@ public class RecipeSystem : MonoBehaviour
     void Update()
     {
         //If the timer isn't counting down, that means the player isn't coooking
-        if (!recipeTimer.GetTimerState())
+        if (!recipeTimer.GetTimerState() && cookNo > 0)
         {
             isCooking = false;
+            //Subtracting by 1, as currInstr was incremented when cooking started
+            if(currInstr >= numInstr[currRec])
+            {
+                hudEditor.setHUD("Ins","Order fulfilled.\nYour next order awaits!");
+            }
+            else
+            {
+                hudEditor.setHUD("Ins", Instr[currRecStart + currInstr]);
+            }
         }
         
         if(!isCooking && canCook)
         {
-            hudEditor.setHUD("Obj","Press 'Q' to Cook!");
+            hudEditor.setHUD("Obj","Press 'E' to Cook!");            
         }
 
         
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
-        if(canCook && !isCooking && Input.GetKeyDown(KeyCode.Q))
+        if(canCook && !isCooking && Input.GetKeyDown(KeyCode.E))
         {
+            cookNo++;
             hudEditor.setHUD("Obj", "Good Job! You can now search the Restaurant for the Hidden Recipe");
+            //hudEditor.setHUD("Ins", ingInstr[currRec + currInstr]);
 
             //Player can leave the kitchen
             KitchenDoor.GetComponent<Collider>().isTrigger = true;
@@ -221,11 +246,12 @@ public class RecipeSystem : MonoBehaviour
             }
             //Start the timer for the instruction
             recipeTimer.StartTimer(timer[currRecStart + currInstr]);
-            hudEditor.setHUD("Ins", Instr[currRecStart + currInstr]);
+            hudEditor.setHUD("Ins", ingInstr[currRecStart + currInstr]);
             isCooking = true;
             currInstr++;
                 //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
-        }        
+        }
+               
 
         //CheckLoseCondition - Player is Dead
         if (!playerStats.isAlive())
@@ -302,6 +328,7 @@ public class RecipeSystem : MonoBehaviour
         FileIO.LoadRecipeData(ref Recette);
         this.locID = new List<int>(Recette.locID);
         this.Instr = new List<string>(Recette.Instr);
+        this.ingInstr = new List<string>(Recette.ingInstr);
         this.timer = new List<int>(Recette.timer);
         this.numInstr = new List<int>(Recette.numInstr);
         this.numRec = Recette.numRec;
