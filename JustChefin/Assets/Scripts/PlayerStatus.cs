@@ -27,9 +27,8 @@ public class PlayerStatus : MonoBehaviour
     // Boolean to check if player has the recipe collected
     [SerializeField]
     bool HasRecipe;
-    // Boolean to check if player is standing on the recipe collect trigger
-    [SerializeField]
-    bool canCollect;
+
+    CollectRecipe crScript;
 
     // Array of all the enemies in the scene (to be set in the editor)
     public EnemyAI[] enemy;
@@ -41,6 +40,7 @@ public class PlayerStatus : MonoBehaviour
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
+        crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -69,8 +69,11 @@ public class PlayerStatus : MonoBehaviour
         Debug.Log(this.gameObject.transform.position);
         this.gameObject.transform.position = PlayerSpawn;
         Debug.Log(this.gameObject.transform.position);
+
         // Player loses collected recipe
         SetHasRecipe(false);
+        crScript.EnableSignatureRecipeMesh();
+        crScript.startSignatureRecipeParticle();
         hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
 
         //UI update, based on lives lost
@@ -117,19 +120,10 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetCanCollect() && Input.GetKeyDown(KeyCode.E))
-        {
-            SetHasRecipe(true);
-            hudEditor.setHUD("Obj","You've got the recipe! Get back to your station ASAP.");
-        }
-        Debug.Log(playerMove.GetCanMove());
+        //Debug.Log(playerMove.GetCanMove());
     }
 
     // Getter and Setter for signature recipe possession
     public bool GetHasRecipe() { return HasRecipe; }
     public void SetHasRecipe(bool HasRecipe) { this.HasRecipe = HasRecipe; }
-
-    // Getter and Setter for ability to collect recipe
-    public bool GetCanCollect() { return canCollect; }
-    public void SetCanCollect(bool canCollect) { this.canCollect = canCollect; }
 }
