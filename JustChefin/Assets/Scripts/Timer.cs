@@ -33,7 +33,6 @@ public class Timer : MonoBehaviour
     //Defines the max value for the slider when starting it up
     public void defSlider(int max)
     {
-        Debug.Log("Entered defSlider");
         timerSlider.minValue = 0;
         timerSlider.maxValue = max;
         timerSlider.value = max;
@@ -43,10 +42,8 @@ public class Timer : MonoBehaviour
     //Updates current value of slider
     public void setSlider(int val)
     {
-        Debug.Log("Entered setSlider");
         FillColor.color = timerBarGrad.Evaluate(timerSlider.normalizedValue);
         timerSlider.value = Mathf.Lerp(timerSlider.value, val, Time.deltaTime * lerpSpeed);
-        Debug.Log("Slider val:" + timerSlider.value);
     }
 
 
