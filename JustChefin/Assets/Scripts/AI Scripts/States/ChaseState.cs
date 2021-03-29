@@ -27,13 +27,13 @@ public class ChaseState : State
         //Debug.DrawRay(enemyT.position, playerT.position - enemyT.position, Color.red);
 
         // Move towards the player and stay away 1 unit distance
-        enemy.nmAgent.destination = playerT.transform.position - enemyT.forward;
+        enemy.nmAgent.destination = playerT.position - enemyT.forward;
         // Stop player movement
         enemy.tdmScript.SetCanMove(false);
 
         // If it reaches the patrol point, change state to idle
         //Debug.Log(enemy.nmAgent.pathPending + " " + enemy.nmAgent.remainingDistance);
-        if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance <= 0f)// BUG HERE
+        if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance <= 2f)// BUG HERE
         {
             enemy.psScript.LoseLife();
         }
