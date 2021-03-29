@@ -53,7 +53,7 @@ public class PatrolState : State
         if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance == 0f)
             enemy.ChangeState(new IdleState(enemy));
 
-        // If the player is inside the sight distance, sight angle and it can raycast to player
+        // If the suspicion bar gets completely filled
         if (enemy.GetSuspicionValue() == 1)
         {            
             enemy.ChangeState(new ChaseState(enemy));

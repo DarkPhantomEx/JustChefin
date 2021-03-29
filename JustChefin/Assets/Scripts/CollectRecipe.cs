@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Script that handles collection/stealing of the signature recipe collectible
+ */
+
 public class CollectRecipe : MonoBehaviour
 {
     // Reference to PlayerStatus script to be used for handling player recipe possession

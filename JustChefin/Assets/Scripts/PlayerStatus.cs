@@ -117,11 +117,6 @@ public class PlayerStatus : MonoBehaviour
     {
         return !isDead;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(playerMove.GetCanMove());
-    }
 
     // Getter and Setter for signature recipe possession
     public bool GetHasRecipe() { return HasRecipe; }

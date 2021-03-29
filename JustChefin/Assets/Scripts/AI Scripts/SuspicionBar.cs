@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/* Script that manages updating the values of the suspicion bar */
+
 public class SuspicionBar : MonoBehaviour
 {
     public Slider slider;

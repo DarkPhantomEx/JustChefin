@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour
         Debug.Log("Entered setSlider");
         FillColor.color = timerBarGrad.Evaluate(timerSlider.normalizedValue);
         timerSlider.value = Mathf.Lerp(timerSlider.value, val, Time.deltaTime * lerpSpeed);
-        Debug.Log("Slider val:" + timerSlider.value);
+        //Debug.Log("Slider val:" + timerSlider.value);
     }
 
 

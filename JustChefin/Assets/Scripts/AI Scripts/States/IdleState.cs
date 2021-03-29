@@ -35,8 +35,8 @@ public class IdleState : State
         if (timer >= enemy.idleTime)
             enemy.ChangeState(new PatrolState(enemy));
 
-        // If the player is inside the sight distance, sight angle and it can raycast to player
-         if (enemy.GetSuspicionValue() == 1)
+        // If the suspicion bar gets completely filled
+        if (enemy.GetSuspicionValue() == 1)
         {            
             enemy.ChangeState(new ChaseState(enemy));
         }

@@ -30,12 +30,12 @@ public class ChaseState : State
         enemy.nmAgent.destination = playerT.transform.position - enemyT.forward;
         // Stop player movement
         enemy.tdmScript.SetCanMove(false);
+
         // If it reaches the patrol point, change state to idle
-        Debug.Log(enemy.nmAgent.pathPending + " " + enemy.nmAgent.remainingDistance);
+        //Debug.Log(enemy.nmAgent.pathPending + " " + enemy.nmAgent.remainingDistance);
         if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance <= 0f)// BUG HERE
         {
             enemy.psScript.LoseLife();
-            //enemy.tdmScript.SetCanMove(true);
         }
     }
 
