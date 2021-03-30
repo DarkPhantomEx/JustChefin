@@ -76,14 +76,14 @@ public class RecipeSystem : MonoBehaviour
     public bool canCook;
     //Bool to check if cooking is currently taking place
     public bool isCooking;
+    //Bool to check if player is in the kitchen
+    public bool inKitchen;
 
 
     //Bool to check if this is the first cooking interaction
     //public bool firstCook;
     int cookNo;
 
-
-    bool instrComplete;
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +102,7 @@ public class RecipeSystem : MonoBehaviour
         canCook = false;
         isCooking = false;
         cookNo = 0;
+        inKitchen = false;
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
