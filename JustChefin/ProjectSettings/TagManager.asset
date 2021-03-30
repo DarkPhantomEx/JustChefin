@@ -19,6 +19,7 @@ TagManager:
   - OfficeDoor
   - TimerBar
   - DiningRoom
+  - Roof
   layers:
   - Default
   - TransparentFX

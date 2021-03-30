@@ -42,6 +42,7 @@ public class TopDownMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.DrawRay(this.transform.position, this.transform.up * 10f, Color.green);
         //Debug.Log(this.gameObject.transform.position);
         // If player is allowed to move
         if (GetCanMove())
