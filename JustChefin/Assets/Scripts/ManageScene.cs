@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ManageScene : MonoBehaviour
@@ -10,6 +11,12 @@ public class ManageScene : MonoBehaviour
 
     [SerializeField]
     GameObject PauseUI;
+    [SerializeField]
+    GameObject EndUI;
+    [SerializeField]
+    GameObject NextLevel;
+
+    EditHUD hudEditor;
 
     public void LoadLevel(int levelIndex)
     {
@@ -28,12 +35,33 @@ public class ManageScene : MonoBehaviour
         Application.Quit();
     }
 
+    public void EndScreen(int Header, string Body)
+    {
+        //Loss
+        if(Header == 0)
+        {
+            //NextLevel.SetActive(false);
+            hudEditor.setHUD("EndH", "Mission Failed!");
+        }
+        if (Header == 1)
+        {
+            //NextLevel.SetActive(true);
+            hudEditor.setHUD("EndH", "Mission Successful!");
+        }
+        hudEditor.setHUD("EndB", Body);
+        EndUI.SetActive(true);
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         isPaused = false;
         PauseUI = GameObject.FindGameObjectWithTag("PauseScreen");
+        EndUI = GameObject.FindGameObjectWithTag("EndScreen");
+        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();        
         PauseUI.SetActive(false);
+        EndUI.SetActive(false);
     }
 
     // Update is called once per frame

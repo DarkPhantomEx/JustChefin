@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class EditHUD : MonoBehaviour
@@ -16,6 +17,14 @@ public class EditHUD : MonoBehaviour
     Text RecipeName;
     [SerializeField]
     Text Timer;
+    [SerializeField]
+    GameObject EndHead;
+    [SerializeField]
+    TextMeshProUGUI EndHeadT;
+    [SerializeField]
+    GameObject EndBody;
+    [SerializeField]
+    TextMeshProUGUI EndBodyT;
     //[SerializeField]
     //int objCount;
 
@@ -60,6 +69,11 @@ public class EditHUD : MonoBehaviour
             case "Tim":
                 Timer.text = toPrint;
                 break;
+
+            case "EndH": EndHeadT.text = toPrint;
+                break;
+            case "EndB":EndBodyT.text = toPrint;
+                break;
             default:
                 Debug.LogError("Incorrect TextBox type. Sorry");
                 break;
@@ -81,7 +95,9 @@ public class EditHUD : MonoBehaviour
 
     void Start()
     {
+        EndBodyT = EndBody.GetComponent<TextMeshProUGUI>();
+        EndHeadT = EndHead.GetComponent<TextMeshProUGUI>();
         //objCount = 1;
         Objective.SetActive(false);
-    }
+    }    
 }
