@@ -20,6 +20,7 @@ TagManager:
   - TimerBar
   - DiningRoom
   - Roof
+  - EndScreen
   layers:
   - Default
   - TransparentFX

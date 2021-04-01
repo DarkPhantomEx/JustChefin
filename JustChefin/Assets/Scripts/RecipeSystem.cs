@@ -30,7 +30,7 @@ public class RecipeSystem : MonoBehaviour
     GameObject LoseCon;
 
     EditHUD hudEditor;
-    
+    ManageScene sceneManager;
     ////TextBoxes
     //public Text Step;
     //public Text RecipeName;
@@ -79,6 +79,8 @@ public class RecipeSystem : MonoBehaviour
     //Bool to check if player is in the kitchen
     public bool inKitchen;
 
+    public bool isEndScreenOpen;
+
 
     //Bool to check if this is the first cooking interaction
     //public bool firstCook;
@@ -103,10 +105,12 @@ public class RecipeSystem : MonoBehaviour
         isCooking = false;
         cookNo = 0;
         inKitchen = false;
+        isEndScreenOpen = false;
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
         hudEditor = this.gameObject.GetComponent<EditHUD>();
+        sceneManager = this.gameObject.GetComponent<ManageScene>();
 
         //Attaches EmptyCollider GameObject
         CookingStation = GameObject.FindGameObjectWithTag("CookingStation");
@@ -115,11 +119,11 @@ public class RecipeSystem : MonoBehaviour
         KitchenDoor.GetComponent<Collider>().isTrigger = false;
         //Gets access to PlayerStatus from the TopDownPlayer gameobject
         playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
-        WinCon = GameObject.FindGameObjectWithTag("WinScreen");
-        LoseCon = GameObject.FindGameObjectWithTag("LoseScreen");
+        //WinCon = GameObject.FindGameObjectWithTag("WinScreen");
+        //LoseCon = GameObject.FindGameObjectWithTag("LoseScreen");
 
-        WinCon.SetActive(false);
-        LoseCon.SetActive(false);
+        //WinCon.SetActive(false);
+        //LoseCon.SetActive(false);
 
         hudEditor.setHUD("ObjC", "Get to your station!");
 
@@ -257,17 +261,31 @@ public class RecipeSystem : MonoBehaviour
         //CheckLoseCondition - Player is Dead
         if (!playerStats.isAlive())
         {
-            //Game Over - Loss
-            hudEditor.setHUD("Obj", "YOU DIED");
-            LoseCon.SetActive(true);
-            //Time.timeScale = 0f;
+            if (isEndScreenOpen == false)
+            {
+                isEndScreenOpen = true;
+                //Game Over - Loss
+                //hudEditor.setHUD("Obj", "YOU DIED");
+                //LoseCon.SetActive(true);
+                sceneManager.EndScreen(0, "You were considered suspicious, and were fired. Try again, Agent Iris!");
+                Time.timeScale = 0f;
+            }
         }
 
         //CheckWinCondition - Player Has Recipe and is back at the kitchen
         if(playerStats.GetHasRecipe() && canCook)
         {
-            hudEditor.setHUD("Obj", "Congratulations on a mission well done, Agent Iris!");
-            WinCon.SetActive(true);
+            if (isEndScreenOpen == false)
+            {
+                isEndScreenOpen = true;
+                //Game Over - Win
+                //hudEditor.setHUD("Obj", "Congratulations on a mission well done, Agent Iris!");
+                //WinCon.SetActive(true);
+                sceneManager.EndScreen(1, "Congratulations on a mission well done, Agent Iris!");
+                Time.timeScale = 0f;
+            }
+            //hudEditor.setHUD("Obj", "Congratulations on a mission well done, Agent Iris!");
+            //WinCon.SetActive(true);
             //Time.timeScale = 0f;
             //Game Over - Win
         }

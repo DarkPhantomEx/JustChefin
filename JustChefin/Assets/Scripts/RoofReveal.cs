@@ -6,11 +6,17 @@ public class RoofReveal : MonoBehaviour
 {
     private GameObject player;
     private Vector3 RaycastPointOffset;
+    Renderer rend;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("TopDownPlayer");
+        rend = gameObject.GetComponent<Renderer>();
+        //rend.material.shader = Shader.Find("Transparent/Diffuse");
+        Color tempColor = rend.material.color;
+        tempColor.a = 0.93f;
+        rend.material.color = tempColor;
         // Height of the point to start raycasting from
         RaycastPointOffset = new Vector3(0f, 10f, 0f);
     }
