@@ -1261,7 +1261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: -1.0922546}
+  m_AnchoredPosition: {x: 0, y: -1.0922852}
   m_SizeDelta: {x: 0.00024414062, y: 2.1846313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152071340
@@ -3430,7 +3430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &461193016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6994,7 +6994,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0515fc4fbac81534b91643032c17b49d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7035,6 +7035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe2fdfb70227984b9651ac278e4f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shader: {fileID: 0}
 --- !u!1 &868435631
 GameObject:
   m_ObjectHideFlags: 0
@@ -8213,13 +8214,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.46738526, y: -0, z: -0, w: 0.8840538}
-  m_LocalPosition: {x: -263.499, y: 10.97, z: 251.16}
+  m_LocalRotation: {x: 0.5009517, y: -0, z: -0, w: 0.86547524}
+  m_LocalPosition: {x: -263.499, y: 10.76, z: 250.77}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 55.729004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.126003, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11674,7 +11675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0.0007324219}
+  m_AnchoredPosition: {x: 0, y: 0.0007324219}
   m_SizeDelta: {x: 0.00024414062, y: 4.3702393}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1120948154
@@ -14775,7 +14776,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0515fc4fbac81534b91643032c17b49d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14816,6 +14817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe2fdfb70227984b9651ac278e4f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shader: {fileID: 0}
 --- !u!1 &1432770542
 GameObject:
   m_ObjectHideFlags: 0
@@ -15942,7 +15944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0018310547, y: -38.7312}
+  m_AnchoredPosition: {x: 0.001953125, y: -38.7312}
   m_SizeDelta: {x: 0.0036621094, y: -416.18268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1515888825
@@ -21023,7 +21025,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0515fc4fbac81534b91643032c17b49d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21064,6 +21066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe2fdfb70227984b9651ac278e4f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shader: {fileID: 0}
 --- !u!1001 &1973185096
 PrefabInstance:
   m_ObjectHideFlags: 0
