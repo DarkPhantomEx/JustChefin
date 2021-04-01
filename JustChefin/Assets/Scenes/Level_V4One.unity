@@ -1261,7 +1261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: -1.0922852}
+  m_AnchoredPosition: {x: -0.00012207031, y: -1.0922546}
   m_SizeDelta: {x: 0.00024414062, y: 2.1846313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152071340
@@ -2223,10 +2223,10 @@ RectTransform:
   m_Father: {fileID: 1513100040}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1054.8, y: 364.01}
-  m_SizeDelta: {x: 137.35544, y: 137.35544}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 106.83002, y: -54}
+  m_SizeDelta: {x: 113.34412, y: 98.66522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293049992
 MonoBehaviour:
@@ -3430,7 +3430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &461193016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11446,10 +11446,10 @@ RectTransform:
   m_Father: {fileID: 1513100040}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 861.18, y: 364.00983}
-  m_SizeDelta: {x: 137.35544, y: 137.35544}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -110.83002, y: -54}
+  m_SizeDelta: {x: 113.34412, y: 98.66522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109571143
 MonoBehaviour:
@@ -13823,7 +13823,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh671622
+  m_Name: pb_Mesh14932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15942,7 +15942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0018310547, y: -38.731018}
+  m_AnchoredPosition: {x: 0.0018310547, y: -38.7312}
   m_SizeDelta: {x: 0.0036621094, y: -416.18268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1515888825
