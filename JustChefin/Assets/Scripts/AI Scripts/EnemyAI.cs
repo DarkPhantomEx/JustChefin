@@ -142,11 +142,16 @@ public class EnemyAI : MonoBehaviour
         // Detemine the formula of suspicion bar's increment
         if (currentState.GetName() != "Chase")
         {
-            //y=log(-9/(k^2)*(x-k)^2+10)
-            currentSuspicionValue = Mathf.Clamp(currentSuspicionValue + Time.deltaTime * IncrementSpeed
-                * (1 -
+            if (playerDistance <= 3)
+                currentSuspicionValue = 1;
+            else
+            {
                 //y=log(-9/(k^2)*(x-k)^2+10)
-                Mathf.Log10(-9 / (minSuspicionDistance * minSuspicionDistance) * (playerDistance - minSuspicionDistance) * (playerDistance - minSuspicionDistance) + 10)), 0, 1);            
+                currentSuspicionValue = Mathf.Clamp(currentSuspicionValue + Time.deltaTime * IncrementSpeed
+                    * (1 -
+                    //y=log(-9/(k^2)*(x-k)^2+10)
+                    Mathf.Log10(-9 / (minSuspicionDistance * minSuspicionDistance) * (playerDistance - minSuspicionDistance) * (playerDistance - minSuspicionDistance) + 10)), 0, 1);
+            }           
         }
     }
     // Function to update suspicion bar
