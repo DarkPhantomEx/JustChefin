@@ -35,7 +35,7 @@ public class RecipeSystem : MonoBehaviour
     //public Text Step;
     //public Text RecipeName;
     //[SerializeField]
-    //Text Objective;
+    //Text ObjectiveBody;
     //public Text Step1;
     //public Text Step2;
     //public Text Step3;
@@ -121,7 +121,7 @@ public class RecipeSystem : MonoBehaviour
         WinCon.SetActive(false);
         LoseCon.SetActive(false);
 
-        hudEditor.setHUD("Obj", "Get to your station!");
+        hudEditor.setHUD("ObjC", "Get to your station!");
 
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
@@ -229,11 +229,11 @@ public class RecipeSystem : MonoBehaviour
         }
 
         
-        //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing Q they start the timer
+        //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing E they start the timer
         if(canCook && !isCooking && Input.GetKeyDown(KeyCode.E))
         {
             cookNo++;
-            hudEditor.setHUD("Obj", "Good Job! You can now search the Restaurant for the Hidden Recipe");
+            hudEditor.setHUD("ObjC", "Good Job! You can now search the Restaurant for the Hidden Recipe");
             //hudEditor.setHUD("Ins", ingInstr[currRec + currInstr]);
 
             //Player can leave the kitchen
