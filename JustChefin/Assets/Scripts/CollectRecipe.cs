@@ -32,7 +32,7 @@ public class CollectRecipe : MonoBehaviour
         if (GetCanCollect() && Input.GetKeyDown(KeyCode.E))
         {
             psScript.SetHasRecipe(true);
-            hudEditor.setHUD("Obj", "You've got the recipe! Get back to your station ASAP.");
+            hudEditor.setHUD("ObjC", "You've got the recipe! Get back to your station ASAP.");
             DisableSignatureRecipeMesh();
             stopSignatureRecipeParticle();
         }

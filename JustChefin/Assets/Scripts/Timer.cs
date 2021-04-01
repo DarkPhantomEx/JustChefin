@@ -95,7 +95,7 @@ public class Timer : MonoBehaviour
     {
         //    if(isCountingDown && time<= 7.0f)
         //    {
-        //        GameObject.FindGameObjectWithTag("Objective").GetComponent<Text>().text = "Get back to the kitchen, before time runs out!";
+        //        GameObject.FindGameObjectWithTag("ObjectiveBody").GetComponent<Text>().text = "Get back to the kitchen, before time runs out!";
         //    }
 
         if (isCountingDown && time > 0.0f)

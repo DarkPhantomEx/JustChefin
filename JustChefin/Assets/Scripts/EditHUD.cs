@@ -7,20 +7,43 @@ public class EditHUD : MonoBehaviour
 {
     //All the HUD text elements can be edited through this script
     [SerializeField]
-    Text Objective;
+    Text ObjectiveBody;
+    [SerializeField]
+    GameObject Objective;
     [SerializeField]
     Text Instr;
     [SerializeField]
     Text RecipeName;
     [SerializeField]
     Text Timer;
+    //[SerializeField]
+    //int objCount;
+
+
+    private IEnumerator coroutine;
 
     public void setHUD(string HUDBox, string toPrint)
     {
+        
+
         switch (HUDBox)
         {
+            case "ObjC":
+                //++objCount;
+                Objective.SetActive(true);
+                ObjectiveBody.text = toPrint;
+                coroutine = fadeObj(4);
+                StartCoroutine(coroutine);
+                Debug.Log("Coroutine Begins");
+                //if (objCount == 0)
+                //{
+                //    Objective.SetActive(false);
+                //}
+                break;
+
             case "Obj":
-                Objective.text = toPrint;
+                Objective.SetActive(true);
+                ObjectiveBody.text = toPrint;
                 break;
 
             case "Ins":
@@ -46,5 +69,19 @@ public class EditHUD : MonoBehaviour
     public string getTimerText()
     {
         return Timer.text;
+    }
+
+    IEnumerator fadeObj(int waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        //objCount--;
+        Objective.SetActive(false);
+        Debug.Log("Coroutine complete");
+    }
+
+    void Start()
+    {
+        //objCount = 1;
+        Objective.SetActive(false);
     }
 }

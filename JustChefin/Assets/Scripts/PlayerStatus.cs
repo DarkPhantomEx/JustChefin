@@ -63,7 +63,7 @@ public class PlayerStatus : MonoBehaviour
     public void LoseLife()
     {
         //Reduces a life, and teleports player to spawn
-        hudEditor.setHUD("Obj","They're suspicious! Get back to work.");
+        hudEditor.setHUD("ObjC","They're suspicious! Get back to work.");
         strikes--;
         playerMove.SetCanMove(false);
         Debug.Log(this.gameObject.transform.position);
@@ -74,7 +74,7 @@ public class PlayerStatus : MonoBehaviour
         SetHasRecipe(false);
         crScript.EnableSignatureRecipeMesh();
         crScript.startSignatureRecipeParticle();
-        hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
+        //hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
 
         //UI update, based on lives lost
         switch (strikes)
