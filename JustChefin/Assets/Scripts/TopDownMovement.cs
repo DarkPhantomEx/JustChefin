@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TopDownMovement : MonoBehaviour
 {
@@ -75,6 +76,14 @@ public class TopDownMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 // Move the player based on movement input
                 controller.Move((movementY + (movement * moveSpeed)) * Time.deltaTime);
+
+                // Disable Nav Mesh Obstacle when moving
+                this.GetComponent<NavMeshObstacle>().enabled = false;
+            }
+            else
+            {
+                // Enable Nav Mesh Obstacle when NOT moving
+                this.GetComponent<NavMeshObstacle>().enabled = true;
             }
         }
     }
