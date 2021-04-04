@@ -82,7 +82,7 @@ public class TopDownMovement : MonoBehaviour
             }
             else
             {
-                // Enable Nav Mesh Obstacle when NOT moving
+                // Enable Nav Mesh Obstacle when stationary
                 this.GetComponent<NavMeshObstacle>().enabled = true;
             }
         }
