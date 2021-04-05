@@ -19,8 +19,10 @@ TagManager:
   - OfficeDoor
   - TimerBar
   - DiningRoom
-  - Roof
   - EndScreen
+  - Roof,Big
+  - Roof,Medium
+  - Roof,Small
   layers:
   - Default
   - TransparentFX

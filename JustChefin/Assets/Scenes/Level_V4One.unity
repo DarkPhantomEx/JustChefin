@@ -9599,7 +9599,7 @@ GameObject:
   - component: {fileID: 860158795}
   m_Layer: 0
   m_Name: OfficeRoof
-  m_TagString: Roof
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9690,6 +9690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe2fdfb70227984b9651ac278e4f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tdmScript: {fileID: 0}
 --- !u!1 &868435631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10869,7 +10870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5009517, y: -0, z: -0, w: 0.86547524}
-  m_LocalPosition: {x: -263.499, y: 10.76, z: 250.77}
+  m_LocalPosition: {x: -262.81, y: 10.78, z: 250.81}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10889,6 +10890,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 819964797}
   smoothFactor: 1
+  tdmScript: {fileID: 0}
+  rrScript: {fileID: 0}
+  roofTag: 
 --- !u!1 &971569028
 GameObject:
   m_ObjectHideFlags: 0
@@ -17652,7 +17656,7 @@ GameObject:
   - component: {fileID: 1431455529}
   m_Layer: 0
   m_Name: LockerRoof
-  m_TagString: Roof
+  m_TagString: Roof,Medium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17743,6 +17747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe2fdfb70227984b9651ac278e4f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tdmScript: {fileID: 0}
 --- !u!1 &1432770542
 GameObject:
   m_ObjectHideFlags: 0
@@ -24138,7 +24143,7 @@ GameObject:
   - component: {fileID: 1967859752}
   m_Layer: 0
   m_Name: DiningRoof
-  m_TagString: Roof
+  m_TagString: Roof,Big
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24229,6 +24234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe2fdfb70227984b9651ac278e4f81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tdmScript: {fileID: 0}
 --- !u!1001 &1973185096
 PrefabInstance:
   m_ObjectHideFlags: 0

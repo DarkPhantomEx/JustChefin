@@ -28,6 +28,9 @@ public class TopDownMovement : MonoBehaviour
    //Vector3 defaultPos;
     bool isCrouching;
 
+    private Vector3 RaycastPointOffset;
+    private Vector3 pointToRaycastFrom;
+
     void Start()
     {
         //Initializes PlayerTransform to Transform of the PlayerCharacter, also saves teh default position
@@ -35,9 +38,11 @@ public class TopDownMovement : MonoBehaviour
         //defaultPos = PlayerTransform.position;
         isCrouching = false;
 
-
         // Initially player can move
-        SetCanMove(true);    
+        SetCanMove(true);
+
+        // Height of the point to start raycasting from
+        RaycastPointOffset = new Vector3(0f, 10f, 0f);
     }
 
     // Update is called once per frame
@@ -86,6 +91,24 @@ public class TopDownMovement : MonoBehaviour
                 this.GetComponent<NavMeshObstacle>().enabled = true;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        // Updated point to ray cast from as per player's position
+        pointToRaycastFrom = this.transform.position + RaycastPointOffset;
+    }
+
+    // Returns the roof gameobject if raycast from player to up vector hits a roof
+    public GameObject GetRaycastedRoof()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(pointToRaycastFrom, this.transform.position - pointToRaycastFrom, out hit))
+        {
+            if (hit.collider.tag.Contains("Roof"))
+                return hit.collider.gameObject;
+        }
+        return null;
     }
 
     // Getter and Setter for player's ability to move
