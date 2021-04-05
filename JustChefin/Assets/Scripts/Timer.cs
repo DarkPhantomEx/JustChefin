@@ -29,6 +29,13 @@ public class Timer : MonoBehaviour
     float lerpSpeed;
 
     EditHUD hudEditor;
+    [SerializeField]
+    
+    AudioSource timeTick;
+    
+    [SerializeField]
+    int startTick;
+    bool isTicking;
 
     //Defines the max value for the slider when starting it up
     public void defSlider(int max)
@@ -58,6 +65,7 @@ public class Timer : MonoBehaviour
         timerSlider = GameObject.FindGameObjectWithTag("TimerBar").GetComponent<Slider>();
         //timerDisp = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
         isCountingDown = false;
+        isTicking = false;
     }
 
     //Starts the timer with the provided numebr of seconds.
@@ -67,6 +75,8 @@ public class Timer : MonoBehaviour
         defSlider(time);
         isCountingDown = true;
         this.time = time;
+        //Defines start value of ticking SFX, when there's only 20% of the time left, or 5seconds. (Whichever is greater)
+        startTick = ((time / 5) >= 5) ? (time/5) : 5;
     }
 
     public void StopTimer()
@@ -74,6 +84,11 @@ public class Timer : MonoBehaviour
         //slider is set to 0
         setSlider(0);
         isCountingDown = false;
+
+        //Stops ticking SFX
+        timeTick.Stop();
+        isTicking = false;
+
     }
 
     public float GetTime()
@@ -97,6 +112,15 @@ public class Timer : MonoBehaviour
         //    {
         //        GameObject.FindGameObjectWithTag("ObjectiveBody").GetComponent<Text>().text = "Get back to the kitchen, before time runs out!";
         //    }
+
+        //Starts ticking SFX, if it currently isn't ticking, and the timer has reached the startTick value
+        if(isCountingDown && !isTicking && (int)time == startTick)
+        {
+
+            timeTick.Play();
+            isTicking = true;
+
+        }
 
         if (isCountingDown && time > 0.0f)
         {

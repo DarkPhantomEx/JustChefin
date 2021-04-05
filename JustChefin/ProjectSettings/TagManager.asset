@@ -21,6 +21,7 @@ TagManager:
   - DiningRoom
   - Roof
   - EndScreen
+  - Sizzle
   layers:
   - Default
   - TransparentFX
