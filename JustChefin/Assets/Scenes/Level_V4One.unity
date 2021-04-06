@@ -16666,7 +16666,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh28604
+  m_Name: pb_Mesh14934
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22957,6 +22957,7 @@ MonoBehaviour:
   FillColor: {fileID: 625957813}
   lerpSpeed: 2
   timeTick: {fileID: 1358651425}
+  startTick: 0
 --- !u!114 &1822225353
 MonoBehaviour:
   m_ObjectHideFlags: 0
