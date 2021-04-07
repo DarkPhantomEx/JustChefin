@@ -33,6 +33,9 @@ public class PlayerStatus : MonoBehaviour
     // Array of all the enemies in the scene (to be set in the editor)
     public EnemyAI[] enemy;
 
+    public GameObject Sizzler;
+    //Get Where sizzler is
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,14 @@ public class PlayerStatus : MonoBehaviour
         SetHasRecipe(false);
     }
 
+    void Update()
+    {
+        float SizzlerDistance;
+        SizzlerDistance = Vector3.Distance(this.transform.position, Sizzler.transform.position);
+        float MaxHearDistance = 30f;
+        AudioManager.instance.Sizzling.setParameterByName("Distance", Mathf.Clamp(SizzlerDistance / MaxHearDistance, 0, 1));
+       
+    }
 
     public int getStrike()
     {

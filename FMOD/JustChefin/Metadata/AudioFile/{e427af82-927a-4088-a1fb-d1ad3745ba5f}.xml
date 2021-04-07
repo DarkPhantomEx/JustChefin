@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{e427af82-927a-4088-a1fb-d1ad3745ba5f}">
+		<property name="assetPath">
+			<value>Clock-Ticking-C-www.fesliyanstudios.com.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>32.112000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02ac440b-698c-4b50-b129-955b3f4db2e3}</destination>
+		</relationship>
+	</object>
+</objects>

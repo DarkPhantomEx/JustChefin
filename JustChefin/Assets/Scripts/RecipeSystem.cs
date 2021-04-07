@@ -32,7 +32,7 @@ public class RecipeSystem : MonoBehaviour
     EditHUD hudEditor;
     ManageScene sceneManager;
 
-    AudioSource sizzler;
+    //AudioSource sizzler;
     ////TextBoxes
     //public Text Step;
     //public Text RecipeName;
@@ -122,8 +122,8 @@ public class RecipeSystem : MonoBehaviour
         //Gets access to PlayerStatus from the TopDownPlayer gameobject
         playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
         
-        sizzler = GameObject.FindGameObjectWithTag("Sizzle").GetComponent<AudioSource>();
-        sizzler.spatialBlend = 1;
+        //sizzler = GameObject.FindGameObjectWithTag("Sizzle").GetComponent<AudioSource>();
+        //sizzler.spatialBlend = 1;
         //WinCon = GameObject.FindGameObjectWithTag("WinScreen");
         //LoseCon = GameObject.FindGameObjectWithTag("LoseScreen");
 
@@ -220,7 +220,7 @@ public class RecipeSystem : MonoBehaviour
         //If the timer isn't counting down, that means the player isn't coooking
         if (!recipeTimer.GetTimerState() && cookNo > 0)
         {
-            sizzler.Stop();
+            AudioManager.instance.Sizzling.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);              //Sizzling SFX Stop
             isCooking = false;
             //Subtracting by 1, as currInstr was incremented when cooking started
             if(currInstr >= numInstr[currRec])
@@ -260,7 +260,7 @@ public class RecipeSystem : MonoBehaviour
             hudEditor.setHUD("Ins", ingInstr[currRecStart + currInstr]);
             isCooking = true;
             currInstr++;
-            sizzler.Play();
+            AudioManager.instance.Sizzling.start();                       //Sizzling SFX Start
                 //recipeTimer.StartTimer(timer[currRecStart + currInstr]);
         }
                

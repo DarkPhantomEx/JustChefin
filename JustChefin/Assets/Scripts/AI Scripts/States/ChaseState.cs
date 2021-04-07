@@ -18,6 +18,8 @@ public class ChaseState : State
         enemyT = enemy.transform;
         playerT = enemy.player.transform;
         enemy.GetComponent<Renderer>().material.color = Color.red;
+        AudioManager.instance.Caught.start();
+        AudioManager.instance.Ticking.setParameterByName("Ducking", 1);
     }
 
     public override void UpdateState()
@@ -42,5 +44,6 @@ public class ChaseState : State
     public override void OnExit()
     {
         base.OnExit();
+        AudioManager.instance.Ticking.setParameterByName("Ducking", 0);
     }
 }
