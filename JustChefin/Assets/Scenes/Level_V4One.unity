@@ -9599,7 +9599,7 @@ GameObject:
   - component: {fileID: 860158795}
   m_Layer: 0
   m_Name: OfficeRoof
-  m_TagString: Untagged
+  m_TagString: Roof,Medium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10889,7 +10889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 819964797}
-  smoothFactor: 1
+  smoothFactor: 20
   tdmScript: {fileID: 0}
   rrScript: {fileID: 0}
   roofTag: 
@@ -19018,7 +19018,7 @@ GameObject:
   - component: {fileID: 1515888826}
   m_Layer: 0
   m_Name: Wall (down)
-  m_TagString: Untagged
+  m_TagString: SeeThrough
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

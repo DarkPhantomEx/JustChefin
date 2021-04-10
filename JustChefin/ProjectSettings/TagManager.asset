@@ -23,6 +23,8 @@ TagManager:
   - Roof,Big
   - Roof,Medium
   - Roof,Small
+  - Sizzle
+  - SeeThrough
   layers:
   - Default
   - TransparentFX

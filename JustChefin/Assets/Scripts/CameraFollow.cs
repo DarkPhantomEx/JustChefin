@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public GameObject player;
-    public float smoothFactor = 10f;
+    public float smoothFactor = 1f;
     private Vector3 cameraOffset;
     [SerializeField]
     private TopDownMovement tdmScript;
@@ -48,8 +48,8 @@ public class CameraFollow : MonoBehaviour
     {
         switch (roofTag)
         {
+            // Adjust position as per room size
             case "Roof,Big":
-                Debug.Log("TRUEEEEEEEEEELLLLASLALDLADLALD");
                 // Calculate new position of the camera as per player's position
                 newPosition = player.transform.position + Big;
                 break;
@@ -62,7 +62,6 @@ public class CameraFollow : MonoBehaviour
                 newPosition = player.transform.position + Small;
                 break;
             default:
-                Debug.Log("DEFAULLLLLTLTLTLTLTLTLLTLTLTLTLTTLTLTLLTLT");
                 newPosition = player.transform.position + Medium;
                 break;
         }
@@ -70,9 +69,24 @@ public class CameraFollow : MonoBehaviour
 
         // Set camera's position
         transform.position = Vector3.Slerp(transform.position, newPosition, smoothFactor);
-        /*if(Input.GetKeyDown(KeyCode.L))
+    }
+
+    void FixedUpdate()
+    {
+        //*************************************STILL UNDER TESTING**********************************************************************
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit))
         {
-            transform.localPosition = new Vector3(transform.position.x, Big.y, Big.z);
-        }*/
+            Debug.Log("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"+hit.collider.gameObject);
+            if(hit.collider.tag == "SeeThrough")
+            {
+                Renderer rend;
+                rend = hit.collider.GetComponent<Renderer>();
+                Color tempColor = rend.material.color;
+                tempColor.a = 0.8f;
+                rend.material.color = tempColor;
+            }
+        }
+        //******************************************************************************************************************************
     }
 }

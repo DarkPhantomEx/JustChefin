@@ -31,7 +31,7 @@ public class RoofReveal : MonoBehaviour
             if (tdmScript.GetRaycastedRoof())
             {
                 // Disable renderer
-                rend.enabled = false;
+                tdmScript.GetRaycastedRoof().GetComponent<Renderer>().enabled = false;
             }   
         }
     }
