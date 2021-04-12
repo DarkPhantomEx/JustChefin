@@ -17,6 +17,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private string roofTag;
     Vector3 newPosition;
+    private GameObject[] FadingObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +26,26 @@ public class CameraFollow : MonoBehaviour
         rrScript = GameObject.Find("Roofs").GetComponentInChildren<RoofReveal>();
         // Saves the current camera position in the editor
         cameraOffset = transform.position - player.transform.position;
+        // Camera offsets for differnt sizes of rooms
         Medium = cameraOffset;
         Big = cameraOffset + new Vector3(0f, 2.7f, -1.5f);
         Small = cameraOffset - new Vector3(0f, 2.65f, 1.35f);
+        // Default Camera offset to Medium
         newPosition = player.transform.position + Medium;
+
+        // Get a collection of objects that can be faded
+        if(FadingObjects == null)
+        {
+            FadingObjects = GameObject.FindGameObjectsWithTag("SeeThrough");
+        }
     }
 
     void Update()
     {
+        // Returns the roof object
         if(tdmScript.GetRaycastedRoof())
         {
+            // Save the tag name
             roofTag = tdmScript.GetRaycastedRoof().tag;
         }
         else
@@ -73,20 +84,28 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        //*************************************STILL UNDER TESTING**********************************************************************
+        // Raycast from camera to the player
         RaycastHit hit;
         if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit))
         {
-            Debug.Log("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG"+hit.collider.gameObject);
+            // If raycast hits an object that can be faded out
             if(hit.collider.tag == "SeeThrough")
             {
-                Renderer rend;
-                rend = hit.collider.GetComponent<Renderer>();
-                Color tempColor = rend.material.color;
-                tempColor.a = 0.8f;
-                rend.material.color = tempColor;
+                // Make it translucent
+                Color tempColor = hit.collider.GetComponent<Renderer>().material.color;
+                tempColor.a = 0.5f;
+                hit.collider.GetComponent<Renderer>().material.color = tempColor;
+            }
+            else
+            {
+                // Make all objects (that fade out) solid
+                foreach(GameObject fo in FadingObjects)
+                {
+                    Color tempColor = fo.GetComponent<Renderer>().material.color;
+                    tempColor.a = 1f;
+                    fo.GetComponent<Renderer>().material.color = tempColor;
+                }
             }
         }
-        //******************************************************************************************************************************
     }
 }

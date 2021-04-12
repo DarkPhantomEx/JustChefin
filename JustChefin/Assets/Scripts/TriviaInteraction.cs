@@ -53,7 +53,7 @@ public class TriviaInteraction : MonoBehaviour
     public bool GetCanCollectTrivia() { return canCollectTrivia; }
     public void SetCanCollectTrivia(bool canCollect) { this.canCollectTrivia = canCollect; }
 
+    // Quick methods to play and stop particle effect
     public void startTriviaParticle() { triviaParticle.Play(); }
-
     public void stopTriviaParticle() { triviaParticle.Stop(); }
 }

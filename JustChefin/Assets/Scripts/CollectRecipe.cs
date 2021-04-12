@@ -46,7 +46,6 @@ public class CollectRecipe : MonoBehaviour
             // Player can collect recipe
             SetCanCollect(true);
             hudEditor.setHUD("Obj", "Press 'E' to steal the recipe!");
-
         }
     }
 
@@ -64,10 +63,11 @@ public class CollectRecipe : MonoBehaviour
     public bool GetCanCollect() { return canCollect; }
     public void SetCanCollect(bool canCollect) { this.canCollect = canCollect; }
 
+    // Quick methods to enable and disable mesh of the signature recipe
     public void EnableSignatureRecipeMesh() { signatureRecipeRenderer.enabled = true; }
     public void DisableSignatureRecipeMesh() { signatureRecipeRenderer.enabled = false; }
 
+    // Quick methods to play and stop particle effect
     public void startSignatureRecipeParticle() { recipeParticle.Play(); }
-
     public void stopSignatureRecipeParticle() { recipeParticle.Stop(); }
 }
