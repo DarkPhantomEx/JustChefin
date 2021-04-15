@@ -16,7 +16,7 @@ public class ManageScene : MonoBehaviour
     [SerializeField]
     GameObject NextLevel;
 
-    EditHUD hudEditor;
+    EditHUD hudEditor;    
 
     public void LoadLevel(int levelIndex)
     {
@@ -67,7 +67,8 @@ public class ManageScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        //If the Escape button is pressed, WHEN the player is not in a Trivia card
+        if (Input.GetKeyDown(KeyCode.Escape) && !TriviaInteraction.isInTrivia)
         {
             if (!isPaused)
             {
