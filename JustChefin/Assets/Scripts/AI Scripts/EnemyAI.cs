@@ -23,9 +23,13 @@ public class EnemyAI : MonoBehaviour
     public float sightAngle;
     public float idleTime;
     public GameObject[] waitPoints;
+    public bool Moving;
+    public bool Rotating;
+    private GameObject[] temp;
 
     // Suspicion bar variables
-    public float minSuspicionDistance;
+    public float maxSuspicionDistance;
+    public float minSuspicionDistance = 3;
     public SuspicionBar suspicionBar;
     public float IncrementSpeed = 5;
     private float playerDistance;
@@ -41,13 +45,16 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
         tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
         playerHead = GameObject.Find("/TopDownPlayer/Player/Head");
 
         waitPointIterator = 0;
-        playerDistance = Vector3.Distance(this.transform.position, player.transform.position);            
+        playerDistance = Vector3.Distance(this.transform.position, player.transform.position);
 
+        temp = waitPoints;
+        
         // Set default start state as Patrol
         ChangeState(new PatrolState(this));
     }
@@ -55,8 +62,36 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Unique Movement Path for Waiter (1)
+        if (this.transform.name == "Waiter (1)")
+        {
+            if (psScript.GetHasRecipe())
+            {
+                Debug.Log("1111");
+                if (waitPoints.Length > 1)
+                {
+                    System.Array.Resize(ref waitPoints, 1);
+                    this.ChangeState(new PatrolState(this));
+                }
+                else
+                {
+                    Vector3 a = this.transform.position, b = waitPoints[0].transform.position;
+                    a.y = 0; b.y = 0;
+                    if (Vector3.Distance(a, b) <= 0.01)
+                        Moving = false;
+                }
+            }
+            else
+            {
+                waitPoints = temp;
+                Moving = true;
+            }
+        }
+
+
         currentState.UpdateState();
-        //Debug.DrawRay(this.transform.position, this.transform.forward * 6f, Color.yellow);
+        //Debug.DrawRay(this.transform.position, this.transform.forward * 6f, Color.yellow);    
+
 
         // Calculate distance between the player and the enemy
         playerDistance = Vector3.Distance(this.transform.position, player.transform.position);
@@ -87,6 +122,7 @@ public class EnemyAI : MonoBehaviour
             currentSuspicionValue = Mathf.Clamp(currentSuspicionValue - Time.deltaTime * 1 / 10, 0, 1);                
         }
         UpdateSuspicionBar();
+
     }
 
     // Function to change the state
@@ -105,7 +141,7 @@ public class EnemyAI : MonoBehaviour
     // Function to check if player falls inside enemy's sight distance
     public bool IsPlayerInSightDistance()
     {
-        if (Vector3.Distance(enemyHead.transform.position, playerHead.transform.position) <= minSuspicionDistance)
+        if (Vector3.Distance(enemyHead.transform.position, playerHead.transform.position) <= maxSuspicionDistance)
         {
             return true;
         }
@@ -142,7 +178,7 @@ public class EnemyAI : MonoBehaviour
         // Detemine the formula of suspicion bar's increment
         if (currentState.GetName() != "Chase")
         {
-            if (playerDistance <= 3)
+            if (playerDistance <= minSuspicionDistance)
                 currentSuspicionValue = 1;
             else
             {
@@ -150,7 +186,7 @@ public class EnemyAI : MonoBehaviour
                 currentSuspicionValue = Mathf.Clamp(currentSuspicionValue + Time.deltaTime * IncrementSpeed
                     * (1 -
                     //y=log(-9/(k^2)*(x-k)^2+10)
-                    Mathf.Log10(-9 / (minSuspicionDistance * minSuspicionDistance) * (playerDistance - minSuspicionDistance) * (playerDistance - minSuspicionDistance) + 10)), 0, 1);
+                    Mathf.Log10(-9 / (maxSuspicionDistance * maxSuspicionDistance) * (playerDistance - maxSuspicionDistance) * (playerDistance - maxSuspicionDistance) + 10)), 0, 1);
             }           
         }
     }
@@ -181,4 +217,5 @@ public class EnemyAI : MonoBehaviour
             }
             return false;
         }*/
+    
 }

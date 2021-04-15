@@ -21,7 +21,7 @@ public class PatrolState : State
     public override void OnEnter()
     {
         base.OnEnter();
-
+        
         /*player = enemy.player;
         enemyT = enemy.transform;
         playerT = enemy.player.transform;*/
@@ -31,28 +31,28 @@ public class PatrolState : State
         else if(enemy.tag == "Passive")
             enemy.GetComponent<Renderer>().material.color = Color.green;
 
-        if (enemy.GetWaitPointIterator() < enemy.waitPoints.Length)
+        if (enemy.GetWaitPointIterator() < enemy.waitPoints.Length)   
+                
         {
             MoveToNext();
             enemy.IncrementWaitPointIterator();
-        }
-        else
-        {
-            enemy.ResetWaitPointIterator();
-            MoveToNext();
-        }
+            if (enemy.GetWaitPointIterator() >= enemy.waitPoints.Length)
+                enemy.ResetWaitPointIterator();
+
+        }               
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-
+        //if (enemy.transform.name == "Waiter (1)")
+           // Debug.Log(enemy.GetWaitPointIterator());
         //Debug.DrawRay(enemyT.position, playerT.position - enemyT.position, Color.green);
 
         // If it reaches the patrol point, change state to idle
         if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance == 0f)
             enemy.ChangeState(new IdleState(enemy));
-
+        
         // If the suspicion bar gets completely filled
         if (enemy.GetSuspicionValue() == 1)
         {            
