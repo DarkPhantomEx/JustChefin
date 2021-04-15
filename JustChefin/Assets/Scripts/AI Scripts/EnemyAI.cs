@@ -163,6 +163,7 @@ public class EnemyAI : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(enemyHead.transform.position, playerHead.transform.position - enemyHead.transform.position, out hit, Mathf.Infinity))
         {
+            
             if (hit.collider.gameObject == playerHead && IsPlayerInSightDistance() && IsPlayerInSightAngle())
             {
                 return true;

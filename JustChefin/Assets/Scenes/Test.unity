@@ -2548,6 +2548,7 @@ GameObject:
   - component: {fileID: 819964801}
   - component: {fileID: 819964802}
   - component: {fileID: 819964803}
+  - component: {fileID: 819964804}
   m_Layer: 0
   m_Name: TopDownPlayer
   m_TagString: MainPlayer
@@ -2628,6 +2629,7 @@ MonoBehaviour:
   enemy:
   - {fileID: 971569030}
   - {fileID: 468812957}
+  Sizzler: {fileID: 2068817737}
 --- !u!114 &819964802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,6 +2663,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &819964804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819964797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &824350411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8522,6 +8537,7 @@ GameObject:
   - component: {fileID: 1822225352}
   - component: {fileID: 1822225355}
   - component: {fileID: 1822225356}
+  - component: {fileID: 1822225357}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -8574,7 +8590,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   FillColor: {fileID: 625957813}
   lerpSpeed: 2
-  timeTick: {fileID: 0}
   startTick: 0
 --- !u!114 &1822225353
 MonoBehaviour:
@@ -8657,6 +8672,21 @@ MonoBehaviour:
   EndHeadT: {fileID: 0}
   EndBody: {fileID: 1553573742}
   EndBodyT: {fileID: 0}
+--- !u!114 &1822225357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822225351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a83db6cd8030f34db92c5ef2b64f748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TickingEventPath: event:/Ticking
+  CaughtEventPath: event:/Caught
+  SizzlingEventPath: event:/Sizzling
 --- !u!1 &1868452959
 GameObject:
   m_ObjectHideFlags: 0
@@ -10029,6 +10059,12 @@ Transform:
   m_Father: {fileID: 1002247086}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2068817737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0f2bb776282dff488b7ed646aa13eb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2089704062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2076409185
 GameObject:
   m_ObjectHideFlags: 0
