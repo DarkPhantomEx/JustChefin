@@ -16,6 +16,7 @@ public class Timer : MonoBehaviour
     private float time;
 
     bool isCountingDown;
+    private float TimeMax;
 
     //UI attributes
     //Slider for the TimerBar
@@ -29,9 +30,9 @@ public class Timer : MonoBehaviour
     float lerpSpeed;
 
     EditHUD hudEditor;
-    [SerializeField]
-    
-    AudioSource timeTick;
+
+    //[SerializeField]    
+    //AudioSource timeTick;
     
     [SerializeField]
     int startTick;
@@ -74,9 +75,10 @@ public class Timer : MonoBehaviour
         //Set's the slider's max value based on the time required for the current instruction
         defSlider(time);
         isCountingDown = true;
+        TimeMax = time;
         this.time = time;
         //Defines start value of ticking SFX, when there's only 20% of the time left, or 5seconds. (Whichever is greater)
-        startTick = ((time / 5) >= 5) ? (time/5) : 5;
+        //startTick = ((time / 5) >= 5) ? (time/5) : 5;
     }
 
     public void StopTimer()
@@ -86,7 +88,7 @@ public class Timer : MonoBehaviour
         isCountingDown = false;
 
         //Stops ticking SFX
-        timeTick.Stop();
+        AudioManager.instance.Ticking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         isTicking = false;
 
     }
@@ -114,12 +116,14 @@ public class Timer : MonoBehaviour
         //    }
 
         //Starts ticking SFX, if it currently isn't ticking, and the timer has reached the startTick value
-        if(isCountingDown && !isTicking && (int)time == startTick)
+        if (isTicking)
         {
-
-            timeTick.Play();
+            AudioManager.instance.Ticking.setParameterByName("Time", (TimeMax - time) / TimeMax);
+        }
+        else if(isCountingDown /*&& (int)time == startTick*/)
+        {
+            AudioManager.instance.Ticking.start();
             isTicking = true;
-
         }
 
         if (isCountingDown && time > 0.0f)
