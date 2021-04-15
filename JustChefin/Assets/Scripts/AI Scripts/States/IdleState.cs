@@ -12,7 +12,7 @@ public class IdleState : State
 
     private Quaternion TargetRotation;
     private int p = 1;
-    private float speed = 150;
+    private float speed;
     public IdleState(EnemyAI enemy) : base (enemy, "Idle")
     {
     }
@@ -23,6 +23,7 @@ public class IdleState : State
         timer = 0f;
         enemyT = enemy.transform;
         playerT = enemy.player.transform;
+        speed = enemy.nmAgent.angularSpeed/2; //Rotating Speed
         //enemy.GetComponent<Renderer>().material.color = Color.blue;
        
         //Rotation Calculate
@@ -48,6 +49,7 @@ public class IdleState : State
         }
         if (!enemy.Moving)
         {
+            
             switch (p)
             {
                 case 1:

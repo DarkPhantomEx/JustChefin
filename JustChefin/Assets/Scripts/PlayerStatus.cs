@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class PlayerStatus : MonoBehaviour
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
+        if(SceneManager.GetActiveScene().name!="Test")
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
 
         //Disabling Strikes UI
@@ -72,8 +74,11 @@ public class PlayerStatus : MonoBehaviour
 
         // Player loses collected recipe
         SetHasRecipe(false);
-        crScript.EnableSignatureRecipeMesh();
-        crScript.startSignatureRecipeParticle();
+        if (SceneManager.GetActiveScene().name != "Test")
+        {
+            crScript.EnableSignatureRecipeMesh();
+            crScript.startSignatureRecipeParticle();
+        }
         //hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
 
         //UI update, based on lives lost

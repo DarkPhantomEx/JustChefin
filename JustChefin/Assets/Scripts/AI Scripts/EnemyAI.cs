@@ -64,10 +64,9 @@ public class EnemyAI : MonoBehaviour
     {
         //Unique Movement Path for Waiter (1)
         if (this.transform.name == "Waiter (1)")
-        {
+        {            
             if (psScript.GetHasRecipe())
-            {
-                Debug.Log("1111");
+            {                
                 if (waitPoints.Length > 1)
                 {
                     System.Array.Resize(ref waitPoints, 1);
