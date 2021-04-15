@@ -15,6 +15,10 @@ public class TopDownMovement : MonoBehaviour
     // Player rotation properties
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+    // Audio variable
+    private bool Playing = false;
+    private float StartTime;
+    private float duration;
 
     // Boolean to check if player can move
     [SerializeField]
@@ -81,12 +85,33 @@ public class TopDownMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 // Move the player based on movement input
                 controller.Move((movementY + (movement * moveSpeed)) * Time.deltaTime);
-
+                if (!Playing)
+                {
+                    StartTime = Time.time;
+                    if (isCrouching)
+                    {
+                        AudioManager.instance.Crouching.start();                        
+                        Playing = true;                        
+                        duration = 1.15f;
+                    }
+                    else
+                    {
+                        AudioManager.instance.Walking.start();
+                        Playing = true;
+                        duration = 0.75f;
+                    }
+                }
                 // Disable Nav Mesh Obstacle when moving
                 this.GetComponent<NavMeshObstacle>().enabled = false;
             }
             else
             {
+                if (Time.time - StartTime > duration)
+                {
+                    AudioManager.instance.Crouching.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    AudioManager.instance.Walking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                    Playing = false;
+                }
                 // Enable Nav Mesh Obstacle when stationary
                 this.GetComponent<NavMeshObstacle>().enabled = true;
             }

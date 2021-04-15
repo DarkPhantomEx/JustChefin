@@ -75,10 +75,12 @@ public class ManageScene : MonoBehaviour
                 isPaused = true;
                 Time.timeScale = 0;
                 PauseUI.SetActive(true);
+                AudioManager.instance.pause.start();
             }
             else
             {
                 isPaused = false;
+                AudioManager.instance.pause.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
                 Time.timeScale = 1;
                 PauseUI.SetActive(false);
             }

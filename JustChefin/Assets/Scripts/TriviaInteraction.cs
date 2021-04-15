@@ -41,12 +41,15 @@ public class TriviaInteraction : MonoBehaviour
     {        
         if (GetCanCollectTrivia() && Input.GetKeyDown(KeyCode.E)) // And if E is pressed
         {
+            
+            AudioManager.instance.pause.start();
            //It is no longer the sameIteration as when this variable was set- time to make it false.
             if (sameIteration)
                 sameIteration = false;
 
             if(!isTimePaused) //if Time is not paused
             {
+                AudioManager.instance.Looting.start();
                 isInTrivia = true;
                 isTimePaused = true;
                 //Time is paused, so that the game isn't running while the Trivia card is up
@@ -65,7 +68,8 @@ public class TriviaInteraction : MonoBehaviour
                 //Time is returned to the usual
                 isTimePaused = false;
                 isInTrivia = false;
-                Time.timeScale = 1;                
+                Time.timeScale = 1;
+                AudioManager.instance.pause.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             }
         }
     }

@@ -8684,9 +8684,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a83db6cd8030f34db92c5ef2b64f748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TickingEventPath: event:/Ticking
-  CaughtEventPath: event:/Caught
-  SizzlingEventPath: event:/Sizzling
+  TickingEventPath: event:/SE/Ticking
+  CaughtEventPath: event:/SE/Caught
+  SizzlingEventPath: event:/SE/Sizzling
+  LootingEventPath: event:/Looting
+  WalkingEventPath: event:/SE/Walking
+  CrouchingEventPath: event:/SE/Crouching
+  PausePath: snapshot:/Pause
 --- !u!1 &1868452959
 GameObject:
   m_ObjectHideFlags: 0

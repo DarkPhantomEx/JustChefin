@@ -276,6 +276,10 @@ public class RecipeSystem : MonoBehaviour
                 //LoseCon.SetActive(true);
                 sceneManager.EndScreen(0, "You were considered suspicious, and were fired. Try again, Agent Iris!");
                 Time.timeScale = 0f;
+                
+                //LOSE SE
+
+
             }
         }
 
@@ -290,6 +294,12 @@ public class RecipeSystem : MonoBehaviour
                 //WinCon.SetActive(true);
                 sceneManager.EndScreen(1, "Congratulations on a mission well done, Agent Iris!");
                 Time.timeScale = 0f;
+
+                //WIN SE
+
+
+
+
             }
             //hudEditor.setHUD("Obj", "Congratulations on a mission well done, Agent Iris!");
             //WinCon.SetActive(true);
