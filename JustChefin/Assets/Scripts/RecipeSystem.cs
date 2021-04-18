@@ -31,17 +31,7 @@ public class RecipeSystem : MonoBehaviour
 
     EditHUD hudEditor;
     ManageScene sceneManager;
-
-    //AudioSource sizzler;
-    ////TextBoxes
-    //public Text Step;
-    //public Text RecipeName;
-    //[SerializeField]
-    //Text ObjectiveBody;
-    //public Text Step1;
-    //public Text Step2;
-    //public Text Step3;
-    
+        
     //Timer Script object
     [SerializeField]
     public Timer recipeTimer;
@@ -63,12 +53,6 @@ public class RecipeSystem : MonoBehaviour
     [SerializeField]
     int currRecStart;
 
-
-    ////for randomizing steps
-    //public string[] verbs;
-    //public string[] food;
-
-
     PlayerStatus playerStats;
     //Serializable data class object for FileIO
     RecipeData Recipe;
@@ -82,7 +66,6 @@ public class RecipeSystem : MonoBehaviour
     public bool inKitchen;
 
     public bool isEndScreenOpen;
-
 
     //Bool to check if this is the first cooking interaction
     //public bool firstCook;
@@ -121,14 +104,6 @@ public class RecipeSystem : MonoBehaviour
         KitchenDoor.GetComponent<Collider>().isTrigger = false;
         //Gets access to PlayerStatus from the TopDownPlayer gameobject
         playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
-        
-        //sizzler = GameObject.FindGameObjectWithTag("Sizzle").GetComponent<AudioSource>();
-        //sizzler.spatialBlend = 1;
-        //WinCon = GameObject.FindGameObjectWithTag("WinScreen");
-        //LoseCon = GameObject.FindGameObjectWithTag("LoseScreen");
-
-        //WinCon.SetActive(false);
-        //LoseCon.SetActive(false);
 
         hudEditor.setHUD("ObjC", "Get to your station!");
 
@@ -198,19 +173,12 @@ public class RecipeSystem : MonoBehaviour
                 break;             
         }
 
-        ///*If we ever need Randomized recipes*/
-        //verbs = new string[3] { "boil", "heat", "cut" };
-        //food = new string[3] { "water", "vegetables", "meat" };
-        //locID.Add(Random.Range(0, 5));
-        //Instr.Add(verbs[Random.Range(0, 3)] + food[Random.Range(0, 3)]);
-        //timer.Add(20 + Random.Range(0, 21));
-
     }
 
     void StartGame()
     {
 
-        ChooseRecipe();
+        ChooseRecipe(false);
 
     }
 
@@ -220,7 +188,7 @@ public class RecipeSystem : MonoBehaviour
         //If the timer isn't counting down, that means the player isn't coooking
         if (!recipeTimer.GetTimerState() && cookNo > 0)
         {
-            AudioManager.instance.Sizzling.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);              //Sizzling SFX Stop
+            AudioManager.instance.Sizzling.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);   //Sizzling SFX Stop
             isCooking = false;
             //Subtracting by 1, as currInstr was incremented when cooking started
             if(currInstr >= numInstr[currRec])
@@ -253,7 +221,7 @@ public class RecipeSystem : MonoBehaviour
             if (currInstr > numInstr[currRec] - 1)
             {
                 Debug.Log("Time for the next recipe!");
-                ChooseRecipe();
+                ChooseRecipe(false);
             }
             //Start the timer for the instruction
             recipeTimer.StartTimer(timer[currRecStart + currInstr]);
@@ -271,15 +239,10 @@ public class RecipeSystem : MonoBehaviour
             if (isEndScreenOpen == false)
             {
                 isEndScreenOpen = true;
-                //Game Over - Loss
-                //hudEditor.setHUD("Obj", "YOU DIED");
-                //LoseCon.SetActive(true);
+
                 sceneManager.EndScreen(0, "You were considered suspicious, and were fired. Try again, Agent Iris!");
                 Time.timeScale = 0f;
                 
-                //LOSE SE
-
-
             }
         }
 
@@ -288,25 +251,13 @@ public class RecipeSystem : MonoBehaviour
         {
             if (isEndScreenOpen == false)
             {
-                isEndScreenOpen = true;
-                //Game Over - Win
-                //hudEditor.setHUD("Obj", "Congratulations on a mission well done, Agent Iris!");
-                //WinCon.SetActive(true);
+                isEndScreenOpen = true; 
+
                 sceneManager.EndScreen(1, "Congratulations on a mission well done, Agent Iris!");
                 Time.timeScale = 0f;
-
-                //WIN SE
-
-
-
-
             }
-            //hudEditor.setHUD("Obj", "Congratulations on a mission well done, Agent Iris!");
-            //WinCon.SetActive(true);
-            //Time.timeScale = 0f;
-            //Game Over - Win
         }
-
+        //If the timer is 5s or lower, print message
         if(recipeTimer.GetTimerState() && recipeTimer.GetTime() <=5)
         {
             hudEditor.setHUD("Obj", "Get back to your cooking station!");
@@ -314,9 +265,14 @@ public class RecipeSystem : MonoBehaviour
 
     }
 
-    //Loads Next Recipe
-    void ChooseRecipe()
+    //Loads Next Recipe, if bool is true, print recipe burnt
+    public void ChooseRecipe(bool lifeLost)
     {
+        if (lifeLost)
+        {
+            //Enter code to deal with burnt food
+        }
+
         currInstr = 0;
         //Randomly chooses recipe out of list
         currRec = Random.Range(0, numRec);
@@ -329,12 +285,6 @@ public class RecipeSystem : MonoBehaviour
         hudEditor.setHUD("Rec", recName[currRec]);
 
         hudEditor.setHUD("Ins", Instr[currRecStart]);
-        //for (int i = 0; i < numInstr[currRec]; i++)
-        //{
-        //    Step.text += Instr[currRecStart + i];
-        //}
-        //Starts Timer
-        //recipeTimer.StartTimer(timer[currRecStart]);
     }
 
     //Finds the Starting point of the instructions for the current recipe, by adding the num of instructions of the previous ones
@@ -371,6 +321,4 @@ public class RecipeSystem : MonoBehaviour
         this.recName = new List<string>(Recette.recName);
     }
 
-
-   
 }

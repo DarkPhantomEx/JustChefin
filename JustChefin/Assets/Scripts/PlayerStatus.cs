@@ -30,6 +30,7 @@ public class PlayerStatus : MonoBehaviour
     bool HasRecipe;
 
     CollectRecipe crScript;
+    RecipeSystem RecipeManager;
 
     // Array of all the enemies in the scene (to be set in the editor)
     public EnemyAI[] enemy;
@@ -46,6 +47,8 @@ public class PlayerStatus : MonoBehaviour
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
         if(SceneManager.GetActiveScene().name!="Test")
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
+        RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
+
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -73,12 +76,13 @@ public class PlayerStatus : MonoBehaviour
         return strikes;
     }
 
+    //Reduces a life, and teleports player to spawn
     public void LoseLife()
     {
-        //Reduces a life, and teleports player to spawn
+        
         hudEditor.setHUD("ObjC","They're suspicious! Get back to work.");
-        strikes--;
-        playerMove.SetCanMove(false);
+        strikes--;  //Life lost
+        playerMove.SetCanMove(false); //Player movement is halted for a bit
         Debug.Log(this.gameObject.transform.position);
         this.gameObject.transform.position = PlayerSpawn;
         Debug.Log(this.gameObject.transform.position);
@@ -89,8 +93,7 @@ public class PlayerStatus : MonoBehaviour
         {
             crScript.EnableSignatureRecipeMesh();
             crScript.startSignatureRecipeParticle();
-        }
-        //hudEditor.setHUD("Obj","Yeesh, tough crowd. Try again!");
+        }        
 
         //UI update, based on lives lost
         switch (strikes)
@@ -110,6 +113,7 @@ public class PlayerStatus : MonoBehaviour
                 break;
         }
 
+        //If life is 0 or below, player is dead.
         if(strikes <= 0)
         {
             isDead = true;
@@ -123,6 +127,8 @@ public class PlayerStatus : MonoBehaviour
             enemy[i].ChangeState(new PatrolState(enemy[i]));          
            
         }
+        //Since player lost a life, the recipe is restarted
+        RecipeManager.ChooseRecipe(true);
         Invoke("DelaySetMove", 0.2f);
     }
     private void DelaySetMove()
