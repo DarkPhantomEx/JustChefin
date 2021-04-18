@@ -84,12 +84,40 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
+        int cameraToPlayerLayerMask = 1 << 11;
+        cameraToPlayerLayerMask = ~cameraToPlayerLayerMask;
+        // *****************************************************//WORK IN PROGRESS*****************************************************************************
+        /*RaycastHit[] hits;
+        hits = Physics.RaycastAll(this.transform.position, player.transform.position - this.transform.position, Mathf.Infinity, cameraToPlayerLayerMask);
+        foreach(RaycastHit h in hits)
+        {
+            if (h.collider.tag == "SeeThrough")
+            {
+                // Make it translucent
+                Color tempColor = h.collider.GetComponent<Renderer>().material.color;
+                tempColor.a = 0.5f;
+                h.collider.GetComponent<Renderer>().material.color = tempColor;
+            }
+            else
+            {
+                // Make all objects (that fade out) solid
+                foreach (GameObject fo in FadingObjects)
+                {
+                    Color tempColor = fo.GetComponent<Renderer>().material.color;
+                    tempColor.a = 1f;
+                    fo.GetComponent<Renderer>().material.color = tempColor;
+                }
+            }
+        }*/
+        // *****************************************************WORK IN PROGRESS//*****************************************************************************
+
         // Raycast from camera to the player
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit))
+        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity, cameraToPlayerLayerMask))
         {
+            //Debug.Log("Camera raycast: " + cameraToPlayerLayerMask + "->" + hit.collider.gameObject + " - " + hit.collider.tag);
             // If raycast hits an object that can be faded out
-            if(hit.collider.tag == "SeeThrough")
+            if (hit.collider.tag == "SeeThrough")
             {
                 // Make it translucent
                 Color tempColor = hit.collider.GetComponent<Renderer>().material.color;
@@ -99,7 +127,7 @@ public class CameraFollow : MonoBehaviour
             else
             {
                 // Make all objects (that fade out) solid
-                foreach(GameObject fo in FadingObjects)
+                foreach (GameObject fo in FadingObjects)
                 {
                     Color tempColor = fo.GetComponent<Renderer>().material.color;
                     tempColor.a = 1f;

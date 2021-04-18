@@ -160,8 +160,10 @@ public class EnemyAI : MonoBehaviour
     // Function to check if player is in current enemy's suspicion range
     public bool IsPlayerInSuspiciousRange()
     {
+        int enemyToPlayerLayerMask = 1 << 10;
+        enemyToPlayerLayerMask = ~enemyToPlayerLayerMask;
         RaycastHit hit;
-        if (Physics.Raycast(enemyHead.transform.position, playerHead.transform.position - enemyHead.transform.position, out hit, Mathf.Infinity))
+        if (Physics.Raycast(enemyHead.transform.position, playerHead.transform.position - enemyHead.transform.position, out hit, Mathf.Infinity, enemyToPlayerLayerMask))
         {
             
             if (hit.collider.gameObject == playerHead && IsPlayerInSightDistance() && IsPlayerInSightAngle())
