@@ -37,4 +37,5 @@ sysinfo.txt
 
 .DS_Store
 
-!/FMOD/
+!/FMOD/Build
+!/FMOD/.user
