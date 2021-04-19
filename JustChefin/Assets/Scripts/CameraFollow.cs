@@ -86,30 +86,6 @@ public class CameraFollow : MonoBehaviour
     {
         int cameraToPlayerLayerMask = 1 << 11;
         cameraToPlayerLayerMask = ~cameraToPlayerLayerMask;
-        // *****************************************************//WORK IN PROGRESS*****************************************************************************
-        /*RaycastHit[] hits;
-        hits = Physics.RaycastAll(this.transform.position, player.transform.position - this.transform.position, Mathf.Infinity, cameraToPlayerLayerMask);
-        foreach(RaycastHit h in hits)
-        {
-            if (h.collider.tag == "SeeThrough")
-            {
-                // Make it translucent
-                Color tempColor = h.collider.GetComponent<Renderer>().material.color;
-                tempColor.a = 0.5f;
-                h.collider.GetComponent<Renderer>().material.color = tempColor;
-            }
-            else
-            {
-                // Make all objects (that fade out) solid
-                foreach (GameObject fo in FadingObjects)
-                {
-                    Color tempColor = fo.GetComponent<Renderer>().material.color;
-                    tempColor.a = 1f;
-                    fo.GetComponent<Renderer>().material.color = tempColor;
-                }
-            }
-        }*/
-        // *****************************************************WORK IN PROGRESS//*****************************************************************************
 
         // Raycast from camera to the player
         RaycastHit hit;

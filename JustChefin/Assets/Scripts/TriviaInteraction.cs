@@ -24,21 +24,34 @@ public class TriviaInteraction : MonoBehaviour
     [SerializeField]
     GameObject TriviaCard;
 
+    // Used for Raycasting and ParticleSystem emission
+    private GameObject player;
+    ParticleSystem.EmissionModule triviaParticleEmission;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("TopDownPlayer");
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
-        triviaParticle = this.GetComponentInChildren<ParticleSystem>();
+        triviaParticle = this.GetComponent<ParticleSystem>();
         TriviaCard.SetActive(false);
 
         isTimePaused = false;
         isInTrivia = false;
         sameIteration = false;
+
+        // Used to control emission state of the particle system
+        triviaParticleEmission = triviaParticle.emission;
     }
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        if (RaycastToPlayer() && Vector3.Distance(this.transform.position, player.transform.position) <= 5)
+            triviaParticleEmission.enabled = true;
+        else
+            triviaParticleEmission.enabled = false;
+
         if (GetCanCollectTrivia() && Input.GetKeyDown(KeyCode.E)) // And if E is pressed
         {
             
@@ -82,7 +95,6 @@ public class TriviaInteraction : MonoBehaviour
             // Player can collect recipe
             SetCanCollectTrivia(true);
             hudEditor.setHUD("ObjC", "Press 'E' to examine!");
-            startTriviaParticle();
         }
     }
 
@@ -93,15 +105,22 @@ public class TriviaInteraction : MonoBehaviour
         {
             // Player cannot collect recipe
             SetCanCollectTrivia(false);
-            stopTriviaParticle();
         }
+    }
+
+    private bool RaycastToPlayer()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
+        {
+            Debug.Log(hit.collider.tag);
+            if (hit.collider.tag == "MainPlayer")
+                return true;
+        }
+        return false;
     }
 
     // Getter and Setter for ability to collect trivia card
     public bool GetCanCollectTrivia() { return canCollectTrivia; }
     public void SetCanCollectTrivia(bool canCollect) { this.canCollectTrivia = canCollect; }
-
-    // Quick methods to play and stop particle effect
-    public void startTriviaParticle() { triviaParticle.Play(); }
-    public void stopTriviaParticle() { triviaParticle.Stop(); }
 }

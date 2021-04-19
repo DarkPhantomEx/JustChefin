@@ -17,18 +17,31 @@ public class CollectRecipe : MonoBehaviour
     [SerializeField]
     bool canCollect;
 
+    // Used for Raycasting and ParticleSystem emission
+    private GameObject player;
+    private ParticleSystem.EmissionModule recipeParticleEmission;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("TopDownPlayer");
         psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
         signatureRecipeRenderer = GameObject.Find("SignatureRecipe").GetComponent<Renderer>();
         recipeParticle = GameObject.Find("SignatureRecipe").GetComponentInChildren<ParticleSystem>();
+
+        // Used to control emission state of the particle system
+        recipeParticleEmission = recipeParticle.emission;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (RaycastToPlayer() && Vector3.Distance(this.transform.position, player.transform.position) <= 9)
+            recipeParticleEmission.enabled = true;
+        else
+            recipeParticleEmission.enabled = false;
+
         if (GetCanCollect() && Input.GetKeyDown(KeyCode.E))
         {
             psScript.SetHasRecipe(true);
@@ -57,6 +70,18 @@ public class CollectRecipe : MonoBehaviour
             // Player cannot collect recipe
             SetCanCollect(false);
         }
+    }
+
+    private bool RaycastToPlayer()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
+        {
+            Debug.Log(hit.collider.tag);
+            if (hit.collider.tag == "MainPlayer")
+                return true;
+        }
+        return false;
     }
 
     // Getter and Setter for ability to collect recipe
