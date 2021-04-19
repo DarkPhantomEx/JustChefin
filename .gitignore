@@ -37,5 +37,7 @@ sysinfo.txt
 
 .DS_Store
 
-!/FMOD/Build
-!/FMOD/.user
+#Un-ignore FMOD
+!FMOD/JustChefin/Build/
+!FMOD/JustChefin/.user/
+!FMOD/JustChefin/Plugins/
