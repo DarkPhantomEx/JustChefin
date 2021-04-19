@@ -36,3 +36,8 @@ sysinfo.txt
 *.unitypackage
 
 .DS_Store
+
+#Un-ignore FMOD
+!FMOD/JustChefin/Build/
+!FMOD/JustChefin/.user/
+!FMOD/JustChefin/Plugins/
