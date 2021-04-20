@@ -42,6 +42,15 @@ public static class FileIO
         return data;
     }
 
+    public static void DeleteRecipeData()
+    {
+        if(File.Exists(Application.persistentDataPath + "/recette.jc"))
+        {
+            FileStream file = new FileStream(Application.persistentDataPath + "/recette.jc", FileMode.Truncate);
+            file.Close();
+        }
+    }
+
     public static void LoadRecipeData(ref RecipeData data)
     {
         if(File.Exists(Application.persistentDataPath + "/recette.jc"))

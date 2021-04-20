@@ -115,10 +115,11 @@ public class RecipeSystem : MonoBehaviour
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
         {
-            Load(Recipe);
+            FileIO.DeleteRecipeData();
+            //Load(Recipe);
         }
-        else
-        {
+        //else
+        //{
             //if NewGame, initializes number of Recipes to zero, and scripts new recipes. This data is saved into "recette.jc"
             numRec = 0;
 
@@ -127,7 +128,7 @@ public class RecipeSystem : MonoBehaviour
 
             //Saves RecipeData to file, and keeps a copy of RecipeData in "Recipe"
             Recipe = Save();
-        }
+        
     }
 
     //This method is used to create recipes for each level. Might move this to FileIO.cs
