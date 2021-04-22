@@ -14,10 +14,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level_V3One.unity
     guid: 02ae80a0dd7fc7740845402be2b54d27
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level_V4One.unity
     guid: 2c3f22b5df444764085a6133acaaa5c0
   - enabled: 0
     path: Assets/Scenes/Diner.unity
     guid: aba8140ddfccc634d95d1ceb77751bcd
+  - enabled: 1
+    path: Assets/Scenes/Level_V5JOne.unity
+    guid: e7d81a8cb8ab47946b70c509110dc682
+  - enabled: 1
+    path: Assets/Scenes/DinerV1.unity
+    guid: 190c4550a4c865e4898f3c96a2a700a0
   m_configObjects: {}

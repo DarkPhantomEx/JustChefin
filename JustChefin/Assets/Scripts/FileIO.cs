@@ -12,7 +12,7 @@ public static class FileIO
     //*AppData is a HiddenFolder
     public static bool DoesRecipeFileExist()
     {
-        if (File.Exists(Application.persistentDataPath + "/recette01.jc"))
+        if (File.Exists(Application.persistentDataPath + "/recette.jc"))
         {
             return true;
         }
@@ -24,7 +24,7 @@ public static class FileIO
     {
         BinaryFormatter bF = new BinaryFormatter();
         //Creates a "save file" in the User's folder under the name of recette.jc
-        FileStream file = new FileStream(Application.persistentDataPath + "/recette01.jc", FileMode.Create);
+        FileStream file = new FileStream(Application.persistentDataPath + "/recette.jc", FileMode.Create);
 
         RecipeData data = new RecipeData(Recette);
 
@@ -42,14 +42,23 @@ public static class FileIO
         return data;
     }
 
+    public static void DeleteRecipeData()
+    {
+        if(File.Exists(Application.persistentDataPath + "/recette.jc"))
+        {
+            FileStream file = new FileStream(Application.persistentDataPath + "/recette.jc", FileMode.Truncate);
+            file.Close();
+        }
+    }
+
     public static void LoadRecipeData(ref RecipeData data)
     {
-        if(File.Exists(Application.persistentDataPath + "/recette01.jc"))
+        if(File.Exists(Application.persistentDataPath + "/recette.jc"))
         {
             Debug.Log("=====TIME TO LOAD=====");
             BinaryFormatter bF = new BinaryFormatter();
             //Opens the save file in the User's folder under the name of recette.jc
-            FileStream file = new FileStream(Application.persistentDataPath + "/recette01.jc", FileMode.Open);
+            FileStream file = new FileStream(Application.persistentDataPath + "/recette.jc", FileMode.Open);
 
             //Deserializes the saved recette.jc file
             data = (RecipeData)bF.Deserialize(file);

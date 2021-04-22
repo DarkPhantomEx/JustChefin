@@ -23,7 +23,7 @@ public class RecipeSystem : MonoBehaviour
     //CookingLocation Colliders
     GameObject CookingStation;
     [SerializeField]
-    GameObject KitchenDoor;
+    GameObject[] KitchenDoor;
     [SerializeField]
     GameObject WinCon;
     [SerializeField]
@@ -100,8 +100,13 @@ public class RecipeSystem : MonoBehaviour
         //Attaches EmptyCollider GameObject
         CookingStation = GameObject.FindGameObjectWithTag("CookingStation");
         //Attaches KitchenDoor collider, and makes it so that the player can't leave the kitchen.
-        KitchenDoor = GameObject.FindGameObjectWithTag("KitchenDoor");
-        KitchenDoor.GetComponent<Collider>().isTrigger = false;
+        KitchenDoor = GameObject.FindGameObjectsWithTag("KitchenDoor");
+        
+        foreach(GameObject Door in KitchenDoor)
+        {
+            Door.GetComponent<Collider>().isTrigger = false;
+        }
+        
         //Gets access to PlayerStatus from the TopDownPlayer gameobject
         playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
 
@@ -110,10 +115,11 @@ public class RecipeSystem : MonoBehaviour
         //If Game is launched for the first time
         if (FileStatus = FileIO.DoesRecipeFileExist())
         {
-            Load(Recipe);
+            FileIO.DeleteRecipeData();
+            //Load(Recipe);
         }
-        else
-        {
+        //else
+        //{
             //if NewGame, initializes number of Recipes to zero, and scripts new recipes. This data is saved into "recette.jc"
             numRec = 0;
 
@@ -122,7 +128,7 @@ public class RecipeSystem : MonoBehaviour
 
             //Saves RecipeData to file, and keeps a copy of RecipeData in "Recipe"
             Recipe = Save();
-        }
+        
     }
 
     //This method is used to create recipes for each level. Might move this to FileIO.cs
@@ -156,6 +162,44 @@ public class RecipeSystem : MonoBehaviour
                 locID.Add(0);
                 Instr.Add("Prepare veg patty- 1min 10s\n");
                 ingInstr.Add("Preparing veg patty- 1min 10s\n");
+                timer.Add(70);
+                locID.Add(0);
+                Instr.Add("Heat Buns- 20s\n");
+                ingInstr.Add("Heating Buns- 20s\n");
+                timer.Add(20);
+                locID.Add(0);
+                    //num of Steps = 3
+                numInstr.Add(3);
+                    //Total num of Recipes = 2
+                numRec = 2;
+                //Recipes End
+                break;
+            
+            case 2:
+                //Recipe 1 - Burger
+                recName.Add("Burger\n");
+                Instr.Add("Sautee Onions - 15s\n");
+                ingInstr.Add("Sauteeing Onions - 15s\n");
+                timer.Add(15);
+                locID.Add(0);
+                Instr.Add("Grill patty - 1min\n");
+                ingInstr.Add("Grilling patty - 1min\n");
+                timer.Add(60);
+                locID.Add(0);
+                Instr.Add("Heat Buns - 20s\n");
+                ingInstr.Add("Heating Buns - 20s\n");
+                timer.Add(20);
+                locID.Add(0);
+                    //num of Steps = 3
+                numInstr.Add(3);
+                //Recipe 2 - Hot Dog
+                recName.Add("Hot Dog\n");
+                Instr.Add("Sautee Onions - 15s\n");
+                ingInstr.Add("Sauteeing Onions - 15s\n");
+                timer.Add(15);
+                locID.Add(0);
+                Instr.Add("Prepare sausages- 1min 10s\n");
+                ingInstr.Add("Preparing sausages- 1min 10s\n");
                 timer.Add(70);
                 locID.Add(0);
                 Instr.Add("Heat Buns- 20s\n");
@@ -215,8 +259,10 @@ public class RecipeSystem : MonoBehaviour
             //hudEditor.setHUD("Ins", ingInstr[currRec + currInstr]);
 
             //Player can leave the kitchen
-            KitchenDoor.GetComponent<Collider>().isTrigger = true;
-
+            foreach (GameObject Door in KitchenDoor)
+            {
+                Door.GetComponent<Collider>().isTrigger = true;
+            }
             //IF the Recipe is complete, Select the next one
             if (currInstr > numInstr[currRec] - 1)
             {
