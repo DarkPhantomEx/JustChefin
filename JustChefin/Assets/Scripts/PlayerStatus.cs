@@ -38,8 +38,10 @@ public class PlayerStatus : MonoBehaviour
     public GameObject Sizzler;
     //Get Where sizzler is
 
+    // Alarm and Smokes
     public GameObject[] AlarmLights;
     List<Animator> alarmAnimators = new List<Animator>();
+    ParticleSystem.EmissionModule smokeParticleEmission;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +53,8 @@ public class PlayerStatus : MonoBehaviour
         if(SceneManager.GetActiveScene().name!="Test")
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
+        smokeParticleEmission = GameObject.Find("SmokeObject").GetComponent<ParticleSystem>().emission;
+        smokeParticleEmission.enabled = false;
 
         if (AlarmLights.Length >= 1)
         {
@@ -144,6 +148,7 @@ public class PlayerStatus : MonoBehaviour
         {
             aa.SetBool("IsFlashing", false);
         }
+        smokeParticleEmission.enabled = false;
     }
 
     public void LoseLifeTimer()
@@ -152,7 +157,8 @@ public class PlayerStatus : MonoBehaviour
         {
             aa.SetBool("IsFlashing", true);
         }
-        Invoke("LoseLifeDefault", 2f);
+        smokeParticleEmission.enabled = true;
+        Invoke("LoseLifeDefault", 5f);
     }
 
     private void DelaySetMove()
