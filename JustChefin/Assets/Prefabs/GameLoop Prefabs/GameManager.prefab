@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108ea4ee2d368014189aaf22ef534821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KitchenDoor: {fileID: 0}
+  KitchenDoor:
+  - {fileID: 0}
   WinCon: {fileID: 0}
   LoseCon: {fileID: 0}
   recipeTimer: {fileID: 1663644674037577352}
@@ -166,4 +167,5 @@ MonoBehaviour:
   LootingEventPath: event:/Looting
   WalkingEventPath: event:/SE/Walking
   CrouchingEventPath: event:/SE/Crouching
+  OvercookingEventPath: event:/SE/Overcooking
   PausePath: snapshot:/Pause

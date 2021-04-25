@@ -143,6 +143,9 @@ public class Timer : MonoBehaviour
             //If the player is not in the kitchen
             if (this.gameObject.GetComponent<RecipeSystem>().inKitchen == false)
             {
+                //Lose life SE
+                AudioManager.instance.Overcooking.start();
+
                 //Player loses a life
                 GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>().LoseLife();
                 //Kitchen Door trigger is false, so as to prevent player from passing through it

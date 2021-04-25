@@ -9,8 +9,8 @@ public class AudioManager : MonoBehaviour
 
     //import FMOD sounds
     [FMODUnity.EventRef]
-    public string TickingEventPath, CaughtEventPath, SizzlingEventPath, LootingEventPath, WalkingEventPath, CrouchingEventPath;
-    public EventInstance Ticking, Caught, Sizzling, Looting, Walking, Crouching;
+    public string TickingEventPath, CaughtEventPath, SizzlingEventPath, LootingEventPath, WalkingEventPath, CrouchingEventPath, OvercookingEventPath;
+    public EventInstance Ticking, Caught, Sizzling, Looting, Walking, Crouching, Overcooking;
 
     [FMODUnity.EventRef]
     public string PausePath;
@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
         Looting = FMODUnity.RuntimeManager.CreateInstance(LootingEventPath);
         Walking = FMODUnity.RuntimeManager.CreateInstance(WalkingEventPath);
         Crouching = FMODUnity.RuntimeManager.CreateInstance(CrouchingEventPath);
+        Overcooking = FMODUnity.RuntimeManager.CreateInstance(OvercookingEventPath);
 
         pause = FMODUnity.RuntimeManager.CreateInstance(PausePath);
     }

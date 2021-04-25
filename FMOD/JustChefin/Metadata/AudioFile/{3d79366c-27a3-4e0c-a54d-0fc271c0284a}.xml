@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3d79366c-27a3-4e0c-a54d-0fc271c0284a}">
+		<property name="assetPath">
+			<value>smoke alarm.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0515873015873016</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02ac440b-698c-4b50-b129-955b3f4db2e3}</destination>
+		</relationship>
+	</object>
+</objects>
