@@ -35,7 +35,7 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -451,6 +451,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-4222880153769544192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &-4205296483993815073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../FMOD/JustChefin/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637544456592493180
+  lastModified: 637544621989623203
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -598,6 +615,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-2412773130080892910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2277002194873743586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,6 +775,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-135465593187487283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-81954587083625145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,7 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -3654897223951925427}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   EditorEvents:
   - {fileID: 6167274080850378419}
   - {fileID: 6199912067317792803}
@@ -818,10 +869,10 @@ MonoBehaviour:
   - {fileID: 7532476558063480311}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   StringsBanks:
   - {fileID: -3654897223951925427}
-  stringsBankWriteTime: 637544456592493180
+  stringsBankWriteTime: 637544621989623203
   cacheVersion: 3
 --- !u!114 &20543145419856648
 MonoBehaviour:
@@ -1117,6 +1168,24 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &3701275845207519798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637544621989613232
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4131973867743333363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,12 +1221,12 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 1833813595754922249}
+  - {fileID: -2412773130080892910}
   MinDistance: 0
   MaxDistance: 0
   Length: 4092
@@ -1231,7 +1300,7 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1291,7 +1360,7 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1335,7 +1404,7 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1464,7 +1533,7 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1666,13 +1735,13 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: -4551682810993230925}
+  - {fileID: 3701275845207519798}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -1848601691388250740}
-  - {fileID: -7020463542632521049}
+  - {fileID: -135465593187487283}
+  - {fileID: -4222880153769544192}
   MinDistance: 0
   MaxDistance: 0
   Length: 32112

@@ -38,6 +38,10 @@ public class PlayerStatus : MonoBehaviour
     public GameObject Sizzler;
     //Get Where sizzler is
 
+    /*public GameObject[] AlarmLights;
+    List<Animator> alarmAnimators = new List<Animator>();
+    private Animator alarmAnimator;*/
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,7 @@ public class PlayerStatus : MonoBehaviour
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
 
+        //alarmAnimator = GameObject.Find("FireAlarm").GetComponentInChildren<Animator>();
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -83,9 +88,12 @@ public class PlayerStatus : MonoBehaviour
         hudEditor.setHUD("ObjC","They're suspicious! Get back to work.");
         strikes--;  //Life lost
         playerMove.SetCanMove(false); //Player movement is halted for a bit
-        Debug.Log(this.gameObject.transform.position);
+        //Debug.Log(this.gameObject.transform.position);
         this.gameObject.transform.position = PlayerSpawn;
-        Debug.Log(this.gameObject.transform.position);
+        //Debug.Log(this.gameObject.transform.position);
+
+        /*StartCoroutine("AlarmTrigger");
+        alarmAnimator.SetBool("IsFlashing", false);*/
 
         // Player loses collected recipe
         SetHasRecipe(false);
@@ -139,6 +147,14 @@ public class PlayerStatus : MonoBehaviour
     {
         return !isDead;
     }
+
+    /*IEnumerator AlarmTrigger()
+    {
+        Debug.Log("Chaluuuuuuuuuuuuuuuuuuuuj");
+        alarmAnimator.SetBool("IsFlashing", true);
+        yield return new WaitForSeconds(3f);
+        Debug.Log("juuuuuuuuuuuuuuuuuuuuulahc");
+    }*/
 
     // Getter and Setter for signature recipe possession
     public bool GetHasRecipe() { return HasRecipe; }
