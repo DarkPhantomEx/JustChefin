@@ -38,9 +38,8 @@ public class PlayerStatus : MonoBehaviour
     public GameObject Sizzler;
     //Get Where sizzler is
 
-    /*public GameObject[] AlarmLights;
+    public GameObject[] AlarmLights;
     List<Animator> alarmAnimators = new List<Animator>();
-    private Animator alarmAnimator;*/
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +52,13 @@ public class PlayerStatus : MonoBehaviour
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
 
-        //alarmAnimator = GameObject.Find("FireAlarm").GetComponentInChildren<Animator>();
+        if (AlarmLights.Length >= 1)
+        {
+            for(int i = 0; i < AlarmLights.Length; i++)
+            {
+                alarmAnimators.Add(AlarmLights[i].GetComponent<Animator>());
+            }
+        }
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -82,7 +87,7 @@ public class PlayerStatus : MonoBehaviour
     }
 
     //Reduces a life, and teleports player to spawn
-    public void LoseLife()
+    public void LoseLifeDefault()
     {
         
         hudEditor.setHUD("ObjC","They're suspicious! Get back to work.");
@@ -91,9 +96,6 @@ public class PlayerStatus : MonoBehaviour
         //Debug.Log(this.gameObject.transform.position);
         this.gameObject.transform.position = PlayerSpawn;
         //Debug.Log(this.gameObject.transform.position);
-
-        /*StartCoroutine("AlarmTrigger");
-        alarmAnimator.SetBool("IsFlashing", false);*/
 
         // Player loses collected recipe
         SetHasRecipe(false);
@@ -138,7 +140,21 @@ public class PlayerStatus : MonoBehaviour
         //Since player lost a life, the recipe is restarted
         RecipeManager.ChooseRecipe(true);
         Invoke("DelaySetMove", 0.2f);
+        foreach (Animator aa in alarmAnimators)
+        {
+            aa.SetBool("IsFlashing", false);
+        }
     }
+
+    public void LoseLifeTimer()
+    {
+        foreach(Animator aa in alarmAnimators)
+        {
+            aa.SetBool("IsFlashing", true);
+        }
+        Invoke("LoseLifeDefault", 2f);
+    }
+
     private void DelaySetMove()
     {
         playerMove.SetCanMove(true);
@@ -147,14 +163,6 @@ public class PlayerStatus : MonoBehaviour
     {
         return !isDead;
     }
-
-    /*IEnumerator AlarmTrigger()
-    {
-        Debug.Log("Chaluuuuuuuuuuuuuuuuuuuuj");
-        alarmAnimator.SetBool("IsFlashing", true);
-        yield return new WaitForSeconds(3f);
-        Debug.Log("juuuuuuuuuuuuuuuuuuuuulahc");
-    }*/
 
     // Getter and Setter for signature recipe possession
     public bool GetHasRecipe() { return HasRecipe; }

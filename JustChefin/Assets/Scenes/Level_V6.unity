@@ -9601,6 +9601,14 @@ MonoBehaviour:
   - {fileID: 2016636481}
   - {fileID: 851064053}
   Sizzler: {fileID: 1034704622}
+  AlarmLights:
+  - {fileID: 1060626872}
+  - {fileID: 132318861}
+  - {fileID: 2138754772}
+  - {fileID: 650086218}
+  - {fileID: 1156174170}
+  - {fileID: 810932466}
+  - {fileID: 1805858443}
 --- !u!114 &819964802
 MonoBehaviour:
   m_ObjectHideFlags: 0
