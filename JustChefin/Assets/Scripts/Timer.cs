@@ -147,7 +147,7 @@ public class Timer : MonoBehaviour
                 AudioManager.instance.Overcooking.start();
 
                 //Player loses a life
-                GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>().LoseLife();
+                GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>().LoseLifeTimer();
                 //Kitchen Door trigger is false, so as to prevent player from passing through it
                 GameObject.FindGameObjectWithTag("KitchenDoor").GetComponent<Collider>().isTrigger = false;
             }

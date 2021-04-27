@@ -28,7 +28,7 @@ public class ChaseState : State
         base.UpdateState();
         if (SceneManager.GetActiveScene().name == "Test")
         {
-            enemy.psScript.LoseLife();
+            enemy.psScript.LoseLifeDefault();
            
         }
         else
@@ -46,7 +46,7 @@ public class ChaseState : State
 
             if (!enemy.nmAgent.pathPending && enemy.nmAgent.remainingDistance <= 2f)// BUG HERE
             {
-                enemy.psScript.LoseLife();
+                enemy.psScript.LoseLifeDefault();
             }
         }
     }

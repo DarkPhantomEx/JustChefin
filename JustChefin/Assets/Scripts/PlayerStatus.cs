@@ -38,6 +38,11 @@ public class PlayerStatus : MonoBehaviour
     public GameObject Sizzler;
     //Get Where sizzler is
 
+    // Alarm and Smokes
+    public GameObject[] AlarmLights;
+    List<Animator> alarmAnimators = new List<Animator>();
+    ParticleSystem.EmissionModule smokeParticleEmission;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +53,16 @@ public class PlayerStatus : MonoBehaviour
         if(SceneManager.GetActiveScene().name!="Test")
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
+        smokeParticleEmission = GameObject.Find("SmokeObject").GetComponent<ParticleSystem>().emission;
+        smokeParticleEmission.enabled = false;
 
+        if (AlarmLights.Length >= 1)
+        {
+            for(int i = 0; i < AlarmLights.Length; i++)
+            {
+                alarmAnimators.Add(AlarmLights[i].GetComponent<Animator>());
+            }
+        }
 
         //Disabling Strikes UI
         Strike.enabled = false;
@@ -77,15 +91,15 @@ public class PlayerStatus : MonoBehaviour
     }
 
     //Reduces a life, and teleports player to spawn
-    public void LoseLife()
+    public void LoseLifeDefault()
     {
         
         hudEditor.setHUD("ObjC","They're suspicious! Get back to work.");
         strikes--;  //Life lost
         playerMove.SetCanMove(false); //Player movement is halted for a bit
-        Debug.Log(this.gameObject.transform.position);
+        //Debug.Log(this.gameObject.transform.position);
         this.gameObject.transform.position = PlayerSpawn;
-        Debug.Log(this.gameObject.transform.position);
+        //Debug.Log(this.gameObject.transform.position);
 
         // Player loses collected recipe
         SetHasRecipe(false);
@@ -130,7 +144,23 @@ public class PlayerStatus : MonoBehaviour
         //Since player lost a life, the recipe is restarted
         RecipeManager.ChooseRecipe(true);
         Invoke("DelaySetMove", 0.2f);
+        foreach (Animator aa in alarmAnimators)
+        {
+            aa.SetBool("IsFlashing", false);
+        }
+        smokeParticleEmission.enabled = false;
     }
+
+    public void LoseLifeTimer()
+    {
+        foreach(Animator aa in alarmAnimators)
+        {
+            aa.SetBool("IsFlashing", true);
+        }
+        smokeParticleEmission.enabled = true;
+        Invoke("LoseLifeDefault", 5f);
+    }
+
     private void DelaySetMove()
     {
         playerMove.SetCanMove(true);
