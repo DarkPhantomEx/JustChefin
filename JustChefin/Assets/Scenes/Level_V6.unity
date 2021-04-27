@@ -28843,6 +28843,7 @@ MonoBehaviour:
   LootingEventPath: event:/Looting
   WalkingEventPath: event:/SE/Walking
   CrouchingEventPath: event:/SE/Crouching
+  OvercookingEventPath: event:/SE/Overcooking
   PausePath: snapshot:/Pause
 --- !u!1 &1828297015
 GameObject:
