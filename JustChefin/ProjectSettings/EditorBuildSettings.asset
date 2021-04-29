@@ -26,7 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_V6.unity
     guid: e60f44995acb6b34ea82541f44d3b76f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DinerV1.unity
     guid: 190c4550a4c865e4898f3c96a2a700a0
+  - enabled: 1
+    path: Assets/Scenes/Level_V7.unity
+    guid: 505afdd75aaf33b4790cc03dc08059ae
   m_configObjects: {}

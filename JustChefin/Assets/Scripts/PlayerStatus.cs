@@ -64,10 +64,10 @@ public class PlayerStatus : MonoBehaviour
             }
         }
 
-        //Disabling Strikes UI
-        Strike.enabled = false;
-        Strike2.enabled = false;
-        Strike3.enabled = false;
+        //Enabling Strikes UI
+        Strike.enabled = true;
+        Strike2.enabled = true;
+        Strike3.enabled = true;
 
         isDead = false;
         strikes = 3;
@@ -113,17 +113,17 @@ public class PlayerStatus : MonoBehaviour
         switch (strikes)
         {
             //3 Strikes - Color: default -> red
-            case 0: Strike.enabled = true;
-                Strike.color = new Color32(229, 18, 18, 225);
-                Strike2.color = new Color32(229, 18, 18, 225);
-                Strike3.color = new Color32(229, 18, 18, 225);
+            case 0: Strike.enabled = false;
+                //Strike.color = new Color32(229, 18, 18, 225);
+                //Strike2.color = new Color32(229, 18, 18, 225);
+                //Strike3.color = new Color32(229, 18, 18, 225);
                 break;
             
             case 1:
-                Strike2.enabled = true;
+                Strike2.enabled = false;
                 break;
 
-            case 2: Strike3.enabled = true;                      
+            case 2: Strike3.enabled = false;                      
                 break;
         }
 
