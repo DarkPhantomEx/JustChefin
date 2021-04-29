@@ -20,10 +20,15 @@ public class Timer : MonoBehaviour
 
     //UI attributes
     //Slider for the TimerBar
+    //[SerializeField]
+    //Slider timerSlider;
     [SerializeField]
-    Slider timerSlider;
+    float timerMin;
     [SerializeField]
-    Gradient timerBarGrad;
+    float timerMax;
+
+    //[SerializeField]
+    //Gradient timerBarGrad;
     [SerializeField]
     Image FillColor;
     [SerializeField]
@@ -41,21 +46,31 @@ public class Timer : MonoBehaviour
     //Defines the max value for the slider when starting it up
     public void defSlider(int max)
     {
-        //Slider goes from 0 to max value
-        timerSlider.minValue = 0;
-        timerSlider.maxValue = max;
-        //Slider's value is set to max, to avoid an initial lerp from 0-max
-        timerSlider.value = max;
-        
+        ////Slider goes from 0 to max value
+        //timerSlider.minValue = 0;
+        //timerSlider.maxValue = max;
+        ////Slider's value is set to max, to avoid an initial lerp from 0-max
+        //timerSlider.value = max;
+
+        timerMin = 0;
+        timerMax = max;
+
+        FillColor.fillAmount = max;
+
+
     }
 
     //Updates current value of slider
     public void setSlider(int val)
     {
-        //sets the color of the timer bar based on the time left
-        FillColor.color = timerBarGrad.Evaluate(timerSlider.normalizedValue);
-        //lerps the value of the timer from the previous second to next
-        timerSlider.value = Mathf.Lerp(timerSlider.value, val, Time.deltaTime * lerpSpeed);
+        ////sets the color of the timer bar based on the time left
+        //FillColor.color = timerBarGrad.Evaluate(timerSlider.normalizedValue);
+        ////lerps the value of the timer from the previous second to next
+        //timerSlider.value = Mathf.Lerp(timerSlider.value, val, Time.deltaTime * lerpSpeed);
+        
+            FillColor.fillAmount = Mathf.Lerp(FillColor.fillAmount, val/timerMax, Time.deltaTime * lerpSpeed);
+        if (val == 0)
+            FillColor.fillAmount = 0;
     }
 
 
@@ -63,7 +78,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
-        timerSlider = GameObject.FindGameObjectWithTag("TimerBar").GetComponent<Slider>();
+        //timerSlider = GameObject.FindGameObjectWithTag("TimerBar").GetComponent<Slider>();
         //timerDisp = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
         isCountingDown = false;
         isTicking = false;
