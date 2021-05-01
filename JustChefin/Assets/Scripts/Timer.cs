@@ -35,6 +35,8 @@ public class Timer : MonoBehaviour
     float lerpSpeed;
 
     EditHUD hudEditor;
+    [SerializeField]
+    Transform Knob; //Knob to be rotated alongside red circle
 
     //[SerializeField]    
     //AudioSource timeTick;
@@ -51,6 +53,7 @@ public class Timer : MonoBehaviour
         //timerSlider.maxValue = max;
         ////Slider's value is set to max, to avoid an initial lerp from 0-max
         //timerSlider.value = max;
+        Knob.localRotation = Quaternion.Euler(0, 0, 0);
 
         timerMin = 0;
         timerMax = max;
@@ -67,17 +70,21 @@ public class Timer : MonoBehaviour
         //FillColor.color = timerBarGrad.Evaluate(timerSlider.normalizedValue);
         ////lerps the value of the timer from the previous second to next
         //timerSlider.value = Mathf.Lerp(timerSlider.value, val, Time.deltaTime * lerpSpeed);
-        
+
+        Knob.localRotation = Quaternion.Lerp( Knob.localRotation, Quaternion.Euler(0, 0,- val / timerMax * 360), Time.deltaTime * lerpSpeed); // Rotate the knob by the offset
             FillColor.fillAmount = Mathf.Lerp(FillColor.fillAmount, val/timerMax, Time.deltaTime * lerpSpeed);
         if (val == 0)
+        {
             FillColor.fillAmount = 0;
+            Knob.localRotation = Quaternion.Euler(0, 0, 360);
+        }
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
+        hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();        
         //timerSlider = GameObject.FindGameObjectWithTag("TimerBar").GetComponent<Slider>();
         //timerDisp = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
         isCountingDown = false;
