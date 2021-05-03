@@ -87,6 +87,23 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
+        //Unique Movement Path for Waiter
+        if (this.transform.name == "Waiter")
+        {
+            if (psScript.GetHasRecipe())
+            {
+                if (waitPoints.Length != 2)
+                {
+                    System.Array.Resize(ref waitPoints, 2);
+                    //waitPointIterator = 0;
+                    this.ChangeState(new PatrolState(this));
+                }
+            }
+            else
+            {
+                waitPoints = temp;
+            }
+        }
 
         currentState.UpdateState();
         //Debug.DrawRay(this.transform.position, this.transform.forward * 6f, Color.yellow);    

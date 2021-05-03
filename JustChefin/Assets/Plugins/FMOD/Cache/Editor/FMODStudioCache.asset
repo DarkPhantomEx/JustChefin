@@ -52,7 +52,19 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -60,6 +72,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 549
+--- !u!114 &-9127418845049154466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-9070298055597676397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +210,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-8103924393632651855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-8045292237335909917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +263,42 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7940714043645669538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7915309043280903969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7791784602216087640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +329,23 @@ MonoBehaviour:
   m_Name: parameter:/Ticking/Time
   m_EditorClassIdentifier: 
   Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-7532562048208026718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
   Min: 0
   Max: 1
   Default: 0
@@ -285,7 +385,76 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-7135466304500423256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7020463542632521049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-6996266758692447299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-6906468295606884177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-6660085001728942214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,6 +615,40 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-5432093576298931403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-5221888876170338308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-5193493268703233595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,6 +739,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-4666293244412745988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &-4582743085472628010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +791,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-4283146355498092226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &-4265445433258016669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +823,23 @@ MonoBehaviour:
   Name: Ducking
   Min: 0
   Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-4245325234081099854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
   Default: 0
   Exists: 0
 --- !u!114 &-4205296483993815073
@@ -646,6 +900,23 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &-3921125989313894199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-3881130307033545018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../FMOD/JustChefin/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637552401809228497
+  lastModified: 637551232139887638
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -713,6 +984,40 @@ MonoBehaviour:
   m_Name: parameter:/Sizzling/Distance
   m_EditorClassIdentifier: 
   Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-3289110733875260895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-3203345203008010492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
   Min: 0
   Max: 1
   Default: 0
@@ -750,7 +1055,19 @@ MonoBehaviour:
   Path: event:/SE/Overcooking
   guid: 5786a2462a8c2a49a123d843cfb8797a
   Banks:
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -936,6 +1253,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-1832718768315036942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-1725459331116296869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,7 +1304,58 @@ MonoBehaviour:
   Max: 2
   Default: 0
   Exists: 0
+--- !u!114 &-1640635340459695920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-1592451455333196447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-1412586218960989156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-1345182147321760454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1002,6 +1387,57 @@ MonoBehaviour:
   Name: Ducking
   Min: 0
   Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &-1258131582051510861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-967360599589268050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-891834368910049950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
   Default: 0
   Exists: 0
 --- !u!114 &-882825298234777274
@@ -1090,6 +1526,41 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-221251654115156642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-182653659167779264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-81954587083625145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -3654897223951925427}
-  - {fileID: 4307287224168682503}
+  - {fileID: 6501753204359562788}
   EditorEvents:
   - {fileID: 6167274080850378419}
   - {fileID: 6199912067317792803}
@@ -1168,10 +1639,10 @@ MonoBehaviour:
   - {fileID: -3125590429540297561}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4307287224168682503}
+  - {fileID: 6501753204359562788}
   StringsBanks:
   - {fileID: -3654897223951925427}
-  stringsBankWriteTime: 637552401809228497
+  stringsBankWriteTime: 637551232139887638
   cacheVersion: 3
 --- !u!114 &20543145419856648
 MonoBehaviour:
@@ -1293,6 +1764,111 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &452868424813775689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &530831118318567103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &778064637483656113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &844824568760214305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &918947740473867609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1110262980911610235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &1172465906204995319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,6 +1886,40 @@ MonoBehaviour:
   lastModified: 637540930885510588
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &1548496283446734970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &1744517464934962714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
   Exists: 0
 --- !u!114 &1760897685733600254
 MonoBehaviour:
@@ -1345,6 +1955,40 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &1847130077594112952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &2169660615009912261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &2394073894197454733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,6 +2008,40 @@ MonoBehaviour:
   FileSizes: []
   Exists: 0
 --- !u!114 &2416869131190960442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &2437067319291213269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &2569731574720765627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1410,6 +2088,23 @@ MonoBehaviour:
   m_Name: parameter:/Ticking/Time
   m_EditorClassIdentifier: 
   Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &2697189405374978347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
   Min: 0
   Max: 1
   Default: 0
@@ -1604,12 +2299,24 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -1916552303650693371}
+  - {fileID: 8326637614691479262}
   MinDistance: 0
   MaxDistance: 0
   Length: 4092
@@ -1648,6 +2355,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &4448963211734448918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4479732769433649000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,6 +2406,23 @@ MonoBehaviour:
   Name: Time
   Min: 0
   Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &4785656822852061946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
   Default: 0
   Exists: 0
 --- !u!114 &5033584292680008738
@@ -1753,7 +2495,19 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1761,6 +2515,41 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1199
+--- !u!114 &5441636485595977476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5468281742220349286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &5606843820178500063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1776,6 +2565,40 @@ MonoBehaviour:
   Name: Time
   Min: 0
   Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5642620075319435969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &5936194574263974119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
   Default: 0
   Exists: 0
 --- !u!114 &6080793995877699866
@@ -1813,7 +2636,19 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1857,7 +2692,19 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1899,6 +2746,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &6422800146364673131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 0
 --- !u!114 &6450012948964919205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1916,6 +2780,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &6501753204359562788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &6645947319180711664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,6 +2864,23 @@ MonoBehaviour:
   m_Name: parameter:/Sizzling/Distance
   m_EditorClassIdentifier: 
   Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &6963306907378431215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
   Min: 0
   Max: 1
   Default: 0
@@ -2091,7 +2990,19 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -2204,6 +3115,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &8153108535641340092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8162463991961730525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2255,6 +3184,58 @@ MonoBehaviour:
   Name: Ducking
   Min: 0
   Max: 2
+  Default: 0
+  Exists: 0
+--- !u!114 &8326637614691479262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &8334201388102032337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637551232139877676
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &8498067705847395591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
   Default: 0
   Exists: 0
 --- !u!114 &8606117470389451559
@@ -2380,13 +3361,25 @@ MonoBehaviour:
   - {fileID: 8072620199594847809}
   - {fileID: -7246881875730658666}
   - {fileID: -3172097742991309473}
-  - {fileID: 4307287224168682503}
+  - {fileID: 5441636485595977476}
+  - {fileID: -9127418845049154466}
+  - {fileID: -7135466304500423256}
+  - {fileID: 530831118318567103}
+  - {fileID: -221251654115156642}
+  - {fileID: 8334201388102032337}
+  - {fileID: 918947740473867609}
+  - {fileID: -7940714043645669538}
+  - {fileID: 4448963211734448918}
+  - {fileID: 8153108535641340092}
+  - {fileID: 452868424813775689}
+  - {fileID: -7915309043280903969}
+  - {fileID: 6501753204359562788}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -802972325009097260}
-  - {fileID: 363160145414190923}
+  - {fileID: -3921125989313894199}
+  - {fileID: 2169660615009912261}
   MinDistance: 0
   MaxDistance: 0
   Length: 32112
