@@ -50,7 +50,7 @@ public class PlayerStatus : MonoBehaviour
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
-        if(SceneManager.GetActiveScene().name!="Test")
+        //if(SceneManager.GetActiveScene().name!="Test")
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
         smokeParticleEmission = GameObject.Find("SmokeObject").GetComponent<ParticleSystem>().emission;
@@ -103,11 +103,11 @@ public class PlayerStatus : MonoBehaviour
 
         // Player loses collected recipe
         SetHasRecipe(false);
-        if (SceneManager.GetActiveScene().name != "Test")
-        {
+        //if (SceneManager.GetActiveScene().name != "Test")
+        //{
             crScript.EnableSignatureRecipeMesh();
             crScript.startSignatureRecipeParticle();
-        }        
+        //}        
 
         //UI update, based on lives lost
         switch (strikes)
@@ -158,7 +158,7 @@ public class PlayerStatus : MonoBehaviour
             aa.SetBool("IsFlashing", true);
         }
         smokeParticleEmission.enabled = true;
-        Invoke("LoseLifeDefault", 5f);
+        Invoke("LoseLifeDefault", 3f);
     }
 
     private void DelaySetMove()

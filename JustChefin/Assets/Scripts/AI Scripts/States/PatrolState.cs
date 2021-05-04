@@ -21,15 +21,20 @@ public class PatrolState : State
     public override void OnEnter()
     {
         base.OnEnter();
-        
+
         /*player = enemy.player;
         enemyT = enemy.transform;
         playerT = enemy.player.transform;*/
 
-        if(enemy.tag == "Agro")
+        if (enemy.tag == "Agro")
             enemy.GetComponent<Renderer>().material.color = Color.yellow;
-        else if(enemy.tag == "Passive")
-            enemy.GetComponent<Renderer>().material.color = Color.green;
+        else if (enemy.tag == "Passive")
+        {
+            if (!enemy.psScript.GetHasRecipe())
+                enemy.GetComponent<Renderer>().material.color = Color.green;
+            else
+                enemy.GetComponent<Renderer>().material.color = Color.yellow;
+        }
 
         if (enemy.GetWaitPointIterator() < enemy.waitPoints.Length)   
                 

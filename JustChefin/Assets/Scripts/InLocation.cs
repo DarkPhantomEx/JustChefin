@@ -18,7 +18,7 @@ public class InLocation : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "Test")
             {
                 GameObject.FindWithTag("GameManager").GetComponent<RecipeSystem>().canCook = true;
-                GameObject.FindWithTag("MainPlayer").GetComponent<PlayerStatus>().SetHasRecipe(true);
+                //GameObject.FindWithTag("MainPlayer").GetComponent<PlayerStatus>().SetHasRecipe(true);
             }
             else
             {

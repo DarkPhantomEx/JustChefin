@@ -213,6 +213,27 @@ public class RecipeSystem : MonoBehaviour
                 //Recipes End
                 break;
 
+            case 3:
+                //Recipe Tutorial
+                recName.Add("Tutorial\n");
+                Instr.Add("Step1\n");
+                ingInstr.Add("Stay at the cooktop before time runs out to start next step\n");
+                timer.Add(3);
+                locID.Add(0);
+                Instr.Add("Step2\n");
+                ingInstr.Add("If you don't come back on time, the dish get burnt\nYou will lose your reputation(One Life) and must start over a new dish\n");
+                timer.Add(3);
+                locID.Add(0);
+                Instr.Add("Step3\n");
+                ingInstr.Add("Now go out and seek the signature recipe!\n");
+                timer.Add(9999);
+                locID.Add(0);
+                //num of Steps = 3
+                numInstr.Add(3);
+                numRec = 1;
+                //Recipes End
+                break;
+
             default: Debug.LogError("Something went wrong. This is not scene you're looking for, bub.");
                 break;             
         }

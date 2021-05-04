@@ -30,10 +30,10 @@ public static class FileIO
 
         //For Debug purposes
         Debug.Log("=====TIME TO SAVE=====");
-        Debug.Log(data.Instr[0]);
-        Debug.Log(data.Instr[1]);
-        Debug.Log(data.Instr[2]);
-        Debug.Log(data.Instr[3]);
+        //Debug.Log(data.Instr[0]);
+        //Debug.Log(data.Instr[1]);
+        //Debug.Log(data.Instr[2]);
+        //Debug.Log(data.Instr[3]);
 
 
         bF.Serialize(file, data);
