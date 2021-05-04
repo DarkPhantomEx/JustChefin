@@ -28,6 +28,7 @@ public class PlayerStatus : MonoBehaviour
     // Boolean to check if player has the recipe collected
     [SerializeField]
     bool HasRecipe;
+    bool deathByTimer; //Used to determine if ChooseRecipe() is to be called in LoseLifeDefault
 
     CollectRecipe crScript;
     RecipeSystem RecipeManager;
@@ -55,6 +56,7 @@ public class PlayerStatus : MonoBehaviour
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
         smokeParticleEmission = GameObject.Find("SmokeObject").GetComponent<ParticleSystem>().emission;
         smokeParticleEmission.enabled = false;
+        deathByTimer = false;
 
         if (AlarmLights.Length >= 1)
         {
@@ -103,6 +105,7 @@ public class PlayerStatus : MonoBehaviour
 
         // Player loses collected recipe
         SetHasRecipe(false);
+
         if (SceneManager.GetActiveScene().name != "Test")
         {
             crScript.EnableSignatureRecipeMesh();
@@ -141,18 +144,24 @@ public class PlayerStatus : MonoBehaviour
             enemy[i].ChangeState(new PatrolState(enemy[i]));          
            
         }
-        //Since player lost a life, the recipe is restarted
-        RecipeManager.ChooseRecipe(true);
+        //Since player lost a life, the recipe is changed
+        if(!deathByTimer) //This method is being called in LoseLifeTimer, as such it shouldn't if already done so
+            RecipeManager.ChooseRecipe(false); //false, since it wasn't via timer
         Invoke("DelaySetMove", 0.2f);
         foreach (Animator aa in alarmAnimators)
         {
             aa.SetBool("IsFlashing", false);
         }
         smokeParticleEmission.enabled = false;
+
+        deathByTimer = false; // deathByTimer default state should be false
     }
 
     public void LoseLifeTimer()
     {
+        deathByTimer = true; //Prevents LoseLifeDefault() from Resetting recipe again
+        RecipeManager.ChooseRecipe(true); // A new recipe is chosen
+
         foreach(Animator aa in alarmAnimators)
         {
             aa.SetBool("IsFlashing", true);

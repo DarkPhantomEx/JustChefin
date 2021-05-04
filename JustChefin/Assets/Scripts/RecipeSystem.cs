@@ -67,6 +67,8 @@ public class RecipeSystem : MonoBehaviour
 
     public bool isEndScreenOpen;
 
+    public bool isKitchenLocked;
+
     //Bool to check if this is the first cooking interaction
     //public bool firstCook;
     int cookNo;
@@ -91,6 +93,7 @@ public class RecipeSystem : MonoBehaviour
         cookNo = 0;
         inKitchen = false;
         isEndScreenOpen = false;
+        isKitchenLocked = false;
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
@@ -101,11 +104,9 @@ public class RecipeSystem : MonoBehaviour
         CookingStation = GameObject.FindGameObjectWithTag("CookingStation");
         //Attaches KitchenDoor collider, and makes it so that the player can't leave the kitchen.
         KitchenDoor = GameObject.FindGameObjectsWithTag("KitchenDoor");
-        
-        foreach(GameObject Door in KitchenDoor)
-        {
-            Door.GetComponent<Collider>().isTrigger = false;
-        }
+
+        //Locks Kitchen Door
+        isKitchenLocked = UnlockKitchenDoors(false);
         
         //Gets access to PlayerStatus from the TopDownPlayer gameobject
         playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
@@ -245,6 +246,7 @@ public class RecipeSystem : MonoBehaviour
             }
         }
         
+        //If the player can cook but isn't, the following message is printed as the objective.
         if(!isCooking && canCook)
         {
             hudEditor.setHUD("Obj","Press 'E' to Cook!");            
@@ -258,11 +260,9 @@ public class RecipeSystem : MonoBehaviour
             hudEditor.setHUD("ObjC", "Good Job! You can now search the Restaurant for the Hidden Recipe");
             //hudEditor.setHUD("Ins", ingInstr[currRec + currInstr]);
 
-            //Player can leave the kitchen
-            foreach (GameObject Door in KitchenDoor)
-            {
-                Door.GetComponent<Collider>().isTrigger = true;
-            }
+            //Unlocks Kitchen Doors
+            isKitchenLocked = UnlockKitchenDoors(true);
+
             //IF the Recipe is complete, Select the next one
             if (currInstr > numInstr[currRec] - 1)
             {
@@ -303,20 +303,28 @@ public class RecipeSystem : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+
         //If the timer is 5s or lower, print message
         if(recipeTimer.GetTimerState() && recipeTimer.GetTime() <=5)
         {
             hudEditor.setHUD("Obj", "Get back to your cooking station!");
         }
 
+        //If the Kitchen is Unlocked AND timer is 0 or somehow below, lock the damn doors!
+        if(!isKitchenLocked && recipeTimer.GetTime() <= 0)
+        {
+            isKitchenLocked = UnlockKitchenDoors(false); //Locks doors, and notifies the bool of the same.
+        }
+
     }
 
     //Loads Next Recipe, if bool is true, print recipe burnt
-    public void ChooseRecipe(bool lifeLost)
+    public void ChooseRecipe(bool foodBurnt)
     {
-        if (lifeLost)
+        if (foodBurnt)
         {
             //Enter code to deal with burnt food
+            hudEditor.setHUD("ObjC", "That was terrible! The food's burnt bad. Try again!");            
         }
 
         currInstr = 0;
@@ -346,7 +354,16 @@ public class RecipeSystem : MonoBehaviour
         //currRecEnd = currRecStart + numInstr[currRecStart] - 1;
     }
     
-    
+    //state => true - unlocks kitchen doors, false - locks them. Opposite of value is returned to bool for tracking purposes.
+    bool UnlockKitchenDoors(bool state)
+    {
+        foreach (GameObject Door in KitchenDoor)
+        {
+            Door.GetComponent<Collider>().isTrigger = state; 
+            
+        }
+        return !state;
+    }
 
     public RecipeData Save()
     {

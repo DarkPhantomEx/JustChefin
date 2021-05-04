@@ -8,28 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 31666ac646fc6974896b2b24c9cea3fa
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Diner.unity
-    guid: aba8140ddfccc634d95d1ceb77751bcd
-  - enabled: 0
-    path: Assets/Scenes/Level_V5JOne.unity
-    guid: e7d81a8cb8ab47946b70c509110dc682
-  - enabled: 1
-    path: Assets/Scenes/Level_V6.unity
-    guid: e60f44995acb6b34ea82541f44d3b76f
-  - enabled: 0
-    path: Assets/Scenes/DinerV1.unity
-    guid: 190c4550a4c865e4898f3c96a2a700a0
   - enabled: 1
     path: Assets/Scenes/Level_V7.unity
     guid: 505afdd75aaf33b4790cc03dc08059ae
+  - enabled: 1
+    path: Assets/Scenes/DinerV1.unity
+    guid: 190c4550a4c865e4898f3c96a2a700a0
   m_configObjects: {}

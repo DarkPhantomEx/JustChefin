@@ -71,6 +71,7 @@ public class Timer : MonoBehaviour
         ////lerps the value of the timer from the previous second to next
         //timerSlider.value = Mathf.Lerp(timerSlider.value, val, Time.deltaTime * lerpSpeed);
 
+        //Rotates knob to the % of 360degrees that the time is currently at. (-ve direction)
         Knob.localRotation = Quaternion.Lerp( Knob.localRotation, Quaternion.Euler(0, 0,- val / timerMax * 360), Time.deltaTime * lerpSpeed); // Rotate the knob by the offset
             FillColor.fillAmount = Mathf.Lerp(FillColor.fillAmount, val/timerMax, Time.deltaTime * lerpSpeed);
         if (val == 0)
