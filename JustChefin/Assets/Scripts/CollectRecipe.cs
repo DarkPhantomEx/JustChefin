@@ -77,7 +77,7 @@ public class CollectRecipe : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
         {
-            Debug.Log(hit.collider.tag);
+            //Debug.Log(hit.collider.tag);
             if (hit.collider.tag == "MainPlayer")
                 return true;
         }

@@ -51,7 +51,7 @@ public class PlayerStatus : MonoBehaviour
         PlayerSpawn = new Vector3(Spawn.position.x, transform.position.y, Spawn.position.z);
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
-        if(SceneManager.GetActiveScene().name!="Test")
+        //if(SceneManager.GetActiveScene().name!="Test")
         crScript = GameObject.Find("SignatureRecipe").GetComponentInChildren<CollectRecipe>();
         RecipeManager = GameObject.Find("GameManager").GetComponent<RecipeSystem>();
         smokeParticleEmission = GameObject.Find("SmokeObject").GetComponent<ParticleSystem>().emission;
@@ -84,7 +84,7 @@ public class PlayerStatus : MonoBehaviour
         SizzlerDistance = Vector3.Distance(this.transform.position, Sizzler.transform.position);
         float MaxHearDistance = 30f;
         AudioManager.instance.Sizzling.setParameterByName("Distance", Mathf.Clamp(SizzlerDistance / MaxHearDistance, 0, 1));
-       
+
     }
 
     public int getStrike()
@@ -95,7 +95,7 @@ public class PlayerStatus : MonoBehaviour
     //Reduces a life, and teleports player to spawn
     public void LoseLifeDefault()
     {
-        
+
         hudEditor.setHUD("ObjC","They're suspicious! Get back to work.");
         strikes--;  //Life lost
         playerMove.SetCanMove(false); //Player movement is halted for a bit
@@ -105,12 +105,11 @@ public class PlayerStatus : MonoBehaviour
 
         // Player loses collected recipe
         SetHasRecipe(false);
-
-        if (SceneManager.GetActiveScene().name != "Test")
-        {
+        //if (SceneManager.GetActiveScene().name != "Test")
+        //{
             crScript.EnableSignatureRecipeMesh();
             crScript.startSignatureRecipeParticle();
-        }        
+        //}
 
         //UI update, based on lives lost
         switch (strikes)
@@ -121,12 +120,12 @@ public class PlayerStatus : MonoBehaviour
                 //Strike2.color = new Color32(229, 18, 18, 225);
                 //Strike3.color = new Color32(229, 18, 18, 225);
                 break;
-            
+
             case 1:
                 Strike2.enabled = false;
                 break;
 
-            case 2: Strike3.enabled = false;                      
+            case 2: Strike3.enabled = false;
                 break;
         }
 
@@ -141,8 +140,8 @@ public class PlayerStatus : MonoBehaviour
             // Reset suspicion bar back to minimum after being caught
             enemy[i].ResetSuspicionValue();
             // Reset every enemy AI's state to patrol after being aught
-            enemy[i].ChangeState(new PatrolState(enemy[i]));          
-           
+            enemy[i].ChangeState(new PatrolState(enemy[i]));
+
         }
         //Since player lost a life, the recipe is changed
         if(!deathByTimer) //This method is being called in LoseLifeTimer, as such it shouldn't if already done so
@@ -167,7 +166,7 @@ public class PlayerStatus : MonoBehaviour
             aa.SetBool("IsFlashing", true);
         }
         smokeParticleEmission.enabled = true;
-        Invoke("LoseLifeDefault", 5f);
+        Invoke("LoseLifeDefault", 3f);
     }
 
     private void DelaySetMove()
