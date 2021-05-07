@@ -14550,6 +14550,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Waiter (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4242503688787523105, guid: b9ff7532ff51ece4cbcea800efabbbe4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Agro
+      objectReference: {fileID: 0}
     - target: {fileID: 4242503688787523107, guid: b9ff7532ff51ece4cbcea800efabbbe4,
         type: 3}
       propertyPath: waitPoints.Array.size
