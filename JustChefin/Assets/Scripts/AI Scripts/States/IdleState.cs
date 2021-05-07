@@ -25,7 +25,15 @@ public class IdleState : State
         playerT = enemy.player.transform;
         speed = enemy.nmAgent.angularSpeed/2; //Rotating Speed
         //enemy.GetComponent<Renderer>().material.color = Color.blue;
-       
+        if (enemy.tag == "Agro")
+            enemy.GetComponent<Renderer>().material.color = Color.yellow;
+        else if (enemy.tag == "Passive")
+        {
+            if (!enemy.psScript.GetHasRecipe())
+                enemy.GetComponent<Renderer>().material.color = Color.green;
+            else
+                enemy.GetComponent<Renderer>().material.color = Color.yellow;
+        }
         //Rotation Calculate
         if (Mathf.Abs(enemyT.transform.rotation.eulerAngles.y - 270) < Mathf.Abs(enemyT.transform.rotation.eulerAngles.y - 90))
             TargetRotation = Quaternion.LookRotation(Vector3.right);

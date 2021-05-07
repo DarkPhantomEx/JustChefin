@@ -183,13 +183,13 @@ public class RecipeSystem : MonoBehaviour
                 ingInstr.Add("Sauteeing Onions - 15s\n");
                 timer.Add(15);
                 locID.Add(0);
-                Instr.Add("Grill patty - 1min\n");
-                ingInstr.Add("Grilling patty - 1min\n");
-                timer.Add(60);
+                Instr.Add("Grill patty - 30s\n");
+                ingInstr.Add("Grilling patty - 30s\n");
+                timer.Add(30);
                 locID.Add(0);
-                Instr.Add("Heat Buns - 20s\n");
-                ingInstr.Add("Heating Buns - 20s\n");
-                timer.Add(20);
+                Instr.Add("Heat Buns - 40s\n");
+                ingInstr.Add("Heating Buns - 40s\n");
+                timer.Add(40);
                 locID.Add(0);
                     //num of Steps = 3
                 numInstr.Add(3);
@@ -199,13 +199,13 @@ public class RecipeSystem : MonoBehaviour
                 ingInstr.Add("Sauteeing Onions - 15s\n");
                 timer.Add(15);
                 locID.Add(0);
-                Instr.Add("Prepare sausages- 1min 10s\n");
-                ingInstr.Add("Preparing sausages- 1min 10s\n");
-                timer.Add(70);
+                Instr.Add("Prepare sausages- 30s\n");
+                ingInstr.Add("Preparing sausages- 30s\n");
+                timer.Add(30);
                 locID.Add(0);
-                Instr.Add("Heat Buns- 20s\n");
-                ingInstr.Add("Heating Buns- 20s\n");
-                timer.Add(20);
+                Instr.Add("Heat Buns- 45s\n");
+                ingInstr.Add("Heating Buns- 45s\n");
+                timer.Add(45);
                 locID.Add(0);
                     //num of Steps = 3
                 numInstr.Add(3);

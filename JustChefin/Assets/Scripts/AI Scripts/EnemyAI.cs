@@ -144,6 +144,8 @@ public class EnemyAI : MonoBehaviour
     // Function to change the state
     public void ChangeState(State state)
     {
+        if(this.name == "Waiter (3)")
+        Debug.Log(currentState);
         // If old state valid, then exit it
         if (currentState != null)
             currentState.OnExit();

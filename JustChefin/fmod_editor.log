@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000013DE96DA248 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000028686B42CE8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,78 +18,10 @@
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Priority: 1, Stack Size: 114688, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] SystemI::createSound                     : setdata soundi = 0000013ECB3CEFC8 : node = 0000013DBF6C7120
-[LOG] SystemI::createSound                     : add node to async list : head = 0000013DE7C7C588.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000013ECB3CEFC8
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000013DBF6C7230
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] Thread::initThread                       :     Init FMOD file thread. Priority: 1, Stack Size: 49152, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000013ECB3CEFC8
-[LOG] SoundI::getSubSound                      : sound 0000013ECB3CEFC8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (0000013ECB3CEFC8)
-[LOG] SoundI::release                          :     Ticking (0000013DE7C7B3F8)
-[LOG] SoundI::release                          :     Ticking (0000013ECB3CD168)
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000013ECB3CB818 : node = 0000013D5A37D510
-[LOG] SystemI::createSound                     : add node to async list : head = 0000013DE7C7C588.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000013ECB3CB818
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000013D5A37D620
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000013ECB3CB818
-[LOG] SoundI::getSubSound                      : sound 0000013ECB3CB818.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (0000013ECB3CB818)
-[LOG] SoundI::release                          :     Ticking (0000013DE7C7B3F8)
-[LOG] SoundI::release                          :     Ticking (0000013ECB3CB4B8)
-[LOG] SoundI::release                          :  (0000013DE97E1B18)
-[LOG] SoundI::release                          :     smoke alarm (0000013DE9059328)
-[LOG] SoundI::release                          :  (0000013DE97C6BD8)
-[LOG] SoundI::release                          :     30989__unclesigmund__hey (0000013DE905A028)
-[LOG] SoundI::release                          :  (0000013DE97E13E8)
-[LOG] SoundI::release                          :     208748__everheat__sizzle-loop (0000013DE9056748)
-[LOG] SoundI::release                          :  (0000013DE97E1F68)
-[LOG] SoundI::release                          :     looting (0000013DE9059668)
-[LOG] SoundI::release                          :  (0000013DE97C75E8)
-[LOG] SoundI::release                          :     footstep1 (0000013DE9059808)
-[LOG] SoundI::release                          :  (0000013DE97C8898)
-[LOG] SoundI::release                          :     footstep2 (0000013DE9059E88)
-[LOG] SoundI::release                          :  (0000013DE97E1DF8)
-[LOG] SoundI::release                          :     footstep3 (0000013DE9058148)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.
