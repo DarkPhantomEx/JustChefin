@@ -84,7 +84,7 @@ public class PlayerStatus : MonoBehaviour
         SizzlerDistance = Vector3.Distance(this.transform.position, Sizzler.transform.position);
         float MaxHearDistance = 30f;
         AudioManager.instance.Sizzling.setParameterByName("Distance", Mathf.Clamp(SizzlerDistance / MaxHearDistance, 0, 1));
-        Debug.Log(Mathf.Clamp(SizzlerDistance / MaxHearDistance, 0, 1));
+        
 
     }
 
