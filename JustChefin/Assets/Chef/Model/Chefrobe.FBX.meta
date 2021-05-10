@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 472fd3e63faa7fd4eb225a7408dc2c14
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bone017
+    100002: Bone018
+    100004: Bone019
+    100006: Bone020
+    100008: Bone021
+    100010: Bone022
+    100012: Bone023
+    100014: Bone024
+    100016: Bone025
+    100018: Bone026
+    100020: Bone027
+    100022: Bone030
+    100024: Bone031
+    100026: Bone032
+    100028: Bone034
+    100030: Bone035
+    100032: Bone039
+    100034: Bone040
+    100036: Bone041
+    100038: Bone042
+    100040: ChefRobe
+    100042: //RootNode
+    100044: Collar
+    100046: Glasses
+    100048: Hat
+    100050: Head
+    100052: LeftAnkle
+    100054: LeftArm
+    100056: LeftCalf
+    100058: LeftEye
+    100060: LeftFoot
+    100062: LeftForarm
+    100064: LeftHarnd
+    100066: LeftLeg
+    100068: Mouth_1
+    100070: Mouth_2
+    100072: Mouth_3
+    100074: Mouth_4
+    100076: Mouth_5
+    100078: Mouth_6
+    100080: Neck
+    100082: Pelvis
+    100084: PonyTail_1
+    100086: PonyTail_2
+    100088: PonyTail_3
+    100090: RightAnkle
+    100092: RightArm
+    100094: RightCalf
+    100096: RightEye
+    100098: RightFoot
+    100100: RightForearm
+    100102: RightHand
+    100104: RightLeg
+    100106: Spine_1
+    100108: Spine_2
+    400000: Bone017
+    400002: Bone018
+    400004: Bone019
+    400006: Bone020
+    400008: Bone021
+    400010: Bone022
+    400012: Bone023
+    400014: Bone024
+    400016: Bone025
+    400018: Bone026
+    400020: Bone027
+    400022: Bone030
+    400024: Bone031
+    400026: Bone032
+    400028: Bone034
+    400030: Bone035
+    400032: Bone039
+    400034: Bone040
+    400036: Bone041
+    400038: Bone042
+    400040: ChefRobe
+    400042: //RootNode
+    400044: Collar
+    400046: Glasses
+    400048: Hat
+    400050: Head
+    400052: LeftAnkle
+    400054: LeftArm
+    400056: LeftCalf
+    400058: LeftEye
+    400060: LeftFoot
+    400062: LeftForarm
+    400064: LeftHarnd
+    400066: LeftLeg
+    400068: Mouth_1
+    400070: Mouth_2
+    400072: Mouth_3
+    400074: Mouth_4
+    400076: Mouth_5
+    400078: Mouth_6
+    400080: Neck
+    400082: Pelvis
+    400084: PonyTail_1
+    400086: PonyTail_2
+    400088: PonyTail_3
+    400090: RightAnkle
+    400092: RightArm
+    400094: RightCalf
+    400096: RightEye
+    400098: RightFoot
+    400100: RightForearm
+    400102: RightHand
+    400104: RightLeg
+    400106: Spine_1
+    400108: Spine_2
+    2100000: 'Material #90'
+    4300000: ChefRobe
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: ChefRobe
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
