@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
+        tdmScript = GameObject.Find("Iris").GetComponent<TopDownMovement>();
         rrScript = GameObject.Find("Roofs").GetComponentInChildren<RoofReveal>();
         // Saves the current camera position in the editor
         cameraOffset = transform.position - player.transform.position;

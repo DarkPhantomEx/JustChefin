@@ -46,9 +46,9 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         
-        psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
-        tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
-        playerHead = GameObject.Find("/TopDownPlayer/Player/Head");
+        psScript = GameObject.Find("Iris").GetComponent<PlayerStatus>();
+        tdmScript = GameObject.Find("Iris").GetComponent<TopDownMovement>();
+        playerHead = GameObject.Find("/Iris/Head");
 
         waitPointIterator = 0;
         playerDistance = Vector3.Distance(this.transform.position, player.transform.position);

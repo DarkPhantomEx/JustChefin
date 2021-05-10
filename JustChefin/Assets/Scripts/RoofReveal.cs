@@ -12,8 +12,8 @@ public class RoofReveal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("TopDownPlayer");
-        tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
+        player = GameObject.Find("Iris");
+        tdmScript = GameObject.Find("Iris").GetComponent<TopDownMovement>();
         rend = gameObject.GetComponent<Renderer>();
         //rend.material.shader = Shader.Find("Transparent/Diffuse");
         Color tempColor = rend.material.color;

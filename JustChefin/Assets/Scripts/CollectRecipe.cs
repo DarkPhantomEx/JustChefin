@@ -18,14 +18,14 @@ public class CollectRecipe : MonoBehaviour
     bool canCollect;
 
     // Used for Raycasting and ParticleSystem emission
-    private GameObject player;
+    private GameObject playerHead;
     private ParticleSystem.EmissionModule recipeParticleEmission;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("TopDownPlayer");
-        psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
+        playerHead = GameObject.Find("/Iris/Head");
+        psScript = GameObject.Find("Iris").GetComponent<PlayerStatus>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
         signatureRecipeRenderer = GameObject.Find("SignatureRecipe").GetComponent<Renderer>();
         recipeParticle = GameObject.Find("SignatureRecipe").GetComponentInChildren<ParticleSystem>();
@@ -37,7 +37,7 @@ public class CollectRecipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RaycastToPlayer() && Vector3.Distance(this.transform.position, player.transform.position) <= 9)
+        if (RaycastToPlayer() && Vector3.Distance(this.transform.position, playerHead.transform.position) <= 9)
             recipeParticleEmission.enabled = true;
         else
             recipeParticleEmission.enabled = false;
@@ -75,10 +75,10 @@ public class CollectRecipe : MonoBehaviour
     private bool RaycastToPlayer()
     {
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
+        if (Physics.Raycast(this.transform.position, playerHead.transform.position - this.transform.position, out hit, Mathf.Infinity))
         {
             //Debug.Log(hit.collider.tag);
-            if (hit.collider.tag == "MainPlayer")
+            if (hit.collider.tag == "MainPlayerHead")
                 return true;
         }
         return false;
