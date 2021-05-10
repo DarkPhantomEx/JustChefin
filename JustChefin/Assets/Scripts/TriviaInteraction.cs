@@ -48,7 +48,6 @@ public class TriviaInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(this.transform.position, playerHead.transform.position - this.transform.position, Color.green);
         if (RaycastToPlayer() && Vector3.Distance(this.transform.position, playerHead.transform.position) <= triggerDistance)
             triviaParticleEmission.enabled = true;
         else

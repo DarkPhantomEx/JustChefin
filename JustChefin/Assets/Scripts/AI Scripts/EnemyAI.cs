@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         //Unique Movement Path for Waiter
-        if (this.transform.name == "Waiter")
+        if (this.transform.name == "Waiter_Chibi")
         {
             if (psScript.GetHasRecipe())
             {
