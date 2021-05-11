@@ -147,7 +147,29 @@ public class RecipeSystem : MonoBehaviour
         //level number should correspond to the scene number
         switch (levelNumber)
         {
+
             case 1:
+                //Recipe Tutorial
+                recName.Add("Tutorial\n");
+                Instr.Add("Step1\n");
+                ingInstr.Add("Return to the stovetop before time runs out to proceed.\n");
+                timer.Add(10);
+                locID.Add(0);
+                Instr.Add("Step2\n");
+                ingInstr.Add("If you don't return on time, the dish burns.\nYou reputation lowers (lose a Life) and must start a new dish\n");
+                timer.Add(12);
+                locID.Add(0);
+                Instr.Add("Step3\n");
+                ingInstr.Add("Now go out and steal the signature recipe!\n");
+                timer.Add(9999);
+                locID.Add(0);
+                //num of Steps = 3
+                numInstr.Add(3);
+                numRec = 1;
+                //Recipes End
+                break;
+
+            case 2:
                 //Recipe 1 - Chicken Burger
                 recName.Add("Big Max Burger\n");
                 Instr.Add("Sautee Onions - 15s\n");
@@ -185,7 +207,7 @@ public class RecipeSystem : MonoBehaviour
                 //Recipes End
                 break;
             
-            case 2:
+            case 3:
                 //Recipe 1 - Burger
                 recName.Add("Burger\n");
                 Instr.Add("Sautee Onions - 15s\n");
@@ -222,27 +244,7 @@ public class RecipeSystem : MonoBehaviour
                 numRec = 2;
                 //Recipes End
                 break;
-
-            case 3:
-                //Recipe Tutorial
-                recName.Add("Tutorial\n");
-                Instr.Add("Step1\n");
-                ingInstr.Add("Return to the stovetop before time runs out to proceed.\n");
-                timer.Add(2);
-                locID.Add(0);
-                Instr.Add("Step2\n");
-                ingInstr.Add("If you don't return on time, the dish burns.\nYou reputation lowers (lose a Life) and must start a new dish\n");
-                timer.Add(2);
-                locID.Add(0);
-                Instr.Add("Step3\n");
-                ingInstr.Add("Now go out and steal the signature recipe!\n");
-                timer.Add(9999);
-                locID.Add(0);
-                //num of Steps = 3
-                numInstr.Add(3);
-                numRec = 1;
-                //Recipes End
-                break;
+                            
 
             default: Debug.LogError("Something went wrong. This is not scene you're looking for, bub.");
                 break;             
@@ -260,7 +262,7 @@ public class RecipeSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sceneManager.GetSceneIndex() == 3 && !isTutorial) //If is tutorial scene, but isTutorial is false.
+        if(sceneManager.GetSceneIndex() == 1 && !isTutorial) //If is tutorial scene, but isTutorial is false.
         {
             isTutorial = true;
             //TutorialScreen = GameObject.FindGameObjectWithTag("Mission");
