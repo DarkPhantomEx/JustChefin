@@ -28,6 +28,8 @@ public class RecipeSystem : MonoBehaviour
     GameObject WinCon;
     [SerializeField]
     GameObject LoseCon;
+    [SerializeField]
+    GameObject TutorialScreen;
 
     EditHUD hudEditor;
     ManageScene sceneManager;
@@ -68,7 +70,12 @@ public class RecipeSystem : MonoBehaviour
     public bool isEndScreenOpen;
 
     public bool isKitchenLocked;
-
+    //To check if the current level is a Tutorial level
+    [SerializeField]
+    public bool isTutorial;
+    //Is true, if the player is allowed to interact with stuff
+    [SerializeField]
+    bool canInteract;
     //Bool to check if this is the first cooking interaction
     //public bool firstCook;
     int cookNo;
@@ -94,6 +101,8 @@ public class RecipeSystem : MonoBehaviour
         inKitchen = false;
         isEndScreenOpen = false;
         isKitchenLocked = false;
+        isTutorial = false;
+        canInteract = true;
 
         //Attaches Timer Script component to object.
         recipeTimer = this.gameObject.GetComponent<Timer>();
@@ -110,7 +119,7 @@ public class RecipeSystem : MonoBehaviour
         
         //Gets access to PlayerStatus from the TopDownPlayer gameobject
         playerStats = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<PlayerStatus>();
-
+        
         hudEditor.setHUD("ObjC", "Get to your station!");
 
         //If Game is launched for the first time
@@ -218,15 +227,15 @@ public class RecipeSystem : MonoBehaviour
                 //Recipe Tutorial
                 recName.Add("Tutorial\n");
                 Instr.Add("Step1\n");
-                ingInstr.Add("Stay at the cooktop before time runs out to start next step\n");
-                timer.Add(3);
+                ingInstr.Add("Return to the stovetop before time runs out to proceed.\n");
+                timer.Add(10);
                 locID.Add(0);
                 Instr.Add("Step2\n");
-                ingInstr.Add("If you don't come back on time, the dish get burnt\nYou will lose your reputation(One Life) and must start over a new dish\n");
-                timer.Add(3);
+                ingInstr.Add("If you don't return on time, the dish burns.\nYou reputation lowers (lose a Life) and must start a new dish\n");
+                timer.Add(15);
                 locID.Add(0);
                 Instr.Add("Step3\n");
-                ingInstr.Add("Now go out and seek the signature recipe!\n");
+                ingInstr.Add("Now go out and steal the signature recipe!\n");
                 timer.Add(9999);
                 locID.Add(0);
                 //num of Steps = 3
@@ -251,6 +260,25 @@ public class RecipeSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(sceneManager.GetSceneIndex() == 3 && !isTutorial) //If is tutorial scene, but isTutorial is false.
+        {
+            isTutorial = true;
+            //TutorialScreen = GameObject.FindGameObjectWithTag("Mission");
+        }
+
+        if (isTutorial)
+        {
+            if (TutorialScreen.activeSelf == true)
+            {
+                canInteract = false;
+            }
+            else
+            {
+                canInteract = true;
+            }                
+        }
+        
+
         //If the timer isn't counting down, that means the player isn't coooking
         if (!recipeTimer.GetTimerState() && cookNo > 0)
         {
@@ -268,14 +296,14 @@ public class RecipeSystem : MonoBehaviour
         }
         
         //If the player can cook but isn't, the following message is printed as the objective.
-        if(!isCooking && canCook)
+        if(!isCooking && canCook && canInteract)
         {
             hudEditor.setHUD("Obj","Press 'E' to Cook!");            
         }
 
         
         //If the Player is at a Cooking Station, and the timer isn't counting down, by pressing E they start the timer
-        if(canCook && !isCooking && Input.GetKeyDown(KeyCode.E))
+        if(canCook && !isCooking && Input.GetKeyDown(KeyCode.E) && canInteract)
         {
             cookNo++;
             hudEditor.setHUD("ObjC", "Good Job! You can now search the Restaurant for the Hidden Recipe");

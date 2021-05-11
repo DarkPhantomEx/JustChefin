@@ -35,7 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DinerV2.unity
     guid: c85aa5cff93f9944b9b28b3029d5f37a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test.unity
     guid: d46a6b7acfb62b042a707e0c8dfb61cb
+  - enabled: 1
+    path: Assets/Scenes/Test V1.unity
+    guid: 9e6619d847abae54db0eee962fa6d7ab
   m_configObjects: {}

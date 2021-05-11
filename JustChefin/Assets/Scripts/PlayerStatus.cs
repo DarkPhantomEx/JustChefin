@@ -159,6 +159,7 @@ public class PlayerStatus : MonoBehaviour
     public void LoseLifeTimer()
     {
         deathByTimer = true; //Prevents LoseLifeDefault() from Resetting recipe again
+        if(!RecipeManager.isTutorial)
         RecipeManager.ChooseRecipe(true); // A new recipe is chosen
 
         foreach(Animator aa in alarmAnimators)
