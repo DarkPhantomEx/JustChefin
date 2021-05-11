@@ -145,7 +145,7 @@ public class PlayerStatus : MonoBehaviour
 
         }
         //Since player lost a life, the recipe is changed
-        if(!deathByTimer) //This method is being called in LoseLifeTimer, as such it shouldn't if already done so
+        if(!deathByTimer && !RecipeManager.isTutorial) //This method is being called in LoseLifeTimer, as such it shouldn't if already done so
             RecipeManager.ChooseRecipe(false); //false, since it wasn't via timer
         Invoke("DelaySetMove", 0.2f);
         foreach (Animator aa in alarmAnimators)
@@ -161,7 +161,7 @@ public class PlayerStatus : MonoBehaviour
     {
         deathByTimer = true; //Prevents LoseLifeDefault() from Resetting recipe again
         if(!RecipeManager.isTutorial)
-        RecipeManager.ChooseRecipe(true); // A new recipe is chosen
+            RecipeManager.ChooseRecipe(true); // A new recipe is chosen
 
         foreach(Animator aa in alarmAnimators)
         {
@@ -171,7 +171,7 @@ public class PlayerStatus : MonoBehaviour
         Invoke("LoseLifeDefault", 3f);
     }
 
-    private void DelaySetMove()
+    public void DelaySetMove()
     {
         playerMove.SetCanMove(true);
     }

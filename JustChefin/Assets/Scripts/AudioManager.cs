@@ -38,6 +38,9 @@ public class AudioManager : MonoBehaviour
     {
         Ticking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Sizzling.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Walking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Crouching.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        Overcooking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
     // Update is called once per frame
     void Update()
