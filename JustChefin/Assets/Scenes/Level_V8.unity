@@ -519,7 +519,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16118
+  m_Name: pb_Mesh76192
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29350,10 +29350,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1708640464}
   - component: {fileID: 1708640465}
+  - component: {fileID: 1708640468}
   - component: {fileID: 1708640467}
   - component: {fileID: 1708640466}
-  - component: {fileID: 1708640468}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BuffetTrivia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29410,7 +29410,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -29538,7 +29538,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.9
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -29591,7 +29591,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1.33
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -29707,7 +29707,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.33
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -30082,14 +30082,14 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 10
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0.8, y: -0.3, z: 0.44}
+    m_Rotation: {x: -90, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -30169,7 +30169,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -30226,8 +30226,8 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
-      mode: 0
+      value: 351.36
+      mode: 1
       spread: 0
       speed:
         serializedVersion: 2
@@ -34124,8 +34124,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.7349575
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.97
+  m_Center: {x: 0.93, y: -1.82, z: 0.44}
 --- !u!1 &1713899718
 GameObject:
   m_ObjectHideFlags: 0
@@ -36215,6 +36215,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SignatureRecipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061116799728181169, guid: 51bb0e4c05656bf48963851c2d6faf2e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5102369125192522381, guid: 51bb0e4c05656bf48963851c2d6faf2e,
         type: 3}
