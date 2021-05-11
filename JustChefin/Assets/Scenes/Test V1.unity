@@ -10504,11 +10504,24 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3855277084647727106, guid: 25ad2f6db69d2db40a587e78da361a59,
+        type: 3}
+      propertyPath: m_text
+      value: "1) Prepare Dishes\n\nTo avoid suspicion, you must prepare the order
+        that is presented to you.\nGo to the cooking station to do so.\n\n\n\n\n\n\n\n\t\t\t\t  
+        2/4"
+      objectReference: {fileID: 0}
     - target: {fileID: 3855277084661911425, guid: 25ad2f6db69d2db40a587e78da361a59,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3855277085292534905, guid: 25ad2f6db69d2db40a587e78da361a59,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1af90a06f1af1d549a81660f33c08d8b,
+        type: 3}
     - target: {fileID: 3855277085407907578, guid: 25ad2f6db69d2db40a587e78da361a59,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10634,6 +10647,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Mission
       objectReference: {fileID: 0}
+    - target: {fileID: 3855277085638855682, guid: 25ad2f6db69d2db40a587e78da361a59,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b22e02ac28537134092837a6619ad34c,
+        type: 3}
+    - target: {fileID: 3855277085721953169, guid: 25ad2f6db69d2db40a587e78da361a59,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 94ae0c2645871f1438607f5c95bec682,
+        type: 3}
     - target: {fileID: 3855277086004632735, guid: 25ad2f6db69d2db40a587e78da361a59,
         type: 3}
       propertyPath: m_IsActive
@@ -12671,7 +12696,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14972
+  m_Name: pb_Mesh76196
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
