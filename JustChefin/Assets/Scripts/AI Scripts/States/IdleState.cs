@@ -83,11 +83,18 @@ public class IdleState : State
         timer += Time.deltaTime;
 
         //Debug.DrawRay(enemyT.position, playerT.position - enemyT.position, Color.blue);
-
+        
+        /*if (Vector3.Distance(enemy.transform.position, new Vector3(-276.9844f, 0, 258.1107f)) <= 0.1f)
         // Switch to patrol state after idling for assigned idleTime
-        if (timer >= enemy.idleTime)
-            enemy.ChangeState(new PatrolState(enemy));
-
+        {
+            if (timer >= enemy.idleTime+1)
+                enemy.ChangeState(new PatrolState(enemy));
+        }
+        else
+        {*/
+            if (timer >= enemy.idleTime)
+                enemy.ChangeState(new PatrolState(enemy));
+        //}
         // If the suspicion bar gets completely filled
         if (enemy.GetSuspicionValue() == 1)
         {            
