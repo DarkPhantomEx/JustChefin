@@ -26,7 +26,7 @@ public class PatrolState : State
         enemyT = enemy.transform;
         playerT = enemy.player.transform;*/
 
-        if (enemy.tag == "Agro")
+        /*if (enemy.tag == "Agro")
             enemy.GetComponent<Renderer>().material.color = Color.yellow;
         else if (enemy.tag == "Passive")
         {
@@ -34,7 +34,7 @@ public class PatrolState : State
                 enemy.GetComponent<Renderer>().material.color = Color.green;
             else
                 enemy.GetComponent<Renderer>().material.color = Color.yellow;
-        }
+        }*/
 
         if (enemy.GetWaitPointIterator() < enemy.waitPoints.Length)   
                 

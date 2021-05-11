@@ -25,7 +25,7 @@ TagManager:
   - Roof,Small
   - Sizzle
   - SeeThrough
-  - Mission
+  - MainPlayerHead
   layers:
   - Default
   - TransparentFX

@@ -46,9 +46,9 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         
-        psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
-        tdmScript = GameObject.Find("TopDownPlayer").GetComponent<TopDownMovement>();
-        playerHead = GameObject.Find("/TopDownPlayer/Player/Head");
+        psScript = GameObject.Find("Iris").GetComponent<PlayerStatus>();
+        tdmScript = GameObject.Find("Iris").GetComponent<TopDownMovement>();
+        playerHead = GameObject.Find("/Iris/Head");
 
         waitPointIterator = 0;
         playerDistance = Vector3.Distance(this.transform.position, player.transform.position);
@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         //Unique Movement Path for Waiter
-        if (this.transform.name == "Waiter")
+        if (this.transform.name == "Waiter_Chibi")
         {
             if (psScript.GetHasRecipe())
             {
@@ -144,6 +144,8 @@ public class EnemyAI : MonoBehaviour
     // Function to change the state
     public void ChangeState(State state)
     {
+        if(this.name == "Waiter (3)")
+        Debug.Log(currentState);
         // If old state valid, then exit it
         if (currentState != null)
             currentState.OnExit();

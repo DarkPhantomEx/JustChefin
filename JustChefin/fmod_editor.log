@@ -2,13 +2,12 @@
 [LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
 [LOG] SystemI::init                            : Initialize version=20010 (110198), maxchannels=256, flags=0x00020000
 [LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=44100, nAvgBytesPerSec=352800, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
 [LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 3760 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
-[WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
+[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000002AAE121D608 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001CE0E59D208 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -19,158 +18,10 @@
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Priority: 1, Stack Size: 114688, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] SystemI::createSound                     : setdata soundi = 000002ABAAF73CC8 : node = 000002AAE107F7F0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002AAB63243C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002ABAAF73CC8
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AAE107F900
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] Thread::initThread                       :     Init FMOD file thread. Priority: 1, Stack Size: 49152, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002ABAAF73CC8
-[LOG] SoundI::getSubSound                      : sound 000002ABAAF73CC8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (000002ABAAF73CC8)
-[LOG] SoundI::release                          :     Ticking (000002AAB63238B8)
-[LOG] SoundI::release                          :     Ticking (000002ABAAF74A48)
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002ABAAF741D8 : node = 000002AAE1080330
-[LOG] SystemI::createSound                     : add node to async list : head = 000002AAB63243C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002ABAAF741D8
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AAE1080440
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002ABAAF741D8
-[LOG] SoundI::getSubSound                      : sound 000002ABAAF741D8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (000002ABAAF741D8)
-[LOG] SoundI::release                          :     Ticking (000002AAB6321EB8)
-[LOG] SoundI::release                          :     Ticking (000002ABAAF69768)
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002AAB653C838 : node = 000002AAE212D380
-[LOG] SystemI::createSound                     : add node to async list : head = 000002AAB63243C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AAB653C838
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AAE212D490
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AAB653C838
-[LOG] SoundI::getSubSound                      : sound 000002AAB653C838.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (000002AAB653C838)
-[LOG] SoundI::release                          :     Ticking (000002AAB6320CD8)
-[LOG] SoundI::release                          :     Ticking (000002AA54CC1758)
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002ABB0BC7268 : node = 000002AAE212D9C0
-[LOG] SystemI::createSound                     : add node to async list : head = 000002AAB63243C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002ABB0BC7268
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AAE212DAD0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002ABB0BC7268
-[LOG] SoundI::getSubSound                      : sound 000002ABB0BC7268.  Subsound index 0 / 1
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002AAB653C688 : node = 000002AAE212E280
-[LOG] SystemI::createSound                     : add node to async list : head = 000002AAB63243C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002AAB653C688
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002AAE212E390
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002AAB653C688
-[LOG] SoundI::getSubSound                      : sound 000002AAB653C688.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (000002ABB0BC7268)
-[LOG] SoundI::release                          :     Ticking (000002AAB63240D8)
-[LOG] SoundI::release                          :     Ticking (000002ABB0E6CE28)
-[LOG] SystemI::createSound                     : filename = ..\FMOD\JustChefin\Build\Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000002ABD180E068 : node = 000002ABD1DAB080
-[LOG] SystemI::createSound                     : add node to async list : head = 000002AAB63243C8.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002ABD180E068
-[LOG] SystemI::createSoundInternal             :     Create name='..\FMOD\JustChefin\Build\Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 135488
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 12416
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002ABD1DAB190
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Ticking', format=2, channels=2, frequency=48000, lengthbytes=55904, lengthpcm=1541375, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.264466.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002ABD180E068
-[LOG] SoundI::getSubSound                      : sound 000002ABD180E068.  Subsound index 0 / 1
-[LOG] SoundI::release                          : Ticking (000002AAB653C688)
-[LOG] SoundI::release                          :     Ticking (000002AAB6321EB8)
-[LOG] SoundI::release                          :     Ticking (000002ABD180EC38)
-[LOG] SoundI::release                          : Ticking (000002ABD180E068)
-[LOG] SoundI::release                          :     Ticking (000002AAB631E918)
-[LOG] SoundI::release                          :     Ticking (000002AA54CC1758)
-[LOG] SoundI::release                          :  (000002ABB00F8EB8)
-[LOG] SoundI::release                          :     smoke alarm (000002AAB631F478)
-[LOG] SoundI::release                          :  (000002ABB00F7EE8)
-[LOG] SoundI::release                          :     30989__unclesigmund__hey (000002AAB631E778)
-[LOG] SoundI::release                          :  (000002ABB00F60B8)
-[LOG] SoundI::release                          :     208748__everheat__sizzle-loop (000002AAB63207F8)
-[LOG] SoundI::release                          :  (000002ABB00F4C98)
-[LOG] SoundI::release                          :     looting (000002AAB6321018)
-[LOG] SoundI::release                          :  (000002ABB00F5DD8)
-[LOG] SoundI::release                          :     footstep1 (000002AAB631E438)
-[LOG] SoundI::release                          :  (000002ABB00F4B28)
-[LOG] SoundI::release                          :     footstep2 (000002AAB6320998)
-[LOG] SoundI::release                          :  (000002ABB00FA5B8)
-[LOG] SoundI::release                          :     footstep3 (000002AAB631F958)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.

@@ -25,13 +25,14 @@ public class TriviaInteraction : MonoBehaviour
     GameObject TriviaCard;
 
     // Used for Raycasting and ParticleSystem emission
-    private GameObject player;
+    private GameObject playerHead;
     ParticleSystem.EmissionModule triviaParticleEmission;
+    public float triggerDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("TopDownPlayer");
+        playerHead = GameObject.Find("/Iris/Head");
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
         triviaParticle = this.GetComponent<ParticleSystem>();
         TriviaCard.SetActive(false);
@@ -47,7 +48,7 @@ public class TriviaInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RaycastToPlayer() && Vector3.Distance(this.transform.position, player.transform.position) <= 5)
+        if (RaycastToPlayer() && Vector3.Distance(this.transform.position, playerHead.transform.position) <= triggerDistance)
             triviaParticleEmission.enabled = true;
         else
             triviaParticleEmission.enabled = false;
@@ -111,10 +112,10 @@ public class TriviaInteraction : MonoBehaviour
     private bool RaycastToPlayer()
     {
         RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, player.transform.position - this.transform.position, out hit, Mathf.Infinity))
+        if (Physics.Raycast(this.transform.position, playerHead.transform.position - this.transform.position, out hit, Mathf.Infinity))
         {
             //Debug.Log(hit.collider.tag);
-            if (hit.collider.tag == "MainPlayer")
+            if (hit.collider.tag == "MainPlayerHead")
                 return true;
         }
         return false;
