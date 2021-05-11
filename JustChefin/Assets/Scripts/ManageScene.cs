@@ -18,6 +18,11 @@ public class ManageScene : MonoBehaviour
 
     EditHUD hudEditor;    
 
+    public int GetSceneIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
+
     public void LoadLevel(int levelIndex)
     {
         Time.timeScale = 1;

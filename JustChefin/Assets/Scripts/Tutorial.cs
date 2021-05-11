@@ -24,7 +24,7 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (instruction.text == "If you don't come back on time, the dish get burnt\nYou will lose your reputation(One Life) and must start over a new dish\n" && firsttime)
+        if (instruction.text == "If you don't return on time, the dish burns.\nYou reputation lowers (lose a Life) and must start a new dish\n" && firsttime)
         {
             Player.transform.position = new Vector3(-272f, 0.75f, 251f);
             firsttime = false;
@@ -33,7 +33,7 @@ public class Tutorial : MonoBehaviour
         {
             Poster3.SetActive(true);
         }
-        if (instruction.text == "Now go out and seek the signature recipe!\n")
+        if (instruction.text == "Now go out and steal the signature recipe!\n")
         {
             playerMove.SetCanMove(true);
         }
