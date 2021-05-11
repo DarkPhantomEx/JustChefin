@@ -16,7 +16,7 @@ public class ManageScene : MonoBehaviour
     [SerializeField]
     GameObject NextLevel;
 
-    EditHUD hudEditor;    
+    EditHUD hudEditor;
 
     public int GetSceneIndex()
     {
@@ -75,6 +75,7 @@ public class ManageScene : MonoBehaviour
         //If the Escape button is pressed, WHEN the player is not in a Trivia card
         if (Input.GetKeyDown(KeyCode.Escape) && !TriviaInteraction.isInTrivia)
         {
+            AudioManager.instance.StopAllLoop();
             if (!isPaused)
             {
                 isPaused = true;

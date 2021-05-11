@@ -331,6 +331,7 @@ public class RecipeSystem : MonoBehaviour
         //CheckLoseCondition - Player is Dead
         if (!playerStats.isAlive())
         {
+            AudioManager.instance.StopAllLoop();
             if (isEndScreenOpen == false)
             {
                 isEndScreenOpen = true;
@@ -344,6 +345,7 @@ public class RecipeSystem : MonoBehaviour
         //CheckWinCondition - Player Has Recipe and is back at the kitchen
         if(playerStats.GetHasRecipe() && canCook)
         {
+            AudioManager.instance.StopAllLoop();
             if (isEndScreenOpen == false)
             {
                 isEndScreenOpen = true; 
