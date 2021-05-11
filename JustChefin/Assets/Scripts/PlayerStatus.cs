@@ -102,6 +102,7 @@ public class PlayerStatus : MonoBehaviour
         playerMove.SetCanMove(false); //Player movement is halted for a bit
         //Debug.Log(this.gameObject.transform.position);
         this.gameObject.transform.position = PlayerSpawn;
+        crScript.SetCanCollect(false);
         //Debug.Log(this.gameObject.transform.position);
 
         // Player loses collected recipe

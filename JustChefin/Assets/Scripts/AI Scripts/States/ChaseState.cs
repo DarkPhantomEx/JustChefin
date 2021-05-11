@@ -18,7 +18,7 @@ public class ChaseState : State
         base.OnEnter();
         enemyT = enemy.transform;
         playerT = enemy.player.transform;
-        //enemy.GetComponent<Renderer>().material.color = Color.red;
+        enemy.GetComponentInChildren<Light>().color = Color.red;
         AudioManager.instance.Caught.start();
         AudioManager.instance.Ticking.setParameterByName("Ducking", 1);
     }

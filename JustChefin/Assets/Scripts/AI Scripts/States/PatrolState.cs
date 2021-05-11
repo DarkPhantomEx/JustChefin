@@ -26,15 +26,15 @@ public class PatrolState : State
         enemyT = enemy.transform;
         playerT = enemy.player.transform;*/
 
-        /*if (enemy.tag == "Agro")
-            enemy.GetComponent<Renderer>().material.color = Color.yellow;
+        if (enemy.tag == "Agro")
+            enemy.GetComponentInChildren<Light>().color = Color.yellow;
         else if (enemy.tag == "Passive")
         {
             if (!enemy.psScript.GetHasRecipe())
-                enemy.GetComponent<Renderer>().material.color = Color.green;
+                enemy.GetComponentInChildren<Light>().color = Color.blue;
             else
-                enemy.GetComponent<Renderer>().material.color = Color.yellow;
-        }*/
+                enemy.GetComponentInChildren<Light>().color = Color.yellow;
+        }
 
         if (enemy.GetWaitPointIterator() < enemy.waitPoints.Length)   
                 
