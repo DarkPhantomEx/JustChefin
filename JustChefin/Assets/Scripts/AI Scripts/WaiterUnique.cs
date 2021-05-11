@@ -12,7 +12,7 @@ public class WaiterUnique : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
+        psScript = GameObject.Find("Iris").GetComponent<PlayerStatus>();
         temp = waiter.waitPoints;
     }
 
