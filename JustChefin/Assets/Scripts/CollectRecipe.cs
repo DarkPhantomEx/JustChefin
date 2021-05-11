@@ -10,7 +10,7 @@ public class CollectRecipe : MonoBehaviour
     // Reference to PlayerStatus script to be used for handling player recipe possession
     PlayerStatus psScript;
     EditHUD hudEditor;
-    Renderer signatureRecipeRenderer;
+    GameObject signatureRecipeRenderer;
     ParticleSystem recipeParticle;
 
     // Boolean to check if player is standing on the recipe collect trigger
@@ -27,7 +27,7 @@ public class CollectRecipe : MonoBehaviour
         playerHead = GameObject.Find("/Iris/Head");
         psScript = GameObject.Find("Iris").GetComponent<PlayerStatus>();
         hudEditor = GameObject.FindGameObjectWithTag("GameManager").GetComponent<EditHUD>();
-        signatureRecipeRenderer = GameObject.Find("SignatureRecipe").GetComponent<Renderer>();
+        signatureRecipeRenderer = GameObject.Find("SignatureRecipe");
         recipeParticle = GameObject.Find("SignatureRecipe").GetComponentInChildren<ParticleSystem>();
 
         // Used to control emission state of the particle system
@@ -89,8 +89,8 @@ public class CollectRecipe : MonoBehaviour
     public void SetCanCollect(bool canCollect) { this.canCollect = canCollect; }
 
     // Quick methods to enable and disable mesh of the signature recipe
-    public void EnableSignatureRecipeMesh() { signatureRecipeRenderer.enabled = true; }
-    public void DisableSignatureRecipeMesh() { signatureRecipeRenderer.enabled = false; }
+    public void EnableSignatureRecipeMesh() { signatureRecipeRenderer.SetActive(true); }
+    public void DisableSignatureRecipeMesh() { signatureRecipeRenderer.SetActive(false); }
 
     // Quick methods to play and stop particle effect
     public void startSignatureRecipeParticle() { recipeParticle.Play(); }
