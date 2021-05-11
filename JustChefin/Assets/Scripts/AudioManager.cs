@@ -42,6 +42,23 @@ public class AudioManager : MonoBehaviour
         Crouching.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         Overcooking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
+
+    public void StopLoop(char Audio)
+    {
+        switch (Audio)
+        {
+            case 'T':   Ticking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);                
+                break;
+            case 'S':   Sizzling.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                break;
+            case 'W':   Walking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                break;
+            case 'C':   Crouching.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                break;
+            case 'O':   Overcooking.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                break;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

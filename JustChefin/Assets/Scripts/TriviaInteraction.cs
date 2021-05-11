@@ -55,7 +55,7 @@ public class TriviaInteraction : MonoBehaviour
 
         if (GetCanCollectTrivia() && Input.GetKeyDown(KeyCode.E)) // And if E is pressed
         {
-            AudioManager.instance.StopAllLoop();
+            AudioManager.instance.StopLoop('W');//Stop Walking SFX
             AudioManager.instance.pause.start();
            //It is no longer the sameIteration as when this variable was set- time to make it false.
             if (sameIteration)
