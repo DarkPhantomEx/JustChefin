@@ -228,11 +228,11 @@ public class RecipeSystem : MonoBehaviour
                 recName.Add("Tutorial\n");
                 Instr.Add("Step1\n");
                 ingInstr.Add("Return to the stovetop before time runs out to proceed.\n");
-                timer.Add(10);
+                timer.Add(2);
                 locID.Add(0);
                 Instr.Add("Step2\n");
                 ingInstr.Add("If you don't return on time, the dish burns.\nYou reputation lowers (lose a Life) and must start a new dish\n");
-                timer.Add(15);
+                timer.Add(2);
                 locID.Add(0);
                 Instr.Add("Step3\n");
                 ingInstr.Add("Now go out and steal the signature recipe!\n");

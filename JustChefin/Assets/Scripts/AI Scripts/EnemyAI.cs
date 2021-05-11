@@ -62,6 +62,9 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.DrawRay(enemyHead.transform.position, playerHead.transform.position,Color.red);
+        //Debug.Log(playerHead.transform.position);
+        
         //Unique Movement Path for Waiter_2Chibi
         if (this.transform.name == "Waiter_2Chibi")
         {            

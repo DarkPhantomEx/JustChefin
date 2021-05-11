@@ -10079,6 +10079,7 @@ MonoBehaviour:
   moveSpeed: 6
   gravity: -9.81
   turnSmoothTime: 0.1
+  chefHat: {fileID: 0}
   canMove: 0
 --- !u!143 &819964799
 CharacterController:
@@ -24927,6 +24928,16 @@ PrefabInstance:
       propertyPath: AlarmLights.Array.data[11]
       value: 
       objectReference: {fileID: 1553485371}
+    - target: {fileID: 3767263546172269313, guid: 525c6e9ddbb140f4899d2fa8178bd77d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767263546172269313, guid: 525c6e9ddbb140f4899d2fa8178bd77d,
+        type: 3}
+      propertyPath: m_TagString
+      value: IrisHat
+      objectReference: {fileID: 0}
     - target: {fileID: 3767263546195817405, guid: 525c6e9ddbb140f4899d2fa8178bd77d,
         type: 3}
       propertyPath: m_Name

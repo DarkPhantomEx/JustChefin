@@ -20,6 +20,9 @@ public class TopDownMovement : MonoBehaviour
     private float StartTime;
     private float duration;
 
+    [SerializeField]
+    GameObject chefHat;
+
     // Boolean to check if player can move
     [SerializeField]
     bool canMove;
@@ -39,6 +42,8 @@ public class TopDownMovement : MonoBehaviour
     {
         //Initializes PlayerTransform to Transform of the PlayerCharacter, also saves teh default position
         PlayerTransform = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<Transform>();
+        chefHat = GameObject.FindGameObjectWithTag("IrisHat");
+
         //defaultPos = PlayerTransform.position;
         isCrouching = false;
 
@@ -68,10 +73,12 @@ public class TopDownMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.C))
             {
                 //Ternary operators - based on isCrouching, changes scale/ht accordingly. Likewise for movementSpeed.
-                PlayerTransform.localScale += crouchScale * (isCrouching ? 1 : -1);
-                PlayerTransform.position += crouchPos * (isCrouching ? 1 : -1);
+                PlayerTransform.localScale += crouchScale * (isCrouching ? 2 : -2);
+                //PlayerTransform.position += crouchPos * (isCrouching ? 1 : -1);
                 moveSpeed += (isCrouching ? 3f : -3f);
+                chefHat.SetActive(isCrouching ? true : false);                
                 isCrouching = !isCrouching;
+
             }
 
             // If the input is significant
