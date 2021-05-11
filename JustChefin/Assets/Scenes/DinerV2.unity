@@ -757,6 +757,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1243361331, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243361331, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1243361332, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
       propertyPath: waitPoints.Array.size
       value: 5
@@ -5690,6 +5698,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1918367294, guid: 1ec518fb36757b1469e1cab605464820, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918367294, guid: 1ec518fb36757b1469e1cab605464820, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1918367295, guid: 1ec518fb36757b1469e1cab605464820, type: 3}
       propertyPath: waitPoints.Array.size
       value: 4
@@ -12314,6 +12330,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4018821690673002288, guid: ccff3f0439e3e6b4984fc89f27cc5d92,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018821690673002288, guid: ccff3f0439e3e6b4984fc89f27cc5d92,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 4908484124493978038, guid: ccff3f0439e3e6b4984fc89f27cc5d92,
         type: 3}
       propertyPath: waitPoints.Array.data[0]
@@ -16235,6 +16261,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1985099604, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985099604, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1985099605, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
       propertyPath: player
       value: 
@@ -16327,10 +16361,22 @@ PrefabInstance:
     - target: {fileID: 8010227959814758792, guid: 7b215cd419a06f6439a34303667a9290,
         type: 3}
       propertyPath: m_Name
-      value: Waiter_2Chibi
+      value: Waiter_2Chibi (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
+--- !u!114 &1330428636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1985099605, guid: 7b215cd419a06f6439a34303667a9290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1330428635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2e118182690784d8bbcf75dc5dafe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331504701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4242503688787523105, guid: b9ff7532ff51ece4cbcea800efabbbe4,
@@ -21305,7 +21351,7 @@ PrefabInstance:
     - target: {fileID: 1476081709, guid: 525c6e9ddbb140f4899d2fa8178bd77d, type: 3}
       propertyPath: enemy.Array.data[0]
       value: 
-      objectReference: {fileID: 839742313}
+      objectReference: {fileID: 1330428636}
     - target: {fileID: 1476081709, guid: 525c6e9ddbb140f4899d2fa8178bd77d, type: 3}
       propertyPath: enemy.Array.data[1]
       value: 
@@ -26083,6 +26129,7 @@ MonoBehaviour:
   - {fileID: 0}
   WinCon: {fileID: 0}
   LoseCon: {fileID: 0}
+  TutorialScreen: {fileID: 0}
   recipeTimer: {fileID: 1663644674288996756}
   numInstr: 
   locID: 
@@ -26100,6 +26147,8 @@ MonoBehaviour:
   inKitchen: 0
   isEndScreenOpen: 0
   isKitchenLocked: 0
+  isTutorial: 0
+  canInteract: 0
 --- !u!4 &1663644674288996758
 Transform:
   m_ObjectHideFlags: 0

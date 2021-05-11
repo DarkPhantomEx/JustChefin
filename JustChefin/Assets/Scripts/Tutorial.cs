@@ -16,7 +16,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         RecipeSystem = GameManager.GetComponent<RecipeSystem>();
-        psScript = GameObject.Find("TopDownPlayer").GetComponent<PlayerStatus>();
+        psScript = GameObject.Find("Iris").GetComponent<PlayerStatus>();
         playerMove = GameObject.FindGameObjectWithTag("MainPlayer").GetComponent<TopDownMovement>();
         playerMove.SetCanMove(false);
     }
@@ -35,7 +35,7 @@ public class Tutorial : MonoBehaviour
         }
         if (instruction.text == "Now go out and steal the signature recipe!\n")
         {
-            playerMove.SetCanMove(true);
+            Invoke("DelaySetMove", 0.2f);
         }
         if (psScript.GetHasRecipe())
         {

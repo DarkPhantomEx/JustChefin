@@ -426,7 +426,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15808
+  m_Name: pb_Mesh181248
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8903,6 +8903,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1845478151, guid: 4ad63465c4301304e99e79eb0f3d453f, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845478151, guid: 4ad63465c4301304e99e79eb0f3d453f, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1845478152, guid: 4ad63465c4301304e99e79eb0f3d453f, type: 3}
       propertyPath: player
       value: 
@@ -8987,6 +8995,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ad63465c4301304e99e79eb0f3d453f, type: 3}
+--- !u!114 &731235294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1845478152, guid: 4ad63465c4301304e99e79eb0f3d453f,
+    type: 3}
+  m_PrefabInstance: {fileID: 731235293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2e118182690784d8bbcf75dc5dafe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &740100547
 GameObject:
   m_ObjectHideFlags: 0
@@ -22717,6 +22737,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1243361331, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243361331, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1243361332, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
       propertyPath: player
       value: 
@@ -22801,6 +22829,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 741c8e57cde75ef4c801376407e715ef, type: 3}
+--- !u!114 &1243361329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243361332, guid: 741c8e57cde75ef4c801376407e715ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1243361328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2e118182690784d8bbcf75dc5dafe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1271667497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24826,15 +24866,15 @@ PrefabInstance:
     - target: {fileID: 1476081709, guid: 525c6e9ddbb140f4899d2fa8178bd77d, type: 3}
       propertyPath: enemy.Array.data[1]
       value: 
-      objectReference: {fileID: 1918367295}
+      objectReference: {fileID: 1243361329}
     - target: {fileID: 1476081709, guid: 525c6e9ddbb140f4899d2fa8178bd77d, type: 3}
       propertyPath: enemy.Array.data[2]
       value: 
-      objectReference: {fileID: 851064053}
+      objectReference: {fileID: 1918367295}
     - target: {fileID: 1476081709, guid: 525c6e9ddbb140f4899d2fa8178bd77d, type: 3}
       propertyPath: enemy.Array.data[3]
       value: 
-      objectReference: {fileID: 2015442810}
+      objectReference: {fileID: 731235294}
     - target: {fileID: 1476081709, guid: 525c6e9ddbb140f4899d2fa8178bd77d, type: 3}
       propertyPath: Sizzler
       value: 
@@ -26249,6 +26289,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1985099604, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985099604, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1985099605, guid: 7b215cd419a06f6439a34303667a9290, type: 3}
       propertyPath: waitPoints.Array.size
       value: 3
@@ -29659,6 +29707,7 @@ MonoBehaviour:
   - {fileID: 0}
   WinCon: {fileID: 0}
   LoseCon: {fileID: 0}
+  TutorialScreen: {fileID: 0}
   recipeTimer: {fileID: 1822225352}
   numInstr: 
   locID: 
@@ -29676,6 +29725,8 @@ MonoBehaviour:
   inKitchen: 0
   isEndScreenOpen: 0
   isKitchenLocked: 0
+  isTutorial: 0
+  canInteract: 0
 --- !u!4 &1822225354
 Transform:
   m_ObjectHideFlags: 0
@@ -30378,6 +30429,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1918367294, guid: 1ec518fb36757b1469e1cab605464820, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918367294, guid: 1ec518fb36757b1469e1cab605464820, type: 3}
+      propertyPath: m_Height
+      value: 0.68
+      objectReference: {fileID: 0}
     - target: {fileID: 1918367295, guid: 1ec518fb36757b1469e1cab605464820, type: 3}
       propertyPath: player
       value: 

@@ -62,8 +62,8 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Unique Movement Path for Waiter (1)
-        if (this.transform.name == "Waiter (1)")
+        //Unique Movement Path for Waiter_2Chibi
+        if (this.transform.name == "Waiter_2Chibi")
         {            
             if (psScript.GetHasRecipe())
             {                
@@ -87,7 +87,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        //Unique Movement Path for Waiter
+        //Unique Movement Path for Waiter_Chibi
         if (this.transform.name == "Waiter_Chibi")
         {
             if (psScript.GetHasRecipe())
@@ -144,7 +144,7 @@ public class EnemyAI : MonoBehaviour
     // Function to change the state
     public void ChangeState(State state)
     {
-        if(this.name == "Waiter (3)")
+        if(this.name == "Waiter_2Chibi (2)")
         Debug.Log(currentState);
         // If old state valid, then exit it
         if (currentState != null)
