@@ -80,7 +80,7 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1305,6 +1305,24 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-4893634636236984126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD/JustChefin/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637562738473018698
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4870941095551124095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,7 +1759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../FMOD/JustChefin/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637559953688704396
+  lastModified: 637551341276509812
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -1894,7 +1912,7 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1971,6 +1989,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-2616579517520790757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Time
+  m_EditorClassIdentifier: 
+  Name: Time
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2561875223945518207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2817,7 +2852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -3654897223951925427}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   EditorEvents:
   - {fileID: 6167274080850378419}
   - {fileID: 6199912067317792803}
@@ -2829,10 +2864,10 @@ MonoBehaviour:
   - {fileID: -3125590429540297561}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   StringsBanks:
   - {fileID: -3654897223951925427}
-  stringsBankWriteTime: 637559953688704396
+  stringsBankWriteTime: 637551341276509812
   cacheVersion: 3
 --- !u!114 &20543145419856648
 MonoBehaviour:
@@ -3285,6 +3320,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &1495026555585072567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Ticking/Ducking
+  m_EditorClassIdentifier: 
+  Name: Ducking
+  Min: 0
+  Max: 2
+  Default: 0
+  Exists: 1
 --- !u!114 &1548496283446734970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,6 +3439,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &1792726326065542651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sizzling/Distance
+  m_EditorClassIdentifier: 
+  Name: Distance
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &1803770262463433705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4016,12 +4085,12 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8663419436107602411}
+  - {fileID: 1792726326065542651}
   MinDistance: 0
   MaxDistance: 0
   Length: 4927
@@ -4332,7 +4401,7 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -4626,7 +4695,7 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4698,7 +4767,7 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -5203,7 +5272,7 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -5916,13 +5985,13 @@ MonoBehaviour:
   - {fileID: -6776776449125176607}
   - {fileID: 7032206340809763358}
   - {fileID: -4763600950062180863}
-  - {fileID: 4677791937274840499}
+  - {fileID: -4893634636236984126}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 7885128257978211549}
-  - {fileID: 8975346567867017935}
+  - {fileID: -2616579517520790757}
+  - {fileID: 1495026555585072567}
   MinDistance: 0
   MaxDistance: 0
   Length: 32112
