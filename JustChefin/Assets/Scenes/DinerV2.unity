@@ -27868,7 +27868,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1663644674037577355, guid: 40e81f8f6c03fa74486a893a3b1a7220,
+          type: 3}
         m_MethodName: LoadLevel
         m_Mode: 3
         m_Arguments:
@@ -27998,7 +27999,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1663644674037577355, guid: 40e81f8f6c03fa74486a893a3b1a7220,
+          type: 3}
         m_MethodName: QuitLevel
         m_Mode: 1
         m_Arguments:
@@ -29720,7 +29722,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1663644674037577355, guid: 40e81f8f6c03fa74486a893a3b1a7220,
+          type: 3}
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
