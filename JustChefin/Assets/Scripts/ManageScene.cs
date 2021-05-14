@@ -57,6 +57,11 @@ public class ManageScene : MonoBehaviour
         EndUI.SetActive(true);
         
     }
+    
+    public void debugPrint()
+    {
+        Debug.Log("this button was pressed");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +78,7 @@ public class ManageScene : MonoBehaviour
     void Update()
     {
         //If the Escape button is pressed, WHEN the player is not in a Trivia card
-        if (Input.GetKeyDown(KeyCode.Escape) && !TriviaInteraction.isInTrivia)
+        if (Input.GetKeyDown(KeyCode.Escape) && !TriviaInteraction.isInTrivia &&RecipeSystem.canInteract)
         {
             AudioManager.instance.StopAllLoop();
             if (!isPaused)

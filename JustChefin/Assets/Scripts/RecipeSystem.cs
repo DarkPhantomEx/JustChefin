@@ -75,7 +75,7 @@ public class RecipeSystem : MonoBehaviour
     public bool isTutorial;
     //Is true, if the player is allowed to interact with stuff
     [SerializeField]
-    bool canInteract;
+    public static bool canInteract;
     //Bool to check if this is the first cooking interaction
     //public bool firstCook;
     int cookNo;
